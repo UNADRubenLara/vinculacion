@@ -1,0 +1,15 @@
+{
+  "name": "vendor_name/vinculacion",
+  "description": "Aplicación WEB para la Vinculación comercial entre industriales de San Juan del Río por medio de un directorio de proveedores y servicios",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ruben Lara",
+      "email": "lararuben@nube.unadmexico.mx"
+    }
+  ],
+  "require": {
+    
+  }
+}
