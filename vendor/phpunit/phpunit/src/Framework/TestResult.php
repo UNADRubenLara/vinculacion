@@ -776,10 +776,13 @@ final class TestResult implements \Countable
             $risky = true;
         }
 
-        if ($this->forceCoversAnnotation) {
+        if ($this->forceCoversAnnotation && !$incomplete && !$skipped) {
             $annotations = $test->getAnnotations();
 
-            if (!isset($annotations['class']['covers']) && !isset($annotations['method']['covers'])) {
+            if (!isset($annotations['class']['covers']) &&
+                !isset($annotations['method']['covers']) &&
+                !isset($annotations['class']['coversNothing']) &&
+                !isset($annotations['method']['coversNothing'])) {
                 $this->addFailure(
                     $test,
                     new MissingCoversAnnotationException(
@@ -787,6 +790,8 @@ final class TestResult implements \Countable
                     ),
                     $time
                 );
+
+                $risky = true;
             }
         }
 

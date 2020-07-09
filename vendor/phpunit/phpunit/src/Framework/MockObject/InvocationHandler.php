@@ -9,7 +9,6 @@
  */
 namespace PHPUnit\Framework\MockObject;
 
-use PHPUnit\Framework\ExpectationFailedException;
 use PHPUnit\Framework\MockObject\Builder\InvocationMocker;
 use PHPUnit\Framework\MockObject\Rule\InvocationOrder;
 
@@ -107,21 +106,40 @@ final class InvocationHandler
     }
 
     /**
-     * @throws Exception
-     * @throws \Throwable
+     * @throws RuntimeException
+     * @throws \Exception
      */
     public function invoke(Invocation $invocation)
     {
         $exception      = null;
+        $hasReturnValue = false;
         $returnValue    = null;
-        $match          = $this->findMatcher($invocation);
 
-        if ($match !== null) {
-            return $match->invoked($invocation);
+        foreach ($this->matchers as $match) {
+            try {
+                if ($match->matches($invocation)) {
+                    $value = $match->invoked($invocation);
+
+                    if (!$hasReturnValue) {
+                        $returnValue    = $value;
+                        $hasReturnValue = true;
+                    }
+                }
+            } catch (\Exception $e) {
+                $exception = $e;
+            }
+        }
+
+        if ($exception !== null) {
+            throw $exception;
+        }
+
+        if ($hasReturnValue) {
+            return $returnValue;
         }
 
         if (!$this->returnValueGeneration) {
-            $exception = new ExpectationFailedException(
+            $exception = new RuntimeException(
                 \sprintf(
                     'Return value inference disabled and no expectation set up for %s::%s()',
                     $invocation->getClassName(),
@@ -153,7 +171,6 @@ final class InvocationHandler
     }
 
     /**
-     * @throws ExpectationFailedException
      * @throws \Throwable
      */
     public function verify(): void
@@ -165,29 +182,6 @@ final class InvocationHandler
         if ($this->deferredError) {
             throw $this->deferredError;
         }
-    }
-
-    private function findMatcher(Invocation $invocation): ?Matcher
-    {
-        $result = [];
-
-        foreach ($this->matchers as $matcher) {
-            if ($matcher->matches($invocation)) {
-                $result[] = $matcher;
-            }
-        }
-
-        if (\count($result) > 1) {
-            throw new ExpectationFailedException(
-                \sprintf(
-                    'Non unique mocked method invocation: %s::%s',
-                    $invocation->getClassName(),
-                    $invocation->getMethodName()
-                )
-            );
-        }
-
-        return \current($result) ?: null;
     }
 
     private function addMatcher(Matcher $matcher): void
