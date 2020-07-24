@@ -2,14 +2,14 @@
 
 
 use PHPUnit\Framework\TestCase;
-//include_once '/xampp/htdocs/vinculacion/models/validatephpunit.php';
-class validatephpunitTest extends TestCase
+include_once 'C:\xampp\htdocs\vinculacion\tests\unit\Validate.php';
+class ValidateTest extends TestCase
 {
 
     public function testSuma()
     {
 
-        $db =new validatephpunit(5);
+        $db =new Validate(5);
         $obtenido=$db->duplicar();
         $expected=10;
         $this->assertEquals($obtenido,$expected);

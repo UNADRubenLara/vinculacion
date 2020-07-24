@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-
+      "ext-mysqli": "*"
     },
     "require-dev": {
         "codeception/codeception": "4.1.5",

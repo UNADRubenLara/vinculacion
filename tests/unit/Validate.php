@@ -1,6 +1,6 @@
 <?php
 
-class validatephpunit
+class Validate
 {
     protected $entero1;
 
@@ -11,10 +11,6 @@ class validatephpunit
 
     public function duplicar()
     {
-        $dobles = $this->entero1 * 2;
-        return $dobles;
+        return $this->entero1 * 2;
     }
 }
-
-
-
