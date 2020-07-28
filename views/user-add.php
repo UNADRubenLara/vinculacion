@@ -39,7 +39,7 @@ if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && !isset($_PO
 
 } else if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'add') {
     $users_controller = new UsersController();
-    $cpdata =
+    //  $cpdata = direcion zip
     $new_user = array(
         'username' => $_POST['username'],
         'fullname' => $_POST['fullname'],

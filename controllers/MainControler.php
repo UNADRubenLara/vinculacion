@@ -1,8 +1,8 @@
 <?php
 
-class maincontroler
+class MainControler
 {
-    public $maincontroler;
+    public $MainControler;
 
     public function __construct()
     { //App-Flow
@@ -16,12 +16,12 @@ class maincontroler
         }
 
         if ($_SESSION['VALID']) {
-            $this->maincontroler = isset($_GET['LEVEL']) ? $_GET['LEVEL'] : 'home';
+            $this->MainControler = isset($_GET['LEVEL']) ? $_GET['LEVEL'] : 'home';
             $controller = new ViewController(); // aplicar doble despacho?
 
-            switch ($this->maincontroler) {
+            switch ($this->MainControler) {
                 case 'home':
-                    $controller->load_view($this->maincontroler);
+                    $controller->load_view($this->MainControler);
                     break;
 
                 case 'users':

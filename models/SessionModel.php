@@ -22,18 +22,14 @@ class SessionModel
         } catch (Exception $ex) {
 
         }
-        if ($data["username"] && password_verify($pass, $data["hidentext"]))
-            foreach ($data as $row) {
-                $_SESSION['iduser'] = $data["idusuario"];
-                $_SESSION['username'] = $data['username'];
-                $_SESSION['role'] = ($data['rol'] === '1') ? 'Admin' : 'Usuario';
-                $_SESSION['fullname'] = ($data['fullname']);
-                return $data;
-            }
-        else {
-            session_abort();
-            return 0;
+        if ($data["username"] && password_verify($pass, $data["hidentext"])) {
+            $_SESSION['iduser'] = $data["idusuario"];
+            $_SESSION['username'] = $data['username'];
+            $_SESSION['role'] = ($data['rol'] === '1') ? 'Admin' : 'Usuario';
+            $_SESSION['fullname'] = ($data['fullname']);
+            return $data;
         }
+        return 0;
 
     }
 

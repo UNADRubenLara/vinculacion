@@ -14,18 +14,7 @@ class CpModel
         } catch (Exception $ex) {
 
         }
-        if ($data) {
-            foreach ($data as $key => $value) {
-                $$key = $value;
-            }
-        }
-        $this->connection = null;
-        if ($data) {
-            return $data;
-
-        } else {
-            return 0;
+        return $data;
         }
 
     }
-}
