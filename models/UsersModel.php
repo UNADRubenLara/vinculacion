@@ -30,7 +30,7 @@ class UsersModel
         if ($data) {
             return $data;
         }
-
+        return 0;
     }
 
     public function add($user_data = array())
@@ -38,7 +38,6 @@ class UsersModel
         foreach ($user_data as $key => $value) {
             $$key = $value;
         }
-        var_dump($user_data);
         exit();
     }
 }

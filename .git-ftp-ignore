@@ -1,0 +1,9 @@
+/.idea/*
+/vendor/*
+/tests/*
+/.github/*
+composer.json
+composer.lock
+phpunit.xml
+.gitignore
+codeception.yml

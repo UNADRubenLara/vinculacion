@@ -11,7 +11,7 @@ class maincontroler
         //session control
         $options_init = array(
             'use_only_cookies' => 1,
-            'auto_start' => 1,
+            //'auto_start' => 1,
             'read_and_close' => true
         );
 
@@ -40,8 +40,6 @@ class maincontroler
                 case 'out':
                     $user_session = new SessionController();
                     $user_session->logout();
-                    appExit();
-
 
                     break;
 
@@ -71,9 +69,5 @@ class maincontroler
         }
     }
 
-    public function appExit()
-    {
-        $this->connection = null;
-    }
 
 }
