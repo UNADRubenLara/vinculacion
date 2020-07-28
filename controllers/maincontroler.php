@@ -7,16 +7,8 @@ class maincontroler
     public function __construct()
     { //App-Flow
 
-
-        //session control
-        $options_init = array(
-            'use_only_cookies' => 1,
-            //'auto_start' => 1,
-            'read_and_close' => true
-        );
-
-        if (!isset($_SESSION)) {
-            session_start($options_init);
+           if (!isset($_SESSION)) {
+            session_start();
         }
 
         if (!isset($_SESSION['VALID'])) {
