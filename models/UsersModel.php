@@ -6,10 +6,7 @@ class UsersModel
     public function __construct($user_data = array())
     {
         $this->connection = new SingleConnection();
-        foreach ($user_data as $key => $value) {
-            $$key = $value;
-        }
-    }
+      }
 
     public function list_users()
     {
@@ -22,12 +19,6 @@ class UsersModel
 
         }
         if ($data) {
-            foreach ($data as $key => $value) {
-                $$key = $value;
-            }
-        }
-
-        if ($data) {
             return $data;
         }
         return 0;
@@ -35,9 +26,6 @@ class UsersModel
 
     public function add($user_data = array())
     {
-        foreach ($user_data as $key => $value) {
-            $$key = $value;
-        }
-        exit();
+
     }
 }

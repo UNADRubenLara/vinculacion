@@ -4,7 +4,7 @@ define('TXTAppName', 'Vinculación');
 define('TXTenter', 'Entrar');
 
 //footer
-define('TXTfooter', 'Footer');
+define('TXTfooter', 'Vinculacion-2020');
 
 //Login
 define('TXTLoginError', 'por favor verifique sus credenciales');
