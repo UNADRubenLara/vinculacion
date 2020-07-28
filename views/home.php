@@ -1,4 +1,4 @@
-<?php 
+<?php
 $template = '
 <article class="item">
 	<h2 >%s</h2>
@@ -8,8 +8,8 @@ $template = '
 ';
 
 printf(
-	$template,
-	$_SESSION['USERNAME'],
-	$_SESSION['FULLNAME'],
-	$_SESSION['ROLE']
+    $template,
+    $_SESSION['username'],
+    $_SESSION['fullname'],
+    $_SESSION['role']
 );

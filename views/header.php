@@ -1,6 +1,6 @@
 <?php
 include_once 'txt-values.php';
-$head='
+$head = '
 <!DOCTYPE html>
 <html lang="es">
  <head>
@@ -19,32 +19,31 @@ printf(
     TXTAppName
 );
 
-if($_SESSION['VALID'])
-{
-	$template='
+if ($_SESSION['VALID']) {
+    $template = '
 		<nav class="menus ">
-		<h3 class="dateHour">%s</h3>
-		<h3 class="salute">Hola %s</h3>
-			<ul class="header-btn color6">
-				<li class="color1"><a href="./">%s</a></li>
-				<li class="color1"><a href="users">%s</a></li>
-				<li class="color1"><a href="status">%s</a></li>
-				<li class="color1"><a href="out">%s</a></li>
-			</ul>
+            <h3 class="dateHour">%s</h3>
+            <br>
+            <h3 class="salute">Hola %s</h3>
+            <ul class="header-btn color6">
+                <li class="color1"><a href="./">%s</a></li>
+                <li class="color1"><a href="users">%s</a></li>
+                <li class="color1"><a href="status">%s</a></li>
+                <li class="color1"><a href="out">%s</a></li>
+            </ul>
 		</nav>
 	';
 
-	$dateHour=date('h:i:s A');
+    $dateHour = date('h:i:s A');
     printf(
         $template,
         $dateHour,
-        $_SESSION['USERNAME'],
+        $_SESSION['username'],
         TXTmenuinit,
         TXTmenuusers,
         TXTmenuproduct,
         TXTmenuout
-       )
-    ;
+    );
 }
 print('
 	</header>

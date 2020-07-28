@@ -1,5 +1,5 @@
 <?php
-require_once('./controllers/paths.php');
-$modelPaths = new paths();
+require_once('./controllers/Paths.php');
+$modelPaths = new Paths();
 $menuLevel = isset($_GET['LEVEL']) ? $_GET['LEVEL'] : 'home';
-$menuLevelUbication = new maincontroler();
+$appFlow = new maincontroler();

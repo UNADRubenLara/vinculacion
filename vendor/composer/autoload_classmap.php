@@ -645,7 +645,7 @@ return array(
     'SebastianBergmann\\GlobalState\\Snapshot' => $vendorDir . '/sebastian/global-state/src/Snapshot.php',
     'SebastianBergmann\\Invoker\\Exception' => $vendorDir . '/phpunit/php-invoker/src/exceptions/Exception.php',
     'SebastianBergmann\\Invoker\\Invoker' => $vendorDir . '/phpunit/php-invoker/src/Invoker.php',
-    'SebastianBergmann\\Invoker\\ProcessControlExtensionNotLoadedException' => $vendorDir . '/phpunit/php-invoker/src/exceptions/ProcessControlExtensionNotLoadedException.php',
+    'SebastianBergmann\\Invoker\\ProcessControlextensionNotLoadedException' => $vendorDir . '/phpunit/php-invoker/src/exceptions/ProcessControlextensionNotLoadedException.php',
     'SebastianBergmann\\Invoker\\TimeoutException' => $vendorDir . '/phpunit/php-invoker/src/exceptions/TimeoutException.php',
     'SebastianBergmann\\ObjectEnumerator\\Enumerator' => $vendorDir . '/sebastian/object-enumerator/src/Enumerator.php',
     'SebastianBergmann\\ObjectEnumerator\\Exception' => $vendorDir . '/sebastian/object-enumerator/src/Exception.php',

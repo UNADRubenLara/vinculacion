@@ -1,22 +1,21 @@
-<?php 
+<?php
 printf('<h2 class="form-Title">%s</h2>', TXTmenuGestiondeusuarios);
 
 $users_controller = new UsersController();
-$users = $users_controller->get();
+$users = $users_controller->lst();
 
-if( empty($users) ) {
-	printf( '
+if (empty($users)) {
+    printf('
 		<div class="central-fr">
 			<p class="error">%s</p>
 		</div>
 	', TXTnousers);
 } else {
-	$template_users = '
-	<div class="central-body">
-		<table class="">
+    $template_users = '
+		<div >
+		<table  class="table-list">
 			<tr>
 			    <th>%s</th>    
-				<th>%s</th>
 				<th>%s</th>
 				<th>%s</th>
 				<th colspan="2">
@@ -27,43 +26,42 @@ if( empty($users) ) {
 				</th>
 			</tr>';
 
-	for ($i=0; $i < count($users); $i++) {
-        $editar=TXTuserbtnedit;
-	    $suspender=TXTuserbtnsuspend;
-	    		$template_users .= '
+    for ($i = 0; $i < count($users); $i++) {
+        $editar = TXTuserbtnedit;
+        $suspender = TXTuserbtnsuspend;
+        $template_users .= '
 			<tr>
-			    <td>' . $users[$i]['iduser'] . '</td>
+			    <td>' . $users[$i]['idusuario'] . '</td>
 				<td>' . $users[$i]['username'] . '</td>
 				<td>' . $users[$i]['fullname'] . '</td>
-				<td>' . $users[$i]['role'] . '</td>
 				<td>
 					<form method="POST">
 						<input type="hidden" name="LEVEL" value="user-edit">
 						<input type="hidden" name="USERNAME" value="' . $users[$i]['username'] . '">
-						<input class="button edit" type="submit" value="'.$editar.'">
+						<input class="button edit" type="submit" value="' . $editar . '">
 					</form>
 				</td>
 				<td>
 					<form method="POST">
 						<input type="hidden" name="LEVEL" value="user-delete">
 						<input type="hidden" name="USERNAME" value="' . $users[$i]['username'] . '">
-						<input class="button delete" type="submit" value="'.$suspender.'">
+						<input class="button delete" type="submit" value="' . $suspender . '">
 					</form>
 				</td>
 			</tr>
-		'; 
-	}
+			
+		';
+    }
 
-	$template_users .= '
+    $template_users .= '
 		</table>
 	</div>
 	';
 
-	printf($template_users,
+    printf($template_users,
         TXTuseridv,
         TXTusername,
         TXTuserfullnamev,
-        TXTuserrolv,
         TXTuserbtnadd
     );
 }

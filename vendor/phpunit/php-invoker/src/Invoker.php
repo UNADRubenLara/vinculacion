@@ -31,7 +31,7 @@ final class Invoker
     public function invoke(callable $callable, array $arguments, int $timeout)
     {
         if (!$this->canInvokeWithTimeout()) {
-            throw new ProcessControlExtensionNotLoadedException(
+            throw new ProcessControlextensionNotLoadedException(
                 'The pcntl (process control) extension for PHP is required'
             );
         }

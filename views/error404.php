@@ -1,9 +1,9 @@
 <?php
 include_once 'txt-values.php';
-$template=
+$template =
     '
 	<div class="center-all">
 	<h2>%s</h2>
 	</div>
 ';
-printf($template,TXTError404);
+printf($template, TXTError404);
