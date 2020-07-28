@@ -25,8 +25,9 @@ class MainControler
                     break;
 
                 case 'users':
-                    if (!isset($_POST['LEVEL'])) $controller->load_view('users');
-                    else $controller->load_view($_POST['LEVEL']);
+                    if (!isset($_POST['LEVEL'])) {
+                        $controller->load_view('users');
+                    }else{ $controller->load_view($_POST['LEVEL']);}
                     break;
 
                 case 'out':

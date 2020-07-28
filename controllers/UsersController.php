@@ -29,9 +29,9 @@ class UsersController
         return $this->model->get($user_id);
     }
 
-    public function del($username = '')
+    public function delete($username = '')
     {
-        return $this->model->del($username);
+        return $this->model->deldelete($username);
     }
 
 }

@@ -1,7 +1,7 @@
 on:
   push:
     branches:
-      - dev
+      - master
 name: Publish Website
 jobs:
   FTP-Deploy-Action:
