@@ -2,21 +2,19 @@
 if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud'])) {
     printf('<h2 class="form-Title">%s</h2>', TXTmenuadduser);
     $template = '
-<div class="user-add" >
+<div class="user-add central-fr-up" >
 <form>
     <hr>
     <strong>Nombre de usuario:</strong><input id="username" type="text" name="NOMBREUSUARIO" placeholder="Nombre de usuario" minlength="5" maxlength="20" required>
-    <strong>Contraseña:</strong> <input type="password" name="PASSWORD"  placeholder="contrasena" minlength="6" maxlength="40" required>
+    <strong>Contraseña:</strong> <input id="password" type="password" name="PASSWORD"  placeholder="contrasena" minlength="6" maxlength="40" required>
     <hr>
-    <strong>Nombre completo o Denominación:</strong> <input type="text" name="NOMBRECOMPLETO" placeholder="Nombre o denominacion" minlength="10" maxlength="80" size="80" required><br>
-    <strong>RFC:</strong> <input type="text" name="RFC" placeholder="RFC" minlength="10" maxlength="16" size="16" required>
-    <strong>Calle y número:</strong> <input type="text" name="CALLENUMERO" minlength="5" maxlength="78" size="78" placeholder="Calle y Numero" required><br>
-    <strong>Codigo Postal:</strong> <input type="number" name="cp" minlength="1" maxlength="8" size="8" placeholder="Codigo Postal" required><br>
-    <strong>Colonia:</strong>
-    <hr>
-    <strong>Telefono:</strong><input type="tel" name="TELEFONO" minlength="10" maxlength="13" required> <br>
-    <strong>Correo:</strong><input type="email" name="CORREO" minlength="5" size="25" required><br>
-    <hr>
+    <strong>Nombre completo:</strong> <input id="fullname" type="text" name="NOMBRECOMPLETO" placeholder="Nombre o denominacion" minlength="5" maxlength="80" size="78"required>
+    <strong>RFC:</strong> <input id="rfc" type="text" name="RFC" placeholder="RFC" minlength="10" maxlength="16" size="16" required> <br><hr>
+    <strong>Calle y número:</strong> <input id="addresslocal" type="text" name="CALLENUMERO" placeholder="Calle y Numero" minlength="5" maxlength="78" size="78"  required><br>
+    <strong>Codigo Postal:</strong> <input id="zip" type="number" name="cp" minlength="4" maxlength="8" min="100" max="99999999" placeholder="Codigo Postal" required><br>
+    <strong>Colonia:</strong><input id="addressref" type="text" name="COLONIA" minlength="5" maxlength="78" size="78" placeholder="COLONIA" required>
+    <strong>Telefono:</strong><input id="phone" type="tel" name="TELEFONO" placeholder="Telefono" minlength="10" maxlength="13" required> <br>
+    <strong>Correo:</strong><input id="mail" type="email" name="CORREO" placeholder="Correo" minlength="5" size="25" required><br>
     <strong>Clasificacion:</strong>
     <select name="CLASIFICACION" required>
     <option value="1">Micro</option>
