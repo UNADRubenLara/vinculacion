@@ -28,7 +28,7 @@ if ($_SESSION['VALID']) {
             <ul class="header-btn color6">
                 <li class="color1"><a href="./">%s</a></li>
                 <li class="color1"><a href="users">%s</a></li>
-                <li class="color1"><a href="status">%s</a></li>
+                <li class="color1"><a href="productos">%s</a></li>
                 <li class="color1"><a href="out">%s</a></li>
             </ul>
 		</nav>

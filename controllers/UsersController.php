@@ -14,12 +14,7 @@ class UsersController
         return $this->model->list_users();
     }
 
-    public function add($user_data = array())
-    {
-        return $this->model->add($user_data);
-    }
-
-    public function set($user_data = array())
+        public function set($user_data = array())
     {
         return $this->model->set($user_data);
     }

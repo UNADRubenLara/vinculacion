@@ -1,11 +1,10 @@
-<?php
+<?Php
 
-
-class SingleConnection extends PDO
+class PublicConecction extends PDO
 {
-      static private $dsn = 'mysql:host=kynosargos.com;dbname=kynosarg_vincula';
-    static private $username = 'kynosarg_test';
-    static private $hiddentext = 'Rr&Rgmvk4WRh';
+      static private $dsn = 'mysql:host=kynosargos.com;dbname=kynosarg_public';
+    static private $username = 'kynosarg_public';
+    static private $hiddentext = 'PublicZIPAccess';
 
     protected $rows = array();
 
@@ -16,8 +15,6 @@ class SingleConnection extends PDO
         } catch (PDOException $e) {
             die("PDO CONNECTION ERROR: " . $e->getMessage());
         }
-
-
     }
-
 }
+

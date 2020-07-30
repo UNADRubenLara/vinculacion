@@ -17,7 +17,7 @@ class MainControler
 
         if ($_SESSION['VALID']) {
             $this->MainControler = isset($_GET['LEVEL']) ? $_GET['LEVEL'] : 'home';
-            $controller = new ViewController(); // aplicar doble despacho?
+            $controller = new ViewController();
 
             switch ($this->MainControler) {
                 case 'home':

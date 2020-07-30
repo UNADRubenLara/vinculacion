@@ -11,8 +11,8 @@ if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && !isset($_PO
     <strong>Nombre completo:</strong> <input id="fullname" type="text" name="NOMBRECOMPLETO" placeholder="Nombre o denominacion" minlength="5" maxlength="80" size="78"required>
     <strong>RFC:</strong> <input id="rfc" type="text" name="RFC" placeholder="RFC" minlength="10" maxlength="16" size="16" required> <br><hr>
     <strong>Calle y número:</strong> <input id="addresslocal" type="text" name="CALLENUMERO" placeholder="Calle y Numero" minlength="5" maxlength="78" size="78"  required><br>
-    <strong>Codigo Postal:</strong> <input id="zip" type="number" name="cp" minlength="4" maxlength="8" min="100" max="99999999" placeholder="Codigo Postal" required><br>
-    <strong>Colonia:</strong><input id="addressref" type="text" name="COLONIA" minlength="5" maxlength="78" size="78" placeholder="COLONIA" required>
+    <input id="zip" type="number" min="100" max="99999" placeholder="C.P." oninput="LoadZip(this.value);" name="zipzone" />
+    <section id="displayZip"><select id="ZipList" name="ZipChose" size="1"></select></section>
     <strong>Telefono:</strong><input id="phone" type="tel" name="TELEFONO" placeholder="Telefono" minlength="10" maxlength="13" required> <br>
     <strong>Correo:</strong><input id="mail" type="email" name="CORREO" placeholder="Correo" minlength="5" size="25" required><br>
     <strong>Clasificacion:</strong>
@@ -27,35 +27,40 @@ if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && !isset($_PO
 				<input type="hidden" name="LEVEL" value="user-add">
 				<input type="hidden" name="crud" value="add">
 			</div>
+
+
     </form>
 </div>
 <br>
 <hr>
 
+
 	';
     printf($template);
 
 } else if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'add') {
-    $users_controller = new UsersController();
-    //  $cpdata = direcion zip
-    $new_user = array(
+    $users_controller = new UserAddControler();
+        $new_user = array(
         'username' => $_POST['username'],
         'fullname' => $_POST['fullname'],
         'pass' => $_POST['pass'],
         'role' => $_POST['role']
     );
 
+       var_dump($new_user);
+       exit();
     $user = $users_controller->add($new_user);
 
     $template = '
-		<div class="container">
+		<div>
 			<p class="item  add">Usuario <b>%s</b> salvado</p>
 		</div>
 		<script>
 			window.onload = function () {
 				reloadPage("users")
 			}
-		</script>
+  		</script>
+		
 		
 	';
 
@@ -65,5 +70,6 @@ if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && !isset($_PO
     $controller->load_view('error401');
 }
 echo '<script src="./public/js/validates.js"></script>';
+echo '<script src="./public/js/findzip.js"></script>';
 
 

@@ -405,3 +405,6 @@ width: 10em;
 #phone{
     width: 15em;
 }
+#ZipList, displayZip{
+    width: 30em;
+}
