@@ -160,8 +160,6 @@ th, td {
 }
 
 
-
-
 @media screen and (max-width: 800px) {
     table.table-list thead, th {
         border: none;
@@ -199,7 +197,7 @@ th, td {
         text-align: center;
     }
 
-        img {
+    img {
         width: 50%;
     }
 }
@@ -289,6 +287,7 @@ th, td {
 .central-fr {
     margin: 15%;
 }
+
 .central-fr-up {
     margin: 0 15% 0 15%;
 }
@@ -324,9 +323,11 @@ th, td {
     left: 1vmin;
     right: 1vmin;
 }
+
 .tabla {
     margin: 0;
 }
+
 .table-list {
     border: 2px solid var(--darkest-color);
     background-color: var(--main-bg-ligth);
@@ -344,6 +345,7 @@ th, td {
 .user-add {
     font-size: 1em;
 }
+
 .add {
     background-color: var(--btn-add-color);
 }
@@ -356,7 +358,7 @@ th, td {
     background-color: var(--btn-delete-color);
 }
 
-#username{
+#username {
     width: 20em;
 }
 
@@ -364,30 +366,41 @@ th, td {
     width: 20em;
 }
 
-#fullname{
+#fullname {
     width: 30em;
 }
-#rfc{
-width: 10em;
-}
-#mail{
+
+#rfc {
     width: 10em;
 }
-#addresslocal{
+
+#mail {
+    width: 10em;
+}
+
+#addresslocal {
     width: 30em;
 }
-#addressref{
+
+#addressref {
     width: 30em;
 }
-#phone{
+
+#phone {
     width: 15em;
 }
-#ziplist{
+
+#ziplist {
     width: 30em;
 }
-#branchlist{
-    width: 5em;
+#branch {
+    width: 10em;
 }
-#companytypelist{
+
+#branchlist {
+    width: 30em;
+}
+
+#companytypelist {
     width: 10em;
 }

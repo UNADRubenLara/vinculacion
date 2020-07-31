@@ -8,7 +8,7 @@ username.addEventListener("input", function () {
 });
 
 const pass = document.getElementById("password");
-pass.addEventListener("input", function (){
+pass.addEventListener("input", function () {
     if (pass.value.length < 6 || pass.value.length > 40) {
         pass.setCustomValidity("Verifique su password");
     } else {
@@ -16,7 +16,7 @@ pass.addEventListener("input", function (){
     }
 });
 const fullname = document.getElementById("fullname");
-fullname.addEventListener("input", function (){
+fullname.addEventListener("input", function () {
     if (fullname.value.length < 10 || fullname.value.length > 80) {
         fullname.setCustomValidity("Verifique su nombre completo");
     } else {
@@ -24,7 +24,7 @@ fullname.addEventListener("input", function (){
     }
 });
 const rfc = document.getElementById("rfc");
-rfc.addEventListener("input", function (){
+rfc.addEventListener("input", function () {
     if (rfc.value.length < 10 || rfc.value.length > 16) {
         rfc.setCustomValidity("Verifique su RFC");
     } else {
@@ -34,16 +34,16 @@ rfc.addEventListener("input", function (){
 
 
 const zip = document.getElementById("zip");
-zip.addEventListener("input", function (){
-    if (zip.value < 999 || zip.value > 99999 ) {
+zip.addEventListener("input", function () {
+    if (zip.value < 999 || zip.value > 99999) {
         zip.setCustomValidity("Verifique su Codigo Postal");
     } else {
         zip.setCustomValidity("");
     }
 });
 const addresslocal = document.getElementById("addresslocal");
-addresslocal.addEventListener("input", function (){
-    if (addresslocal.value.length < 10 || addresslocal.value.length > 80) {
+addresslocal.addEventListener("input", function () {
+    if (addresslocal.value.length < 5 || addresslocal.value.length > 78) {
         addresslocal.setCustomValidity("Verifique su Calle y Número");
     } else {
         addresslocal.setCustomValidity("");
@@ -51,7 +51,7 @@ addresslocal.addEventListener("input", function (){
 });
 
 const phone = document.getElementById("phone");
-phone.addEventListener("input", function (){
+phone.addEventListener("input", function () {
     if (phone.value.length < 10 || phone.value.length > 15) {
         phone.setCustomValidity("Verifique su Telefono");
     } else {
@@ -59,7 +59,7 @@ phone.addEventListener("input", function (){
     }
 });
 const mail = document.getElementById("mail");
-mail.addEventListener("input", function (){
+mail.addEventListener("input", function () {
     if (mail.value.length < 10 || mail.value.length > 30) {
         mail.setCustomValidity("Verifique su Correo");
     } else {

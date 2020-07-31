@@ -1,11 +1,11 @@
 <?php
-
-
-class PublicDataControler
-{
-    public function cpData()
-    {
-        return new CpModel();
-    }
-
-}
+   
+   
+   class PublicDataControler
+   {
+      public function cpData()
+      {
+         return new CpModel();
+      }
+      
+   }

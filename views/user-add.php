@@ -22,7 +22,7 @@
         <strong>Codigo Postal:</strong><input id="zip" type="number" min="1000" max="99999" placeholder="C.P." oninput="LoadZip(this.value);" name="zipzone"/>
         <select id="ziplist" name="idaddress" size="1"></select><br>
         
-         <strong>Rama:</strong><input id="branch" type="text" maxlength="20" minlength="5" placeholder="Rama de Producccion"
+         <strong>Rama:</strong><input id="branch" type="text" maxlength="20" minlength="4" placeholder="Rama de Producccion"
                oninput="LoadBranch(this.value);"/>
         <select id="branchlist" name="branch" size="1"></select>
         <strong>Tamaño:</strong>
@@ -60,8 +60,6 @@
       
    } else if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'add') {
       $users_controller = new UsersController();
-//INSERT INTO `USERS` (`idusuario`, `username`, ``, `address_street`,
-// `phone`, `mail`, `fullname`, `rfc`, `idaddress`, `rol`, `branch`, `companytype`, `status`)
       $new_user = array(
          'username' => $_POST['username'],
          'hidentext' => $_POST['hidentext'],
@@ -75,7 +73,7 @@
          'companytype' => $_POST['companytype']
       );
       
-    
+      
       exit();
       $user = $users_controller->add($new_user);
       
@@ -97,6 +95,6 @@
       $controller = new ViewController();
       $controller->load_view('error401');
    }
-   echo '<script src="./public/js/validates.js"></script>';
-   echo '<script src="./public/js/findzip.js"></script>';
+     echo '<script src="./public/js/findzip.js"></script>';
    echo '<script src="./public/js/findbranch.js"></script>';
+   echo '<script src="./public/js/validates.js"></script>';

@@ -1,5 +1,5 @@
 function LoadBranch(str) {
-    if (str.length>3) {
+    if (str.length > 3) {
         let bhttpxml;
         try {
             // Firefox, Opera 8.0+, Safari
@@ -20,13 +20,11 @@ function LoadBranch(str) {
 
         function stateChanged() {
             if (bhttpxml.readyState == 4) {
-                alert(bhttpxml.responseText);
                 let ArrayRecived = JSON.parse(bhttpxml.responseText);
                 let option, select;
                 document.getElementById('branchlist').innerText = null;
                 if (ArrayRecived.length >= 1) {
                     ArrayRecived.forEach(fillOptions);
-
                     function fillOptions(zone, i) {
                         option = document.createElement("option");
                         option.value = zone['branch_code'];
@@ -48,12 +46,10 @@ function LoadBranch(str) {
         }
 
 
-        let url = './api-web/branchsearch.php';
+        let url = './api-web/brandsearch.php';
         url = url + "?txt=" + str;
-        //url = url + "&sid=" + Math.random();
-
         bhttpxml.onreadystatechange = stateChanged;
         bhttpxml.open("GET", url, true);
         bhttpxml.send(null);
     }
-    }
+}

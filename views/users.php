@@ -1,17 +1,17 @@
 <?php
-printf('<h2 class="form-Title">%s</h2>', TXTmenuGestiondeusuarios);
-
-$users_controller = new UsersController();
-$users = $users_controller->lst();
-
-if (empty($users)) {
-    printf('
+   printf('<h2 class="form-Title">%s</h2>', TXTmenuGestiondeusuarios);
+   
+   $users_controller = new UsersController();
+   $users = $users_controller->lst();
+   
+   if (empty($users)) {
+      printf('
 		<div class="central-fr">
 			<p class="error">%s</p>
 		</div>
 	', TXTnousers);
-} else {
-    $template_users = '
+   } else {
+      $template_users = '
 		<div >
 		<table  class="table-list">
 			<tr>
@@ -25,11 +25,11 @@ if (empty($users)) {
 					</form>
 				</th>
 			</tr>';
-
-    for ($i = 0; $i < count($users); $i++) {
-        $editar = TXTuserbtnedit;
-        $suspender = TXTuserbtnsuspend;
-        $template_users .= '
+      
+      for ($i = 0; $i < count($users); $i++) {
+         $editar = TXTuserbtnedit;
+         $suspender = TXTuserbtnsuspend;
+         $template_users .= '
 			<tr>
 			    <td>' . $users[$i]['idusuario'] . '</td>
 				<td>' . $users[$i]['username'] . '</td>
@@ -51,17 +51,17 @@ if (empty($users)) {
 			</tr>
 			
 		';
-    }
-
-    $template_users .= '
+      }
+      
+      $template_users .= '
 		</table>
 	</div>
 	';
-
-    printf($template_users,
-        TXTuseridv,
-        TXTusername,
-        TXTuserfullnamev,
-        TXTuserbtnadd
-    );
-}
+      
+      printf($template_users,
+         TXTuseridv,
+         TXTusername,
+         TXTuserfullnamev,
+         TXTuserbtnadd
+      );
+   }

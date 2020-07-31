@@ -1,5 +1,5 @@
 <?php
-$template = '
+   $template = '
 	</main>
 </body>
 <div >
@@ -8,7 +8,7 @@ $template = '
 <script src="./public/js/reload.js"></script>
 </html>
 ';
-printf(
-    $template,
-    TXTfooter
-);
+   printf(
+      $template,
+      TXTfooter
+   );
