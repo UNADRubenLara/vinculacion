@@ -18,7 +18,7 @@ use Behat\Gherkin\Node\ScenarioInterface;
  *
  * @author Konstantin Kudryashov <ever.zet@gmail.com>
  */
-class RoleFilter extends SimpleFilter
+class roleFilter extends SimpleFilter
 {
     protected $pattern;
 

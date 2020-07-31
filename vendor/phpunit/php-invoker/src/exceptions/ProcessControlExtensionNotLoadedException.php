@@ -11,6 +11,6 @@ namespace SebastianBergmann\Invoker;
 
 use RuntimeException;
 
-final class ProcessControlExtensionNotLoadedException extends RuntimeException implements Exception
+final class ProcessControlextensionNotLoadedException extends RuntimeException implements Exception
 {
 }

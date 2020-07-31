@@ -1,7 +1,7 @@
 <?php
 namespace Codeception\Test\Loader;
 
-use Behat\Gherkin\Filter\RoleFilter;
+use Behat\Gherkin\Filter\roleFilter;
 use Behat\Gherkin\Keywords\ArrayKeywords as GherkinKeywords;
 use Behat\Gherkin\Lexer as GherkinLexer;
 use Behat\Gherkin\Node\ExampleNode;
@@ -177,7 +177,7 @@ class Gherkin implements LoaderInterface
 
             $roles = $this->settings['gherkin']['contexts']['role']; // load role contexts
             foreach ($roles as $role => $context) {
-                $filter = new RoleFilter($role);
+                $filter = new roleFilter($role);
                 if ($filter->isFeatureMatch($featureNode)) {
                     $steps = array_merge($steps, $this->steps["role:$role"]);
                     break;

@@ -6,4 +6,22 @@ header('Access-Control-Allow-Methods: PUT, GET, POST, DELETE, OPTIONS');
 header("Access-Control-Allow-Headers: X-Requested-With");
 header('Content-Type: text/html; charset=utf-8');
 header('P3P: CP="IDC DSP COR CURa ADMa OUR IND PHY ONL COM STA"');
-echo '<h1>API-WEB</h1>';
+$template =
+    '
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>API-WEB</title>
+</head>
+<body>
+	<div>
+    <h1>API-WEB</h1>
+	<input type="button" value="BACK" onclick="history.back()">
+	</div>
+</body>
+</html>
+
+	
+';
+printf($template);

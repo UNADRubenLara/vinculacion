@@ -2,10 +2,10 @@
 
 namespace Tests\Behat\Gherkin\Filter;
 
-use Behat\Gherkin\Filter\RoleFilter;
+use Behat\Gherkin\Filter\roleFilter;
 use Behat\Gherkin\Node\FeatureNode;
 
-class RoleFilterTest extends FilterTest
+class roleFilterTest extends FilterTest
 {
     public function testIsFeatureMatchFilter()
     {
@@ -16,30 +16,30 @@ I need to be able to switch website language to french
 NAR;
         $feature = new FeatureNode(null, $description, array(), null, array(), null, null, null, 1);
 
-        $filter = new RoleFilter('french user');
+        $filter = new roleFilter('french user');
         $this->assertTrue($filter->isFeatureMatch($feature));
 
-        $filter = new RoleFilter('french *');
+        $filter = new roleFilter('french *');
         $this->assertTrue($filter->isFeatureMatch($feature));
 
-        $filter = new RoleFilter('french');
+        $filter = new roleFilter('french');
         $this->assertFalse($filter->isFeatureMatch($feature));
 
-        $filter = new RoleFilter('user');
+        $filter = new roleFilter('user');
         $this->assertFalse($filter->isFeatureMatch($feature));
 
-        $filter = new RoleFilter('*user');
+        $filter = new roleFilter('*user');
         $this->assertTrue($filter->isFeatureMatch($feature));
 
-        $filter = new RoleFilter('French User');
+        $filter = new roleFilter('French User');
         $this->assertTrue($filter->isFeatureMatch($feature));
 
         $feature = new FeatureNode(null, null, array(), null, array(), null, null, null, 1);
-        $filter = new RoleFilter('French User');
+        $filter = new roleFilter('French User');
         $this->assertFalse($filter->isFeatureMatch($feature));
     }
 
-    public function testFeatureRolePrefixedWithAn()
+    public function testFeaturerolePrefixedWithAn()
     {
         $description = <<<NAR
 In order to be able to read news in my own language
@@ -48,29 +48,29 @@ I need to be able to switch website language to french
 NAR;
         $feature = new FeatureNode(null, $description, array(), null, array(), null, null, null, 1);
 
-        $filter = new RoleFilter('american user');
+        $filter = new roleFilter('american user');
         $this->assertTrue($filter->isFeatureMatch($feature));
 
-        $filter = new RoleFilter('american *');
+        $filter = new roleFilter('american *');
         $this->assertTrue($filter->isFeatureMatch($feature));
 
-        $filter = new RoleFilter('american');
+        $filter = new roleFilter('american');
         $this->assertFalse($filter->isFeatureMatch($feature));
 
-        $filter = new RoleFilter('user');
+        $filter = new roleFilter('user');
         $this->assertFalse($filter->isFeatureMatch($feature));
 
-        $filter = new RoleFilter('*user');
+        $filter = new roleFilter('*user');
         $this->assertTrue($filter->isFeatureMatch($feature));
         
-        $filter = new RoleFilter('[\w\s]+user');
+        $filter = new roleFilter('[\w\s]+user');
         $this->assertFalse($filter->isFeatureMatch($feature));
 
-        $filter = new RoleFilter('American User');
+        $filter = new roleFilter('American User');
         $this->assertTrue($filter->isFeatureMatch($feature));
 
         $feature = new FeatureNode(null, null, array(), null, array(), null, null, null, 1);
-        $filter = new RoleFilter('American User');
+        $filter = new roleFilter('American User');
         $this->assertFalse($filter->isFeatureMatch($feature));
     }
 }

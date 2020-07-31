@@ -916,7 +916,7 @@ class ComposerStaticInitbdf1a29677480891c894f0d670236344
         'SebastianBergmann\\GlobalState\\Snapshot' => __DIR__ . '/..' . '/sebastian/global-state/src/Snapshot.php',
         'SebastianBergmann\\Invoker\\Exception' => __DIR__ . '/..' . '/phpunit/php-invoker/src/exceptions/Exception.php',
         'SebastianBergmann\\Invoker\\Invoker' => __DIR__ . '/..' . '/phpunit/php-invoker/src/Invoker.php',
-        'SebastianBergmann\\Invoker\\ProcessControlExtensionNotLoadedException' => __DIR__ . '/..' . '/phpunit/php-invoker/src/exceptions/ProcessControlExtensionNotLoadedException.php',
+        'SebastianBergmann\\Invoker\\ProcessControlextensionNotLoadedException' => __DIR__ . '/..' . '/phpunit/php-invoker/src/exceptions/ProcessControlExtensionNotLoadedException.php',
         'SebastianBergmann\\Invoker\\TimeoutException' => __DIR__ . '/..' . '/phpunit/php-invoker/src/exceptions/TimeoutException.php',
         'SebastianBergmann\\ObjectEnumerator\\Enumerator' => __DIR__ . '/..' . '/sebastian/object-enumerator/src/Enumerator.php',
         'SebastianBergmann\\ObjectEnumerator\\Exception' => __DIR__ . '/..' . '/sebastian/object-enumerator/src/Exception.php',
@@ -963,6 +963,7 @@ class ComposerStaticInitbdf1a29677480891c894f0d670236344
         'TheSeer\\Tokenizer\\TokenCollectionException' => __DIR__ . '/..' . '/theseer/tokenizer/src/TokenCollectionException.php',
         'TheSeer\\Tokenizer\\Tokenizer' => __DIR__ . '/..' . '/theseer/tokenizer/src/Tokenizer.php',
         'TheSeer\\Tokenizer\\XMLSerializer' => __DIR__ . '/..' . '/theseer/tokenizer/src/XMLSerializer.php',
+        'UnhandledMatchError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
         'ValueError' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
     );
 

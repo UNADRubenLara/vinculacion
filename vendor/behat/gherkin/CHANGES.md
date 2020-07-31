@@ -67,7 +67,7 @@
 ==================
 
   * Added `setFilters(array)` method to `Gherkin` class
-  * Added `NarrativeFilter` for non-english `RoleFilter` lovers
+  * Added `NarrativeFilter` for non-english `roleFilter` lovers
 
 4.2.1 / 2014-06-06
 ==================
@@ -190,12 +190,12 @@
 2.3.1 / 2013-08-10
 ==================
 
-  * Support `an` prefix with RoleFilter
+  * Support `an` prefix with roleFilter
 
 2.3.0 / 2013-08-04
 ==================
 
-  * Add RoleFilter
+  * Add roleFilter
   * Add PathsFilter
   * Add MemoryCache
 
