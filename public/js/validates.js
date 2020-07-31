@@ -49,7 +49,6 @@ addresslocal.addEventListener("input", function (){
         addresslocal.setCustomValidity("");
     }
 });
-addresslocal
 
 const phone = document.getElementById("phone");
 phone.addEventListener("input", function (){

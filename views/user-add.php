@@ -75,7 +75,7 @@
          'companytype' => $_POST['companytype']
       );
       
-      var_dump($new_user);
+    
       exit();
       $user = $users_controller->add($new_user);
       
