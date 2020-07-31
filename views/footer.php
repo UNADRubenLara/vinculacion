@@ -1,5 +1,5 @@
 <?php
-   $template = '
+  $template = '
 	</main>
 </body>
 <div >

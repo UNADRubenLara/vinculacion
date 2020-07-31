@@ -25,6 +25,7 @@ function LoadBranch(str) {
                 document.getElementById('branchlist').innerText = null;
                 if (ArrayRecived.length >= 1) {
                     ArrayRecived.forEach(fillOptions);
+
                     function fillOptions(zone, i) {
                         option = document.createElement("option");
                         option.value = zone['branch_code'];
