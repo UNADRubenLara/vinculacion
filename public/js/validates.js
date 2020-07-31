@@ -32,33 +32,28 @@ rfc.addEventListener("input", function (){
     }
 });
 
-const addresslocal = document.getElementById("addreslocal");
-addresslocal.addEventListener("input", function (){
-    if (addresslocal.value.length < 10 || addresslocal.value.length > 80) {
-        addresslocal.setCustomValidity("Verifique su calle y numero");
-    } else {
-        addresslocal.setCustomValidity("");
-    }
-});
+
 const zip = document.getElementById("zip");
 zip.addEventListener("input", function (){
-    if (zip.value < 100 || zip.value > 99999 ) {
+    if (zip.value < 999 || zip.value > 99999 ) {
         zip.setCustomValidity("Verifique su Codigo Postal");
     } else {
         zip.setCustomValidity("");
     }
 });
-const addresref = document.getElementById("addresref");
-addresref.addEventListener("input", function (){
-    if (addresref.value.length < 10 || addresref.value.length > 80) {
-        addresref.setCustomValidity("Verifique su Colonia");
+const addresslocal = document.getElementById("addresslocal");
+addresslocal.addEventListener("input", function (){
+    if (addresslocal.value.length < 10 || addresslocal.value.length > 80) {
+        addresslocal.setCustomValidity("Verifique su Calle y Número");
     } else {
-        addresref.setCustomValidity("");
+        addresslocal.setCustomValidity("");
     }
 });
+addresslocal
+
 const phone = document.getElementById("phone");
 phone.addEventListener("input", function (){
-    if (phone.value.length < 10 || phone.value.length > 80) {
+    if (phone.value.length < 10 || phone.value.length > 15) {
         phone.setCustomValidity("Verifique su Telefono");
     } else {
         phone.setCustomValidity("");

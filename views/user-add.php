@@ -22,7 +22,7 @@
         <strong>Codigo Postal:</strong><input id="zip" type="number" min="1000" max="99999" placeholder="C.P." oninput="LoadZip(this.value);" name="zipzone"/>
         <select id="ziplist" name="idaddress" size="1"></select><br>
         
-         <strong>Rama:</strong><input id="Branch" type="number" min="1111" max="9321" placeholder="Rama de Producccion"
+         <strong>Rama:</strong><input id="branch" type="text" maxlength="20" minlength="5" placeholder="Rama de Producccion"
                oninput="LoadBranch(this.value);"/>
         <select id="branchlist" name="branch" size="1"></select>
         <strong>Tamaño:</strong>
@@ -71,7 +71,7 @@
          'phone' => $_POST['phone'],
          'mail' => $_POST['mail'],
          'idaddress' => $_POST['idaddress'],
-         'branch' => $_POST['branch'],
+         'branchlist' => $_POST['branch'],
          'companytype' => $_POST['companytype']
       );
       

@@ -48,9 +48,9 @@ function LoadZip(str) {
     }
 
 
-    var url = "./api-web/zipsearch.php";
+    let url = "./api-web/zipsearch.php";
     url = url + "?txt=" + str;
-    url = url + "&sid=" + Math.random();
+    //url = url + "&sid=" + Math.random();
     httpxml.onreadystatechange = stateChanged;
     httpxml.open("GET", url, true);
     httpxml.send(null);

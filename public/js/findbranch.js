@@ -1,15 +1,16 @@
 function LoadBranch(str) {
-       let httpxml;
+    if (str.length>3) {
+        let bhttpxml;
         try {
             // Firefox, Opera 8.0+, Safari
-            httpxml = new XMLHttpRequest();
+            bhttpxml = new XMLHttpRequest();
         } catch (e) {
             // Internet Explorer
             try {
-                httpxml = new ActiveXObject("Msxml2.XMLHTTP");
+                bhttpxml = new ActiveXObject("Msxml2.XMLHTTP");
             } catch (e) {
                 try {
-                    httpxml = new ActiveXObject("Microsoft.XMLHTTP");
+                    bhttpxml = new ActiveXObject("Microsoft.XMLHTTP");
                 } catch (e) {
                     alert("Browser version not suported");
                     return false;
@@ -18,11 +19,11 @@ function LoadBranch(str) {
         }
 
         function stateChanged() {
-
-            if (httpxml.readyState == 4) {
-                let ArrayRecived = JSON.parse(httpxml.responseText);
+            if (bhttpxml.readyState == 4) {
+                alert(bhttpxml.responseText);
+                let ArrayRecived = JSON.parse(bhttpxml.responseText);
                 let option, select;
-                document.getElementById('BranchList').innerText = null;
+                document.getElementById('branchlist').innerText = null;
                 if (ArrayRecived.length >= 1) {
                     ArrayRecived.forEach(fillOptions);
 
@@ -30,15 +31,15 @@ function LoadBranch(str) {
                         option = document.createElement("option");
                         option.value = zone['branch_code'];
                         option.text = zone['branch'];
-                        option.title= zone['b_description']+" "+ zone['b_description']+" "+zone['b_includes']+""+zone['b_exclude']
-                        select = document.getElementById("BranchList");
+                        option.title = zone['b_description'] + " " + zone['b_description'] + " " + zone['b_includes'] + "" + zone['b_exclude']
+                        select = document.getElementById("branchlist");
                         select.appendChild(option);
                     }
                 } else {
                     option = document.createElement("option");
                     option.value = 99999;
-                    option.text = 'Sin CP';
-                    select = document.getElementById("BranchList");
+                    option.text = 'Codigo Invalido';
+                    select = document.getElementById("branchlist");
                     select.appendChild(option);
                 }
 
@@ -47,11 +48,12 @@ function LoadBranch(str) {
         }
 
 
-        var url = "./api-web/branchsearch.php";
+        let url = './api-web/branchsearch.php';
         url = url + "?txt=" + str;
-        url = url + "&sid=" + Math.random();
-        httpxml.onreadystatechange = stateChanged;
-        httpxml.open("GET", url, true);
-        httpxml.send(null);
+        //url = url + "&sid=" + Math.random();
 
+        bhttpxml.onreadystatechange = stateChanged;
+        bhttpxml.open("GET", url, true);
+        bhttpxml.send(null);
+    }
     }
