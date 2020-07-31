@@ -645,7 +645,7 @@ return array(
     'SebastianBergmann\\GlobalState\\Snapshot' => $vendorDir . '/sebastian/global-state/src/Snapshot.php',
     'SebastianBergmann\\Invoker\\Exception' => $vendorDir . '/phpunit/php-invoker/src/exceptions/Exception.php',
     'SebastianBergmann\\Invoker\\Invoker' => $vendorDir . '/phpunit/php-invoker/src/Invoker.php',
-    'SebastianBergmann\\Invoker\\ProcessControlextensionNotLoadedException' => $vendorDir . '/phpunit/php-invoker/src/exceptions/ProcessControlextensionNotLoadedException.php',
+    'SebastianBergmann\\Invoker\\ProcessControlextensionNotLoadedException' => $vendorDir . '/phpunit/php-invoker/src/exceptions/ProcessControlExtensionNotLoadedException.php',
     'SebastianBergmann\\Invoker\\TimeoutException' => $vendorDir . '/phpunit/php-invoker/src/exceptions/TimeoutException.php',
     'SebastianBergmann\\ObjectEnumerator\\Enumerator' => $vendorDir . '/sebastian/object-enumerator/src/Enumerator.php',
     'SebastianBergmann\\ObjectEnumerator\\Exception' => $vendorDir . '/sebastian/object-enumerator/src/Exception.php',
@@ -692,5 +692,6 @@ return array(
     'TheSeer\\Tokenizer\\TokenCollectionException' => $vendorDir . '/theseer/tokenizer/src/TokenCollectionException.php',
     'TheSeer\\Tokenizer\\Tokenizer' => $vendorDir . '/theseer/tokenizer/src/Tokenizer.php',
     'TheSeer\\Tokenizer\\XMLSerializer' => $vendorDir . '/theseer/tokenizer/src/XMLSerializer.php',
+    'UnhandledMatchError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/UnhandledMatchError.php',
     'ValueError' => $vendorDir . '/symfony/polyfill-php80/Resources/stubs/ValueError.php',
 );

@@ -1,7 +1,7 @@
 <?php
    if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud'])) {
       printf('<h2 class="form-Title">%s</h2>', TXTmenuadduser);
-      $template = '
+$template = '
 <div class="user-add central-fr-up" >
     <form>
         <hr>
@@ -19,19 +19,20 @@
         <strong>Calle y número:</strong> <input id="addresslocal" type="text" name="address_street"
                                                 placeholder="Calle y Numero" minlength="5" maxlength="78" size="78"
                                                 required><br>
-        <strong>Codigo Postal:</strong><input id="zip" type="number" min="1000" max="99999" placeholder="C.P." oninput="LoadZip(this.value);" name="zipzone"/>
-        <select id="ziplist" name="idaddress" size="1"></select><br>
-        
-         <strong>Rama:</strong><input id="Branch" type="number" min="1111" max="9321" placeholder="Rama de Producccion"
+        <input id="zip" type="number" min="1000" max="99999" placeholder="C.P." oninput="LoadZip(this.value);" name="zipzone"/>
+        <section id="displayZip"><select id="ZipList" name="idaddress" size="1"></select></section>
+
+        <input id="branch" type="number" min="1111" max="9321" placeholder="Rama de Producccion"
                oninput="LoadBranch(this.value);"/>
-        <select id="branchlist" name="branch" size="1"></select>
-        <strong>Tamaño:</strong>
-         <select id="companytype" name="branch" size="1">
+        <section id="displayBranch"><select id="BranchList" name="branch" size="1"></select></section>
+
+        <input id="companytype" type="number" min="1" max="3" placeholder="Tamaño"/>
+            <select id="companytypeList" name="companytype" size="1">
                 <option value="1">Micro</option>
                 <option value="2">Mediana</option>
                 <option value="3">Grande</option>
-            </select><br>
-          <strong>Telefono:</strong><input id="phone" type="tel" name="phone" placeholder="Telefono" minlength="10"
+            </select>
+        <strong>Telefono:</strong><input id="phone" type="tel" name="phone" placeholder="Telefono" minlength="10"
                                          maxlength="13" required> <br>
         <strong>Correo:</strong><input id="mail" type="email" name="mail" placeholder="Correo" minlength="5" size="25"
                                        required><br>
@@ -56,30 +57,30 @@
 
 
 ';
-      printf($template);
-      
-   } else if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'add') {
-      $users_controller = new UsersController();
+printf($template);
+
+} else if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'add') {
+$users_controller = new UsersController();
 //INSERT INTO `USERS` (`idusuario`, `username`, ``, `address_street`,
 // `phone`, `mail`, `fullname`, `rfc`, `idaddress`, `rol`, `branch`, `companytype`, `status`)
-      $new_user = array(
-         'username' => $_POST['username'],
-         'hidentext' => $_POST['hidentext'],
-         'fullname' => $_POST['fullname'],
-         'rfc' => $_POST['rfc'],
-         'address_street' => $_POST['address_street'],
-         'phone' => $_POST['phone'],
-         'mail' => $_POST['mail'],
-         'idaddress' => $_POST['idaddress'],
-         'branch' => $_POST['branch'],
-         'companytype' => $_POST['companytype']
-      );
-      
-      var_dump($new_user);
-      exit();
-      $user = $users_controller->add($new_user);
-      
-      $template = '
+$new_user = array(
+'username' => $_POST['username'],
+'hidentext' => $_POST['hidentext'],
+'fullname' => $_POST['fullname'],
+'rfc' => $_POST['rfc'],
+'address_street' => $_POST['address_street'],
+'phone' => $_POST['phone'],
+'mail' => $_POST['mail'],
+'idaddress' => $_POST['idaddress'],
+'branch' => $_POST['branch'],
+'companytype' => $_POST['companytype']
+);
+
+var_dump($new_user);
+exit();
+$user = $users_controller->add($new_user);
+
+$template = '
 <div>
     <p class="item  add">Usuario <b>%s</b> salvado</p>
 </div>
@@ -91,12 +92,14 @@
 
 
 ';
-      
-      printf($template, $_POST['USER']);
-   } else {
-      $controller = new ViewController();
-      $controller->load_view('error401');
-   }
-   echo '<script src="./public/js/validates.js"></script>';
-   echo '<script src="./public/js/findzip.js"></script>';
-   echo '<script src="./public/js/findbranch.js"></script>';
+
+printf($template, $_POST['USER']);
+} else {
+$controller = new ViewController();
+$controller->load_view('error401');
+}
+echo '<script src="./public/js/validates.js"></script>';
+echo '<script src="./public/js/findzip.js"></script>';
+echo '<script src="./public/js/findbranch.js"></script>';
+
+

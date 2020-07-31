@@ -9,14 +9,18 @@ class UsersController
         $this->model = new UsersModel();
     }
 
-    public function lst($user_data = array())
+    public function lst()
     {
         return $this->model->list_users();
     }
-
-        public function set($user_data = array())
+    public function add($user_data = array())
     {
-        return $this->model->set($user_data);
+        return $this->model->add($user_data);
+    }
+
+        public function update($user_data = array())
+    {
+        return $this->model->update($user_data);
     }
 
     public function get($user_id = '')

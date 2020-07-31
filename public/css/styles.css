@@ -41,6 +41,169 @@ title {
     font-size: 2em;
 }
 
+label {
+    font-size: 1em;
+}
+
+
+input {
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border-radius: 6px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="date"],
+input[type="time"] {
+    width: 100%;
+    margin: 1%;
+    padding: 5px;
+    border: 1px solid var(--darkest-color);
+
+}
+
+input[type="time"] {
+    width: 100px;
+    margin-bottom: 0;
+    display: inline-block;
+}
+
+input[type="checkbox"] {
+    font-size: 1vmax;
+    margin-top: 13px;
+    margin-left: 2px;
+    float: left;
+}
+
+input[type="checkbox"] + label {
+    margin-top: 12px;
+    margin-left: 7px;
+    cursor: pointer;
+    display: inline;
+    float: left;
+}
+
+input[type="submit"] {
+    font-size: 1em;
+    outline: none;
+    border: 1px solid var(--darkest-color);
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--striking-color);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+input[type="submit"]:active {
+    background-color: var(--exalted-gradient-color);
+
+}
+
+input:valid,
+textarea:valid {
+    color: var(--darkest-color);
+}
+
+input:invalid,
+textarea:invalid {
+    color: var(--error-color);
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+nav li a {
+    padding: 5px 20px;
+    display: block;
+    font-size: 1.6em;
+    line-height: 1.5em;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+nav li a:hover {
+
+}
+
+table {
+    font-size: 1.4em;
+    line-height: normal;
+    width: 100%;
+
+
+}
+
+th {
+    width: auto;
+}
+
+td {
+
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid var(--darkest-color);
+}
+
+
+
+
+@media screen and (max-width: 800px) {
+    table.table-list thead, th {
+        border: none;
+        clip: rect(0, 0, 0, 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+
+    }
+
+    table.table-list tr {
+        border-bottom: 3px solid;
+    }
+
+    table.table-list td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: 3vmax;
+        text-align: right;
+        padding: 10px;
+    }
+
+    table.table-list td:before {
+        float: left;
+        color: #273b47;
+        font-weight: bold;
+        font-size: 1.5vmax;
+        padding: 1px 5px;
+    }
+
+    table.table-list td:last-child {
+        text-align: center;
+    }
+
+        img {
+        width: 50%;
+    }
+}
+
 .dateHour {
     position: absolute;
     font-size: 1.5em;
@@ -161,135 +324,14 @@ title {
     left: 1vmin;
     right: 1vmin;
 }
-
-label {
-    font-size: 1em;
-}
-
-
-input {
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border-radius: 6px;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="date"],
-input[type="time"] {
-    width: 100%;
-    margin: 1%;
-    padding: 5px;
-    border: 1px solid var(--darkest-color);
-
-}
-
-input[type="time"] {
-    width: 100px;
-    margin-bottom: 0;
-    display: inline-block;
-}
-
-input[type="checkbox"] {
-    font-size: 1vmax;
-    margin-top: 13px;
-    margin-left: 2px;
-    float: left;
-}
-
-input[type="checkbox"] + label {
-    margin-top: 12px;
-    margin-left: 7px;
-    cursor: pointer;
-    display: inline;
-    float: left;
-}
-
-input[type="submit"] {
-    font-size: 1em;
-    outline: none;
-    border: 1px solid var(--darkest-color);
-    cursor: pointer;
-}
-
-.add {
-    background-color: var(--btn-add-color);
-}
-
-.edit {
-    background-color: var(--btn-edit-color);
-}
-
-.delete {
-    background-color: var(--btn-delete-color);
-}
-
-input[type="submit"]:hover {
-    background-color: var(--striking-color);
-    -moz-transform: scale(1.2);
-    -webkit-transform: scale(1.2);
-    -o-transform: scale(1.2);
-    -ms-transform: scale(1.2);
-    transform: scale(1.2);
-}
-
-input[type="submit"]:active {
-    background-color: var(--exalted-gradient-color);
-
-}
-
-input:valid,
-textarea:valid {
-    color: var(--darkest-color);
-}
-
-input:invalid,
-textarea:invalid {
-    color: var(--error-color);
-}
-
-ul {
-    padding: 0;
+.tabla {
     margin: 0;
 }
-
-nav li {
-    display: inline-block;
-}
-
-nav li a {
-    padding: 5px 20px;
-    display: block;
-    font-size: 1.6em;
-    line-height: 1.5em;
-    text-decoration: none;
-    white-space: nowrap;
-}
-
-nav li a:hover {
-
-}
-
-table {
-    font-size: 1.4em;
-    line-height: normal;
-    width: 100%;
-
-
-}
-
-th {
-    width: auto;
-}
-
-td {
-
-}
-
-th, td {
-    padding: 10px;
-    border: 1px solid var(--darkest-color);
+.table-list {
+    border: 2px solid var(--darkest-color);
+    background-color: var(--main-bg-ligth);
+    font-size: 1.5vmax;
+    border-radius: 5px;
 }
 
 .errorText {
@@ -302,83 +344,18 @@ th, td {
 .user-add {
     font-size: 1em;
 }
-
-
-.tooltip {
-    position: relative;
+.add {
+    background-color: var(--btn-add-color);
 }
 
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: var(--striking-color);
-    color: var(--darkest-color);
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position: absolute;
-    z-index: 1;
-    top: -5px;
-    left: 105%;
+.edit {
+    background-color: var(--btn-edit-color);
 }
 
-.tooltip:hover .tooltiptext {
-    visibility: visible;
+.delete {
+    background-color: var(--btn-delete-color);
 }
 
-
-@media screen and (max-width: 800px) {
-    table.table-list thead, th {
-        border: none;
-        clip: rect(0, 0, 0, 0);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        padding: 0;
-        position: absolute;
-        width: 1px;
-
-    }
-
-    table.table-list tr {
-        border-bottom: 3px solid;
-    }
-
-    table.table-list td {
-        border-bottom: 1px solid #ddd;
-        display: block;
-        font-size: 3vmax;
-        text-align: right;
-        padding: 10px;
-    }
-
-    table.table-list td:before {
-        float: left;
-        color: #273b47;
-        font-weight: bold;
-        font-size: 1.5vmax;
-        padding: 1px 5px;
-    }
-
-    table.table-list td:last-child {
-        text-align: center;
-    }
-
-    .tabla {
-        margin: 0;
-    }
-
-    img {
-        width: 50%;
-    }
-}
-
-.table-list {
-    border: 2px solid var(--darkest-color);
-    background-color: var(--main-bg-ligth);
-    font-size: 1.5vmax;
-    border-radius: 5px;
-}
 #username{
     width: 20em;
 }
@@ -405,6 +382,12 @@ width: 10em;
 #phone{
     width: 15em;
 }
-#ZipList, displayZip{
+#ziplist{
     width: 30em;
+}
+#branchlist{
+    width: 30em;
+}
+#companytypelist{
+    width: 10em;
 }
