@@ -5,7 +5,7 @@ class SingleConnection extends PDO
 {
       static private $dsn = 'mysql:host=kynosargos.com;dbname=kynosarg_vincula';
     static private $username = 'kynosarg_test';
-    static private $hiddentext = 'Rr&Rgmvk4WRh';
+    static private $hiddentext = 'mqsp{)g@fW30';
 
     protected $rows = array();
 

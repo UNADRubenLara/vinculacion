@@ -13,14 +13,15 @@
     --dark-color: #2a414e;
     --ligth-color: #b9bfcc;
     --darkest-color: #111;
-    --error-color: red;
-    --img-backgound: s
+    --error-color: #cb4d4d;
+
 }
 
 * {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+
 }
 
 html, body {
@@ -29,12 +30,13 @@ html, body {
     margin: 0;
     padding: 0;
 
+
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: normal;
-}
+ }
 
 title {
     text-align: center;
@@ -336,6 +338,7 @@ th, td {
 }
 
 .errorText {
+    text-transform: uppercase;
     color: var(--error-color);
     font-size: .75em;
     font-weight: bold;
@@ -343,6 +346,9 @@ th, td {
 }
 
 .user-add {
+    font-size: 1em;
+}
+.user-edit {
     font-size: 1em;
 }
 
@@ -357,7 +363,12 @@ th, td {
 .delete {
     background-color: var(--btn-delete-color);
 }
-
+.suspend{
+    background-color: var(--btn-delete-color);
+    }
+.activate{
+    background-color: var(--btn-add-color);
+}
 #username {
     width: 20em;
 }
