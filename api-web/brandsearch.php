@@ -7,7 +7,7 @@
    $in = '%' . $_GET['txt'] . '%';
    $data = [];
    
-   if (strlen($in) > 3)
+   if (strlen($in) > 3){
       try {
          $stmt = $dbo->prepare("select branch_code, branch, b_description, b_includes, b_exclude from BRANCH where branch like :text");
          $stmt->bindParam('text', $in, PDO::PARAM_STR);
@@ -18,8 +18,9 @@
             array_push($data, $branch);
          }
       } catch (Exception $ex) {
-         
+         echo $ex[2];
       }
+   }
    
    if ($data) {
       echo json_encode($data);

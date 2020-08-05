@@ -136,24 +136,16 @@ nav li a {
     white-space: nowrap;
 }
 
-nav li a:hover {
 
-}
 
 table {
     font-size: 1.4em;
     line-height: normal;
     width: 100%;
-
-
 }
 
 th {
     width: auto;
-}
-
-td {
-
 }
 
 th, td {
@@ -280,10 +272,6 @@ th, td {
     background: var(--exalted-color);
     color: var(--dark-color);
 
-}
-
-.header-btn a:hover:before,
-.header-btn.current a:before {
 }
 
 .central-fr {

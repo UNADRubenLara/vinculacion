@@ -9,7 +9,7 @@
       exit;
    }
    
-   if (strlen($in) > 3 and strlen($in) < 9) {
+   if (strlen($in) > 3 && strlen($in) < 9) {
       $data = [];
       try {
          $stmt = $dbo->prepare("select idADDRESS, C_CODIGO, C_NOMBRE, D_TIPOASENTAMIENTO, D_MUNICIPIO, D_ESTADO, D_CIUDAD  from ZP_ADDRESS where C_CODIGO like '$in'");
@@ -21,7 +21,7 @@
             array_push($data, $colonia);
          }
       } catch (Exception $e) {
-      
+      echo $e[2];
       }
       
    }

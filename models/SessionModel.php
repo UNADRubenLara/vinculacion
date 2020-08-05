@@ -20,13 +20,14 @@
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
             
          } catch (Exception $ex) {
-         
+         return $ex[2];
          }
          if ($data["username"] && password_verify($pass, $data["hidentext"])) {
             $_SESSION['iduser'] = $data["idusuario"];
             $_SESSION['username'] = $data['username'];
             $_SESSION['role'] = ($data['rol'] === '1') ? 'Admin' : 'Usuario';
             $_SESSION['fullname'] = ($data['fullname']);
+           
             return $data;
          }
          return 0;

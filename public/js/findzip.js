@@ -8,10 +8,10 @@ function LoadZip(str) {
         // Internet Explorer
         try {
             httpxml = new ActiveXObject("Msxml2.XMLHTTP");
-        } catch (e) {
+        } catch (ex) {
             try {
                 httpxml = new ActiveXObject("Microsoft.XMLHTTP");
-            } catch (e) {
+            } catch (eb) {
                 alert("Browser version not suported");
                 return false;
             }
@@ -38,10 +38,10 @@ function LoadZip(str) {
 
         }
         if (httpxml.readyState == 2) {
-            option = document.createElement("option");
+            let option = document.createElement("option");
             option.value = 99999;
             option.text = "No existe";
-            select = document.getElementById("ziplist");
+            let select = document.getElementById("ziplist");
             select.appendChild(option);
         }
 
@@ -50,7 +50,6 @@ function LoadZip(str) {
 
     let url = "./api-web/zipsearch.php";
     url = url + "?txt=" + str;
-    //url = url + "&sid=" + Math.random();
     httpxml.onreadystatechange = stateChanged;
     httpxml.open("GET", url, true);
     httpxml.send(null);

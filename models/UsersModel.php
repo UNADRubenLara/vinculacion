@@ -3,7 +3,7 @@
    class UsersModel
    {
       
-      public function __construct($user_data = array())
+      public function __construct()
       {
          $this->connection = new SingleConnection();
       }
@@ -16,8 +16,8 @@
             $stmt->execute();
             $data = $stmt->fetchAll();
          } catch (Exception $ex) {
-         
-         }
+            return $ex[2];
+            }
          if ($data) {
             return $data;
          }
@@ -34,7 +34,7 @@
                $stmt->execute();
                $data = $stmt->fetch(PDO::FETCH_ASSOC);
             } catch (Exception $ex) {
-            
+            return $ex[2];
             }
             if ($data["username"]) {
                $location=$data['ZP_ADDRESS_idADDRESS'];
@@ -98,16 +98,12 @@
                   return $user_data['username'] . ' Guardado';
                }
             } catch (Exception $ex) {
-               if ($ex->errorInfo[1] == 1062) {
-                  return "Registro duplicado";
-                  exit();
-               } else {
-                  return $ex->errorInfo[2];
+                    return $ex->errorInfo[2];
                }
             }
          }
          
-      }
+      
       
       public function update($user_data = array())
       {
@@ -133,8 +129,7 @@
                                  return $user_data['username'] . ' Actualizado';
                
             } catch (Exception $ex) {
-              
-                  return $ex->errorInfo[2];
+                   return $ex->errorInfo[2];
               
             }
          }

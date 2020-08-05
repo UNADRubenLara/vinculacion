@@ -8,10 +8,10 @@ function LoadBranch(str) {
             // Internet Explorer
             try {
                 bhttpxml = new ActiveXObject("Msxml2.XMLHTTP");
-            } catch (e) {
+            } catch (ex) {
                 try {
                     bhttpxml = new ActiveXObject("Microsoft.XMLHTTP");
-                } catch (e) {
+                } catch (eb) {
                     alert("Browser version not suported");
                     return false;
                 }
