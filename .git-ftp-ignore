@@ -1,7 +1,9 @@
-/.idea/*
-/vendor/*
-/tests/*
-/.github/*
+*/.idea
+*/vendor
+*/tests
+*/.github/
+*/.install
+*/.tmp.drivedownload
 composer.json
 composer.lock
 phpunit.xml
