@@ -1,3 +1,6 @@
 # Idea files
 /.idea/*
 /vendor/*
+/.tmp.drivedownload/
+/vendor/
+/tests/
