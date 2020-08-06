@@ -1,7 +1,9 @@
 on:
   push:
     branches:
-      - dev    
+      - dev
+    tags:
+      - v*     
 name: Publish Website
 jobs:
   FTP-Deploy-Action:
