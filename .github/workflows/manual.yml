@@ -1,5 +1,7 @@
 on:
-  push:    
+  push:
+    branches:
+      - dev    
 name: Publish Website
 jobs:
   FTP-Deploy-Action:
