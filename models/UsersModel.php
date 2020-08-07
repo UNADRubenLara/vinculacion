@@ -6,15 +6,14 @@
       
       public function __construct()
       {
-         
+         $this->findZip= new ZipModel();
+         $this->findbranch= new BranchModel();
          $this->connection = new SingleConnection();
-         $UserList = $this->load_users();
-         
-         
+                  $UserList = $this->load_users();
          for ($i = 0; $i < count($UserList); ++$i) {
             $AddBranch = $this->brand_search($UserList[$i]['branch']);
             $UserList[$i]["branchText"] = $AddBranch['branchText'];
-            $AddAddress = $this->zip_search($UserList[$i]['ZP_ADDRESS_idADDRESS']);
+            $AddAddress = $this->findByCode($UserList[$i]['ZP_ADDRESS_idADDRESS']);
             while (list($key, $value) = each($AddAddress)) {
                $UserList[$i][$key] = $value;
             }
@@ -52,45 +51,6 @@
       }
       
       
-      public function zip_search($zipcode)
-      {
-         if (!ctype_digit($zipcode)) {
-            exit;
-         }
-         $data = [];
-         try {
-            $stmt = $this->connection->prepare("select idADDRESS, C_CODIGO, C_NOMBRE, D_TIPOASENTAMIENTO, D_MUNICIPIO, D_ESTADO, D_CIUDAD  from ZP_ADDRESS where idADDRESS like :zip");
-            $stmt->bindParam('zip', $zipcode, PDO::PARAM_STR);
-            $stmt->execute();
-            $zip = $stmt->fetch(PDO::FETCH_ASSOC);
-            $data = array('C_CODIGO' => $zip['C_CODIGO'], 'C_NOMBRE' => $zip['C_NOMBRE'], 'D_CIUDAD' => $zip['D_CIUDAD'], 'D_MUNICIPIO' => $zip['D_MUNICIPIO'], 'D_ESTADO' => $zip['D_ESTADO']);
-         } catch (Exception $e) {
-         }
-         
-         if ($data) {
-            return $data;
-         } else {
-            return 0;
-         }
-         
-      }
-      
-      public function brand_search($branchCode)
-      {
-         $data = [];
-         try {
-            $stmt = $this->connection->prepare("select  branch, b_description, b_includes, b_exclude from BRANCH where branch_code like :text");
-            
-            $stmt->bindParam('text', $branchCode, PDO::PARAM_STR);
-            $stmt->execute();
-            $branch = $stmt->fetch(PDO::FETCH_ASSOC);
-            $data = array('branchText' => $branch['branch'], 'b_description' => $branch['b_description'], 'b_includes' => $branch['b_includes'], 'b_exclude' => $branch['b_exclude']);
-            } catch (Exception $ex) {
-            echo $ex[2];
-         }
-         
-         return $data;
-      }
       
       public function add($user_data = array())
       {
@@ -161,8 +121,8 @@
          if ($_SESSION['role'] == 'Admin') {
             if ($this->Validate_Admin($changeUser['valid']))
             {
-            try {
-               $stmt = $this->connection->prepare("UPDATE `USERS` SET `status` = :s WHERE `USERS`.`username` = :u AND `USERS`.`status` = 1");
+               try {
+               $stmt = $this->connection->prepare("UPDATE `USERS` SET `status` = :s WHERE `USERS`.`username` = :u ");
                $stmt->bindParam(':u', $changeUser['username'], PDO::PARAM_STR);
                $stmt->bindParam(':s', $changeUser['newStatus'], PDO::PARAM_INT);
                $stmt->execute();
@@ -188,21 +148,13 @@
       }
       
       
-      public function reactivate($user_id = '')
-      {
-         //UPDATE `USERS` SET `status` = '1' WHERE `USERS`.`idusuario` = 2 AND `USERS`.`status` = 2
-         if ($_SESSION['role'] == 'Admin') {
-            
-            try {
-               $stmt = $this->connection->prepare("UPDATE `USERS` SET `status` = '1' WHERE `USERS`.`idusuario` = :id AND `USERS`.`status` = 2");
-               $stmt->bindParam(':id', $user_id, PDO::PARAM_INT);
-               echo $stmt->execute();
-               return ' Actualizado';
-            } catch (Exception $ex) {
-               return $ex->errorInfo[2];
-               
-            }
-         }
-         
+      private function findByCode($idCode){
+      
+         return $this->findZip->findByCode($idCode);
+      }
+   
+   
+      public function brand_search($branchCode){
+         return $this->findbranch->findByCode($branchCode);
       }
    }

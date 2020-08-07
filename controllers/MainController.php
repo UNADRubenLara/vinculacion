@@ -1,8 +1,8 @@
 <?php
    
-   class MainControler
+   class MainController
    {
-      public $MainControler;
+      public $MainController;
       
       public function __construct()
       { //App-Flow
@@ -16,12 +16,12 @@
          }
          
          if ($_SESSION['VALID']) {
-            $this->MainControler = isset($_GET['LEVEL']) ? $_GET['LEVEL'] : 'home';
+            $this->MainController = isset($_GET['LEVEL']) ? $_GET['LEVEL'] : 'home';
             $controller = new ViewController();
             
-            switch ($this->MainControler) {
+            switch ($this->MainController) {
                case 'home':
-                  $controller->load_view($this->MainControler);
+                  $controller->load_view($this->MainController);
                   break;
                
                case 'users':
