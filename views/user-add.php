@@ -1,6 +1,6 @@
 <?php
    if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud'])) {
-      printf('<h2 class="form-Title">%s</h2>', TXTmenuadduser);
+      printf('<h2 class="form-Title">%s</h2>', TXTmenuAddUser);
       $template = '
 <div class="user-add central-fr-up" >
     <form method="POST" >

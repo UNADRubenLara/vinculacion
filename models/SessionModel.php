@@ -8,11 +8,8 @@
       {
          $this->connection = new SingleConnection();
       }
-      
-      
       public function validate_user($user, $pass)
       {
-         $data = array();
          try {
             $stmt = $this->connection->prepare("SELECT * FROM `USERS` WHERE username = :user");
             $stmt->bindParam('user', $user, PDO::PARAM_STR);
@@ -27,8 +24,7 @@
             $_SESSION['username'] = $data['username'];
             $_SESSION['role'] = ($data['rol'] === '1') ? 'Admin' : 'Usuario';
             $_SESSION['fullname'] = ($data['fullname']);
-           
-            return $data;
+           return $data;
          }
          return 0;
          

@@ -10,5 +10,5 @@
 ';
    printf(
       $template,
-      TXTfooter
+      TXTFooter
    );

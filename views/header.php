@@ -42,7 +42,7 @@
          TXTmenuinit,
          TXTmenuusers,
          TXTmenuproduct,
-         TXTmenuout
+         TXTmenuOut
       );
    }
    print('

@@ -1,6 +1,6 @@
 <?php
    if ($_SESSION['role']=='Admin'){
-   printf('<h2 class="form-Title">%s</h2>', TXTmenuGestiondeusuarios);
+   printf('<h2 class="form-Title">%s</h2>', TXTmenuUserControl);
    
    $users_controller = new UsersController();
    $users = $users_controller->lst();
@@ -28,14 +28,14 @@
 			</tr>';
       
       for ($i = 0; $i < count($users); $i++) {
-         $editar = TXTuserbtnedit;
+         $editar = TXTUserBtnEdit;
          if($users[$i]['status']==1){
             $status='suspend';
-            $statusbtn=TXTuserbtnsuspend;
+            $statusbtn=TXTUserBtnSuspend;
          } else
             {
                $status='activate';
-               $statusbtn=TXTuserbtnupactivate;
+               $statusbtn=TXTUserBtnActivate;
             }
          
          $template_users .= '
@@ -46,14 +46,14 @@
 				<td>
 					<form method="POST">
 						<input type="hidden" name="LEVEL" value="user-edit">
-						<input type="hidden" name="USERNAME" value="' . $users[$i]['username'] . '">
+						<input type="hidden" name="username" value="' . $users[$i]['username'] . '">
 						<input class="button edit" type="submit" value="' . $editar . '">
 					</form>
 				</td>
 				<td>
 					<form method="POST">
 						<input type="hidden" name="LEVEL" value="user_status">
-						<input type="hidden" name="USERNAME" value="' . $users[$i]['username'] . '">
+						<input type="hidden" name="username" value="' . $users[$i]['username'] . '">
 						<input type="hidden" name="STATUS" value="' . $status . '">
 						<input class="button '.$status.'" type="submit" value="' . $statusbtn . '">
 					</form>
@@ -69,10 +69,10 @@
 	';
       
       printf($template_users,
-         TXTuseridv,
+         TXTUserId,
          TXTusername,
-         TXTuserfullnamev,
-         TXTuserbtnadd
+         TXTUserFullName,
+         TXTUserBtnAdd
       );
    }
    }else{

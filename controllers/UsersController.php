@@ -29,8 +29,8 @@
          return $this->model->get_user($username);
       }
       
-      public function suspend($user_id= '')
+      public function change_status($changeUser=array())
       {
-         return $this->model->suspend($user_id);
+         return $this->model->change_status($changeUser);
    }
    }
