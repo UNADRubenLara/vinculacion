@@ -1,6 +1,6 @@
 <?php
-include_once 'txt-values.php';
-$template = '
+   include_once 'txt-values.php';
+   $template = '
 <body>
 <div class="log-Div">
     <div class="login">
@@ -15,22 +15,22 @@ $template = '
 	<br>
 	<br>
 	';
-
-printf($template, TXTLoginAdvice, TXTusername, TXTplaceholderUser, TXTplaceholderpass, TXTplaceholderpass, TXTenter);
-
-
-if (isset($_GET['ERROR'])) {
-    $template = '
+   
+   printf($template, TXTLoginAdvice, TXTusername, TXTplaceholderUser, TXTplaceholderpass, TXTplaceholderpass, TXTenter);
+   
+   
+   if (isset($_GET['ERROR'])) {
+      $template = '
         <div class="errorText">
 		<p>%s %s</p>
 		</div>';
-    printf($template, $_GET['ERROR'], TXTLoginError);
-
-}
-print('	
+      printf($template, $_GET['ERROR'], TXTLoginError);
+      
+   }
+   print('
         </div>
 </div>
 </body>
 ');
-echo '<script src="./public/js/validates.js"></script>';
+   echo '<script src="./public/js/validates.js"></script>';
 

@@ -2,3 +2,6 @@ RewriteEngine On
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^(.*)$ index.php?LEVEL=$1 [L]
+RewriteRule ^api-web/(.*)$ /brandsearch.php?text=$1 [L]
+RewriteRule ^api-web/(.*)$ /zipsearch.php?text=$1 [L]
+

@@ -13,14 +13,15 @@
     --dark-color: #2a414e;
     --ligth-color: #b9bfcc;
     --darkest-color: #111;
-    --error-color: red;
-    --img-backgound: s
+    --error-color: #cb4d4d;
+
 }
 
 * {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
+
 }
 
 html, body {
@@ -29,12 +30,13 @@ html, body {
     margin: 0;
     padding: 0;
 
+
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: normal;
-}
+ }
 
 title {
     text-align: center;
@@ -134,32 +136,22 @@ nav li a {
     white-space: nowrap;
 }
 
-nav li a:hover {
 
-}
 
 table {
     font-size: 1.4em;
     line-height: normal;
     width: 100%;
-
-
 }
 
 th {
     width: auto;
 }
 
-td {
-
-}
-
 th, td {
     padding: 10px;
     border: 1px solid var(--darkest-color);
 }
-
-
 
 
 @media screen and (max-width: 800px) {
@@ -199,7 +191,7 @@ th, td {
         text-align: center;
     }
 
-        img {
+    img {
         width: 50%;
     }
 }
@@ -282,13 +274,10 @@ th, td {
 
 }
 
-.header-btn a:hover:before,
-.header-btn.current a:before {
-}
-
 .central-fr {
     margin: 15%;
 }
+
 .central-fr-up {
     margin: 0 15% 0 15%;
 }
@@ -324,9 +313,11 @@ th, td {
     left: 1vmin;
     right: 1vmin;
 }
+
 .tabla {
     margin: 0;
 }
+
 .table-list {
     border: 2px solid var(--darkest-color);
     background-color: var(--main-bg-ligth);
@@ -335,6 +326,7 @@ th, td {
 }
 
 .errorText {
+    text-transform: uppercase;
     color: var(--error-color);
     font-size: .75em;
     font-weight: bold;
@@ -344,6 +336,10 @@ th, td {
 .user-add {
     font-size: 1em;
 }
+.user-edit {
+    font-size: 1em;
+}
+
 .add {
     background-color: var(--btn-add-color);
 }
@@ -355,8 +351,13 @@ th, td {
 .delete {
     background-color: var(--btn-delete-color);
 }
-
-#username{
+.suspend{
+    background-color: var(--btn-delete-color);
+    }
+.activate{
+    background-color: var(--btn-add-color);
+}
+#username {
     width: 20em;
 }
 
@@ -364,30 +365,42 @@ th, td {
     width: 20em;
 }
 
-#fullname{
+#fullname {
     width: 30em;
 }
-#rfc{
-width: 10em;
-}
-#mail{
+
+#rfc {
     width: 10em;
 }
-#addresslocal{
+
+#mail {
+    width: 10em;
+}
+
+#addresslocal {
     width: 30em;
 }
-#addressref{
+
+#addressref {
     width: 30em;
 }
-#phone{
+
+#phone {
     width: 15em;
 }
-#ziplist{
+
+#ziplist {
     width: 30em;
 }
-#branchlist{
-    width: 5em;
+
+#branch {
+    width: 10em;
 }
-#companytypelist{
+
+#branchlist {
+    width: 30em;
+}
+
+#companytypelist {
     width: 10em;
 }

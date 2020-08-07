@@ -1,17 +1,18 @@
 <?php
-printf('<h2 class="form-Title">%s</h2>', TXTmenuGestiondeusuarios);
-
-$users_controller = new UsersController();
-$users = $users_controller->lst();
-
-if (empty($users)) {
-    printf('
+   if ($_SESSION['role']=='Admin'){
+   printf('<h2 class="form-Title">%s</h2>', TXTmenuUserControl);
+   
+   $users_controller = new UsersController();
+   $users = $users_controller->lst();
+   
+   if (empty($users)) {
+      printf('
 		<div class="central-fr">
 			<p class="error">%s</p>
 		</div>
 	', TXTnousers);
-} else {
-    $template_users = '
+   } else {
+      $template_users = '
 		<div >
 		<table  class="table-list">
 			<tr>
@@ -25,11 +26,19 @@ if (empty($users)) {
 					</form>
 				</th>
 			</tr>';
-
-    for ($i = 0; $i < count($users); $i++) {
-        $editar = TXTuserbtnedit;
-        $suspender = TXTuserbtnsuspend;
-        $template_users .= '
+      
+      for ($i = 0; $i < count($users); $i++) {
+         $editar = TXTUserBtnEdit;
+         if($users[$i]['status']==1){
+            $status='suspend';
+            $statusbtn=TXTUserBtnSuspend;
+         } else
+            {
+               $status='activate';
+               $statusbtn=TXTUserBtnActivate;
+            }
+         
+         $template_users .= '
 			<tr>
 			    <td>' . $users[$i]['idusuario'] . '</td>
 				<td>' . $users[$i]['username'] . '</td>
@@ -37,31 +46,35 @@ if (empty($users)) {
 				<td>
 					<form method="POST">
 						<input type="hidden" name="LEVEL" value="user-edit">
-						<input type="hidden" name="USERNAME" value="' . $users[$i]['username'] . '">
+						<input type="hidden" name="username" value="' . $users[$i]['username'] . '">
 						<input class="button edit" type="submit" value="' . $editar . '">
 					</form>
 				</td>
 				<td>
 					<form method="POST">
-						<input type="hidden" name="LEVEL" value="user-delete">
-						<input type="hidden" name="USERNAME" value="' . $users[$i]['username'] . '">
-						<input class="button delete" type="submit" value="' . $suspender . '">
+						<input type="hidden" name="LEVEL" value="user_status">
+						<input type="hidden" name="username" value="' . $users[$i]['username'] . '">
+						<input type="hidden" name="STATUS" value="' . $status . '">
+						<input class="button '.$status.'" type="submit" value="' . $statusbtn . '">
 					</form>
 				</td>
 			</tr>
 			
 		';
-    }
-
-    $template_users .= '
+      }
+      
+      $template_users .= '
 		</table>
 	</div>
 	';
-
-    printf($template_users,
-        TXTuseridv,
-        TXTusername,
-        TXTuserfullnamev,
-        TXTuserbtnadd
-    );
-}
+      
+      printf($template_users,
+         TXTUserId,
+         TXTusername,
+         TXTUserFullName,
+         TXTUserBtnAdd
+      );
+   }
+   }else{
+      printf('<h2 class="errorText">%s</h2>', TXTLoginError);
+   }
