@@ -154,7 +154,7 @@
       }
    
    
-      public function brand_search($branchCode){
+      private function brand_search($branchCode){
          return $this->findbranch->findByCode($branchCode);
       }
    }
