@@ -1,0 +1,34 @@
+{
+  "name": "Vinculación",
+  "short_name": "Vinculación",
+  "description": "Aplicación WEB para la Vinculación comercial entre industriales de San Juan del Río por medio de un directorio de proveedores y servicios",
+  "background_color": "#49838c",
+  "theme_color": "#87aed9",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "./?utm_source=web_app_manifest",
+  "scope": "./",
+  "lang": "es-MX",
+  "icons": [
+    {
+      "src": "./public/img/industry512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "./public/img/industry128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "./public/img/industry32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "./public/img/favicon.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    }
+  ]
+}

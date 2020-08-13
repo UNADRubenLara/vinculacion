@@ -27,17 +27,26 @@
          return 0;
       }
       
-      public function add_product(){
-      
+      public function add_product($product){
+      $data=array();
+      return $data;
       }
-      public function update_product(){
-      
+      public function update_product($product){
+         $data=array();
+         return $data;
       }
-      public function delete_product(){
-      
+      public function delete_product($product){
+         $data=array();
+         return $data;
       }
-      private function getBranch(){
+      private function getBranch($product){
+         $data=array();
+         return $data;
+      }
       
+      public function product_add_image($product,$image){
+         $data=array();
+         return $data;
       }
       
       
