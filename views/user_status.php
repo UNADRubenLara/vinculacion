@@ -34,10 +34,10 @@
          
       }
       
-      printf($template, $_POST['username'], $classStatus,$txtStatus, $ChangeToStatus,$txtChangeToStatus, $statusChange);
+      printf($template, $_POST['username'], $classStatus, $txtStatus, $ChangeToStatus, $txtChangeToStatus, $statusChange);
       
       
-   } elseif ($_POST['LEVEL'] == 'user_status' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'change'){
+   } elseif ($_POST['LEVEL'] == 'user_status' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'change') {
       
       $users_controller = new UsersController();
       $changeUser = array(
@@ -45,7 +45,7 @@
          'valid' => $_POST['hidentext'],
          'newStatus' => $_POST['newStatus']
       );
-      echo '<t1 class="errorText">'.$users_controller->change_status($changeUser).'</t1>';
+      echo '<t1 class="errorText">' . $users_controller->change_status($changeUser) . '</t1>';
       
       $template = '
 <script>

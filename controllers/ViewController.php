@@ -2,6 +2,7 @@
    
    class ViewController
    {
+      
       private static $view_path = './views/';
       
       public function load_view($view)

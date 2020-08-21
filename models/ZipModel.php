@@ -5,9 +5,9 @@
    {
       public function __construct()
       {
-            $this->connection = new SingleConnection();
+         $this->connection = new SingleConnection();
       }
-   
+      
       public function findByCode($idZip)
       {
          if (!ctype_digit($idZip)) {
@@ -29,32 +29,32 @@
          }
          
       }
-      public function findByZip($zipCode){
+      
+      public function findByZip($zipCode)
+      {
          
          if (!ctype_digit($zipCode)) {
-           exit;
+            exit;
          }
-             $data = [];
-            try {
-               $stmt = $this->connection->prepare("select idADDRESS, C_CODIGO, C_NOMBRE, D_TIPOASENTAMIENTO, D_MUNICIPIO, D_ESTADO, D_CIUDAD  from ZP_ADDRESS where C_CODIGO like :zip");
-               $stmt->bindParam('zip', $zipCode, PDO::PARAM_STR);
-               $stmt->execute();
-               $data = $stmt->fetchall();
-               foreach ($data as $zip) {
-                  $colonia = array('idADDRESS' => $zip['idADDRESS'], 'C_NOMBRE' => $zip['C_NOMBRE'], 'D_MUNICIPIO' => $zip['D_MUNICIPIO'], 'D_ESTADO' => $zip['D_ESTADO']);
-                  array_push($data, $colonia);
-               }
-            } catch (Exception $e) {
-               echo $e[2];
+         $data = [];
+         try {
+            $stmt = $this->connection->prepare("select idADDRESS, C_CODIGO, C_NOMBRE, D_TIPOASENTAMIENTO, D_MUNICIPIO, D_ESTADO, D_CIUDAD  from ZP_ADDRESS where C_CODIGO like :zip");
+            $stmt->bindParam('zip', $zipCode, PDO::PARAM_STR);
+            $stmt->execute();
+            $data = $stmt->fetchall();
+            foreach ($data as $zip) {
+               $colonia = array('idADDRESS' => $zip['idADDRESS'], 'C_NOMBRE' => $zip['C_NOMBRE'], 'D_MUNICIPIO' => $zip['D_MUNICIPIO'], 'D_ESTADO' => $zip['D_ESTADO']);
+               array_push($data, $colonia);
             }
-
+         } catch (Exception $e) {
+            echo $e[2];
+         }
+         
          if ($data) {
             return $data;
-         }
-         else return 0;
-    
+         } else return 0;
+         
       }
       
-   
-   
+      
    }

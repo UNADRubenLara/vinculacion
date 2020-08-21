@@ -36,7 +36,7 @@ html, body {
 body {
     font-family: 'Open Sans', sans-serif;
     line-height: normal;
- }
+}
 
 title {
     text-align: center;
@@ -137,7 +137,6 @@ nav li a {
 }
 
 
-
 table {
     font-size: 1.4em;
     line-height: normal;
@@ -196,6 +195,11 @@ th, td {
     }
 }
 
+label {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
 .dateHour {
     position: absolute;
     font-size: 1.5em;
@@ -222,6 +226,15 @@ th, td {
     background-color: var(--dark-color);
 
 
+}
+
+.center-box {
+    border-radius: 5px;
+    width: auto;
+    margin-top: 1vmax;
+    border: 2px solid var(--dark-color);
+    text-align: center;
+    background-color: var(--main-bg-ligth);
 }
 
 .form-Title {
@@ -333,10 +346,11 @@ th, td {
 
 }
 
-.user-add {
+.form-add {
     font-size: 1em;
 }
-.user-edit {
+
+.form-edit {
     font-size: 1em;
 }
 
@@ -351,12 +365,15 @@ th, td {
 .delete {
     background-color: var(--btn-delete-color);
 }
-.suspend{
+
+.suspend {
     background-color: var(--btn-delete-color);
-    }
-.activate{
+}
+
+.activate {
     background-color: var(--btn-add-color);
 }
+
 #username {
     width: 20em;
 }
@@ -403,4 +420,25 @@ th, td {
 
 #companytypelist {
     width: 10em;
+}
+
+#productdetail {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 70vmax;
+    height: 10vmax;
+    resize: vertical;
+    margin: 3px;
+}
+
+.loadimage::-webkit-file-upload-button {
+    display: inline-block;
+    border: 1px solid;
+    border-radius: 6px;
+    margin: 4px 4px;
+    background-color: var(--btn-edit-color);
+    outline: #111111;
+    cursor: pointer;
+    font-size: 1em;
 }

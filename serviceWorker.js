@@ -1,5 +1,3 @@
-;
-
 const CACHE_NAME = 'v1.0_vinculacion',
     urlsToCache = [
         './',

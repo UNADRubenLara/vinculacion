@@ -8,6 +8,7 @@
       {
          $this->connection = new SingleConnection();
       }
+      
       public function validate_user($user, $pass)
       {
          try {
@@ -17,14 +18,17 @@
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
             
          } catch (Exception $ex) {
-         return $ex[2];
+            return $ex[2];
          }
          if ($data["username"] && password_verify($pass, $data["hidentext"])) {
             $_SESSION['iduser'] = $data["idusuario"];
             $_SESSION['username'] = $data['username'];
             $_SESSION['role'] = ($data['rol'] === '1') ? 'Admin' : 'Usuario';
             $_SESSION['fullname'] = ($data['fullname']);
-           return $data;
+            $_SESSION['branch'] = ($data['branch']);
+            $_SESSION['LEVEL'] = 'home';
+            
+            return $data;
          }
          return 0;
          

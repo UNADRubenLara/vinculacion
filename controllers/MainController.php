@@ -5,7 +5,7 @@
       public $MainController;
       
       public function __construct()
-      { //App-Flow
+      {
          
          if (!isset($_SESSION)) {
             session_start();
@@ -21,7 +21,7 @@
             
             switch ($this->MainController) {
                case 'home':
-                  $controller->load_view($this->MainController);
+                  $controller->load_view('home');//$this->MainController
                   break;
                
                case 'users':
@@ -31,6 +31,14 @@
                      $controller->load_view($_POST['LEVEL']);
                   }
                   break;
+               case 'products':
+                  if (!isset($_POST['LEVEL'])) {
+                     $controller->load_view('products');
+                  } else {
+                     $controller->load_view($_POST['LEVEL']);
+                  }
+                  break;
+               
                
                case 'out':
                   $user_session = new SessionController();
@@ -56,7 +64,7 @@
                   header('Location: ./?ERROR=' . $_POST['USER']);
                } else {
                   $_SESSION['VALID'] = true;
-                  header('Location: ./');
+                  header('Location: ./home');
                }
                
                

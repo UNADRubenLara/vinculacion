@@ -16,12 +16,16 @@
       
       public function add($user_data = array())
       {
-         return $this->model->add($user_data);
+         if ($_SESSION['role'] == 'Admin') {
+            return $this->model->add($user_data);
+         }
       }
       
       public function update($user_data = array())
       {
-         return $this->model->update($user_data);
+         if ($_SESSION['role'] == 'Admin') {
+            return $this->model->update($user_data);
+         }
       }
       
       public function get_user($username = '')
@@ -29,8 +33,15 @@
          return $this->model->get_user($username);
       }
       
-      public function change_status($changeUser=array())
+      public function change_status($changeUser = array())
       {
-         return $this->model->change_status($changeUser);
-   }
+         if ($_SESSION['role'] == 'Admin') {
+            return $this->model->change_status($changeUser);
+         }
+      }
+      
+      public function get_branch($username)
+      {
+         return $this->model->get_branch($username);
+      }
    }

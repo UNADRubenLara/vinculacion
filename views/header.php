@@ -36,9 +36,9 @@
             <br>
             <h3 class="salute">Hola %s</h3>
             <ul class="header-btn color6">
-                <li class="color1"><a href="./">%s</a></li>
+                <li class="color1"><a href="home">%s</a></li>
                 <li class="color1"><a href="users">%s</a></li>
-                <li class="color1"><a href="productos">%s</a></li>
+                <li class="color1"><a href="products">%s</a></li>
                 <li class="color1"><a href="out">%s</a></li>
             </ul>
 		</nav>

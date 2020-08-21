@@ -6,7 +6,6 @@
 	<p ><b>%s</b></p>
 </article>
 ';
-   
    printf(
       $template,
       $_SESSION['username'],

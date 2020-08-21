@@ -16,19 +16,17 @@
             $stmt->execute();
             $branch = $stmt->fetch(PDO::FETCH_ASSOC);
             $data = array('branchText' => $branch['branch'], 'b_description' => $branch['b_description'], 'b_includes' => $branch['b_includes'], 'b_exclude' => $branch['b_exclude']);
-         }
-         catch (Exception $ex) {
+         } catch (Exception $ex) {
             echo $ex[2];
          }
-   
+         
          return $data;
       }
       
       
-      
       public function findByText($text)
       {
-         $text='%' .$text. '%';
+         $text = '%' . $text . '%';
          try {
             $stmt = $this->connection->prepare("select branch_code, branch, b_description, b_includes, b_exclude from BRANCH where branch like :text");
             $stmt->bindParam('text', $text, PDO::PARAM_STR);

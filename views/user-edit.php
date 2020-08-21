@@ -2,9 +2,9 @@
    if ($_POST['LEVEL'] == 'user-edit' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud'])) {
       printf('<h2 class="form-Title">%s</h2>', TXTmenuUpdateUser);
       $users_controller = new UsersController();
-      $edit_user=$users_controller->get_user($_POST['username']);
+      $edit_user = $users_controller->get_user($_POST['username']);
       $template = '
-<div class="user-edit central-fr-up" >
+<div class="form-edit central-fr-up" >
     <form method="POST" >
         <hr>
         <strong>Nombre de usuario:</strong><input id="username" readonly type="text" name="username" placeholder="Nombre de usuario" value="%s"
@@ -55,20 +55,20 @@
 
 
 ';
-     $location=$edit_user['C_NOMBRE'].','.$edit_user['D_MUNICIPIO'].', '.$edit_user['D_CIUDAD'].', '.$edit_user['D_ESTADO'];
-   
-     $companyType=$edit_user['companytype']==1 ? $micro='selected': $micro='';
-     $companyType=$edit_user['companytype']==2 ? $med='selected': $med='';
-     $companyType=$edit_user['companytype']==3 ? $big='selected': $big='';
-     
-     printf($template, $edit_user['username'],$edit_user['fullname'],$edit_user['rfc'],
-         $edit_user['address_street'],$edit_user['C_CODIGO'],$edit_user['ZP_ADDRESS_idADDRESS'],
-        $edit_user['ZP_ADDRESS_idADDRESS'],$location, $edit_user['branch'],$edit_user['branch'],
-         $edit_user['branchText'], $edit_user['companytype'],$micro, $med, $big, $edit_user['phone'],
-         $edit_user['mail'],TXTUserBtnUpdate,$edit_user['idusuario']);
+      $location = $edit_user['C_NOMBRE'] . ',' . $edit_user['D_MUNICIPIO'] . ', ' . $edit_user['D_CIUDAD'] . ', ' . $edit_user['D_ESTADO'];
+      
+      $companyType = $edit_user['companytype'] == 1 ? $micro = 'selected' : $micro = '';
+      $companyType = $edit_user['companytype'] == 2 ? $med = 'selected' : $med = '';
+      $companyType = $edit_user['companytype'] == 3 ? $big = 'selected' : $big = '';
+      
+      printf($template, $edit_user['username'], $edit_user['fullname'], $edit_user['rfc'],
+         $edit_user['address_street'], $edit_user['C_CODIGO'], $edit_user['ZP_ADDRESS_idADDRESS'],
+         $edit_user['ZP_ADDRESS_idADDRESS'], $location, $edit_user['branch'], $edit_user['branch'],
+         $edit_user['branchText'], $edit_user['companytype'], $micro, $med, $big, $edit_user['phone'],
+         $edit_user['mail'], TXTBtnUpdate, $edit_user['idusuario']);
       
    } else if ($_POST['LEVEL'] == 'user-edit' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'edit') {
-   
+      
       $update_user = array(
          'idusuario' => $_POST['idusuario'],
          'username' => $_POST['username'],

@@ -1,18 +1,18 @@
 <?php
-   if ($_SESSION['role']=='Admin'){
-   printf('<h2 class="form-Title">%s</h2>', TXTmenuUserControl);
-   
-   $users_controller = new UsersController();
-   $users = $users_controller->lst();
-   
-   if (empty($users)) {
-      printf('
+   if ($_SESSION['role'] == 'Admin') {
+      printf('<h2 class="form-Title">%s</h2>', TXTmenuUserControl);
+      
+      $users_controller = new UsersController();
+      $users = $users_controller->lst();
+      
+      if (empty($users)) {
+         printf('
 		<div class="central-fr">
 			<p class="error">%s</p>
 		</div>
 	', TXTnousers);
-   } else {
-      $template_users = '
+      } else {
+         $template_users = '
 		<div >
 		<table  class="table-list">
 			<tr>
@@ -26,19 +26,18 @@
 					</form>
 				</th>
 			</tr>';
-      
-      for ($i = 0; $i < count($users); $i++) {
-         $editar = TXTUserBtnEdit;
-         if($users[$i]['status']==1){
-            $status='suspend';
-            $statusbtn=TXTUserBtnSuspend;
-         } else
-            {
-               $status='activate';
-               $statusbtn=TXTUserBtnActivate;
-            }
          
-         $template_users .= '
+         for ($i = 0; $i < count($users); $i++) {
+            $editar = TXTBtnEdit;
+            if ($users[$i]['status'] == 1) {
+               $status = 'suspend';
+               $statusbtn = TXTUserBtnSuspend;
+            } else {
+               $status = 'activate';
+               $statusbtn = TXTUserBtnActivate;
+            }
+            
+            $template_users .= '
 			<tr>
 			    <td>' . $users[$i]['idusuario'] . '</td>
 				<td>' . $users[$i]['username'] . '</td>
@@ -55,26 +54,26 @@
 						<input type="hidden" name="LEVEL" value="user_status">
 						<input type="hidden" name="username" value="' . $users[$i]['username'] . '">
 						<input type="hidden" name="STATUS" value="' . $status . '">
-						<input class="button '.$status.'" type="submit" value="' . $statusbtn . '">
+						<input class="button ' . $status . '" type="submit" value="' . $statusbtn . '">
 					</form>
 				</td>
 			</tr>
 			
 		';
-      }
-      
-      $template_users .= '
+         }
+         
+         $template_users .= '
 		</table>
 	</div>
 	';
-      
-      printf($template_users,
-         TXTUserId,
-         TXTusername,
-         TXTUserFullName,
-         TXTUserBtnAdd
-      );
-   }
-   }else{
+         
+         printf($template_users,
+            TXTId,
+            TXTusername,
+            TXTUserFullName,
+            TXTBtnAdd
+         );
+      }
+   } else {
       printf('<h2 class="errorText">%s</h2>', TXTLoginError);
    }

@@ -60,7 +60,7 @@ phone.addEventListener("input", function () {
 });
 const mail = document.getElementById("mail");
 mail.addEventListener("input", function () {
-    if (mail.value.length < 10 || mail.value.length > 30) {
+    if (mail.value.length < 10 || mail.value.length > 40) {
         mail.setCustomValidity("Verifique su Correo");
     } else {
         mail.setCustomValidity("");

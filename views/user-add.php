@@ -2,7 +2,7 @@
    if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && !isset($_POST['crud'])) {
       printf('<h2 class="form-Title">%s</h2>', TXTmenuAddUser);
       $template = '
-<div class="user-add central-fr-up" >
+<div class="form-add central-fr-up" >
     <form method="POST" >
         <hr>
         <strong>Nombre de usuario:</strong><input id="username" type="text" name="username" placeholder="Nombre de usuario"
@@ -51,7 +51,7 @@
 
 ';
       printf($template);
-     
+      
    } else if ($_POST['LEVEL'] == 'user-add' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'add') {
       $new_user = array(
          'username' => $_POST['username'],
@@ -82,10 +82,10 @@
 ';
       
       printf($template, $user);
-   
+      
    } else {
-     $controller = new ViewController();
-     $controller->load_view('error401');
+      $controller = new ViewController();
+      $controller->load_view('error401');
    }
    echo '<script src="./public/js/findzip.js"></script>';
    echo '<script src="./public/js/findbranch.js"></script>';

@@ -18,8 +18,9 @@
          }
          
       }
-   
-      public function findByCode($idBranch = ''){
+      
+      public function findByCode($idBranch = '')
+      {
          
          return $this->model->findByCode($idBranch);
          

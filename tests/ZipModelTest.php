@@ -1,22 +1,23 @@
 <?php
-
+   
    use PHPUnit\Framework\TestCase;
-   foreach (glob("../models/*.php") as $filename)
-   {
+   
+   foreach (glob("../models/*.php") as $filename) {
       include_once $filename;
    }
+   
    class ZipModelTest extends TestCase
    {
-   
+      
       public function testFindByCode()
       {
-         $colonia =$this->mock();
+         $colonia = $this->mock();
          $model = new ZipModel();
          $RomaNorte = $model->findByCode('592');
          $this->assertEquals($colonia, $RomaNorte);
-      
+         
       }
-   
+      
       private function mock()
       {
          $colonia = array(

@@ -15,16 +15,13 @@
          
       }
       
-      public function valid_session($session)
-      {
-         return new UsersModel($session);
-      }
       
       public function logout()
       {
          if (!isset($_SESSION)) {
             session_start();
          }
+         $_SESSION = array();
          session_destroy();
          header('Location: ./');
       }

@@ -21,7 +21,7 @@
             array_push($data, $colonia);
          }
       } catch (Exception $e) {
-      echo $e[2];
+         echo $e[2];
       }
       
    }

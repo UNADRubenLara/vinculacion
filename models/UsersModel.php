@@ -6,10 +6,10 @@
       
       public function __construct()
       {
-         $this->findZip= new ZipModel();
-         $this->findbranch= new BranchModel();
+         $this->findZip = new ZipModel();
+         $this->findbranch = new BranchModel();
          $this->connection = new SingleConnection();
-                  $UserList = $this->load_users();
+         $UserList = $this->load_users();
          for ($i = 0; $i < count($UserList); ++$i) {
             $AddBranch = $this->brand_search($UserList[$i]['branch']);
             $UserList[$i]["branchText"] = $AddBranch['branchText'];
@@ -18,7 +18,7 @@
                $UserList[$i][$key] = $value;
             }
          }
-         $this->users=$UserList;
+         $this->users = $UserList;
       }
       
       public function load_users()
@@ -27,6 +27,7 @@
             $stmt = $this->connection->prepare("SELECT * FROM `USERS`");
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $stmt->closeCursor();
          } catch (Exception $ex) {
             return $ex[2];
          }
@@ -34,6 +35,17 @@
             return $data;
          }
          return 0;
+      }
+      
+      private function brand_search($branchCode)
+      {
+         return $this->findbranch->findByCode($branchCode);
+      }
+      
+      private function findByCode($idCode)
+      {
+         
+         return $this->findZip->findByCode($idCode);
       }
       
       public function list_users()
@@ -50,7 +62,14 @@
          }
       }
       
-      
+      public function get_branch($username)
+      {
+         foreach ($this->users as $user) {
+            if ($user['username'] == $username) {
+               return $user['branchText'];
+            }
+         }
+      }
       
       public function add($user_data = array())
       {
@@ -79,12 +98,12 @@
                } else {
                   return $user_data['username'] . ' Guardado';
                }
+               $stmt->closeCursor();
             } catch (Exception $ex) {
                return $ex->errorInfo[2];
             }
          }
       }
-      
       
       public function update($user_data = array())
       {
@@ -107,6 +126,7 @@
                $stmt->bindParam(':s', $status, PDO::PARAM_INT);
                $stmt->bindParam(':i', $user_data['idaddress'], PDO::PARAM_INT);
                echo $stmt->execute();
+               $stmt->closeCursor();
                return $user_data['username'] . ' Actualizado';
                
             } catch (Exception $ex) {
@@ -116,45 +136,35 @@
          }
       }
       
-      public function change_status($changeUser= array())
+      public function change_status($changeUser = array())
       {
          if ($_SESSION['role'] == 'Admin') {
-            if ($this->Validate_Admin($changeUser['valid']))
-            {
+            if ($this->Validate_Admin($changeUser['valid'])) {
                try {
-               $stmt = $this->connection->prepare("UPDATE `USERS` SET `status` = :s WHERE `USERS`.`username` = :u ");
-               $stmt->bindParam(':u', $changeUser['username'], PDO::PARAM_STR);
-               $stmt->bindParam(':s', $changeUser['newStatus'], PDO::PARAM_INT);
-               $stmt->execute();
-               return ' Actualizado';
-            } catch (Exception $ex) {
-               return $ex->errorInfo[2];
-               
+                  $stmt = $this->connection->prepare("UPDATE `USERS` SET `status` = :s WHERE `USERS`.`username` = :u ");
+                  $stmt->bindParam(':u', $changeUser['username'], PDO::PARAM_STR);
+                  $stmt->bindParam(':s', $changeUser['newStatus'], PDO::PARAM_INT);
+                  $stmt->execute();
+                  $stmt->closeCursor();
+                  return ' Actualizado';
+               } catch (Exception $ex) {
+                  return $ex->errorInfo[2];
+                  
+               }
+            } else {
+               return TxTError . ' ' . TXTplaceholderpass;
             }
          }
-            else{
-               return TxTError.' '.TXTplaceholderpass;
-            }
       }
-      }
-      private function Validate_Admin($hiddenText=''){
-      if(password_verify($hiddenText, $this->users[0]['hidentext'])) {
+      
+      private function Validate_Admin($hiddenText = '')
+      {
+         if (password_verify($hiddenText, $this->users[0]['hidentext'])) {
             return true;
-         }else{
+         } else {
             return false;
          }
          
          
-      }
-      
-      
-      private function findByCode($idCode){
-      
-         return $this->findZip->findByCode($idCode);
-      }
-   
-   
-      private function brand_search($branchCode){
-         return $this->findbranch->findByCode($branchCode);
       }
    }
