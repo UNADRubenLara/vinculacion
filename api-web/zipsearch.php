@@ -1,5 +1,8 @@
 <?Php
-   include_once "publicconection.php";
+   include_once '../controllers/ProductController.php';
+   include_once '../models/ProductModel.php';
+   include_once '../models/SingleConnection.php';
+   if (isset($_GET['txt']) && $_SESSION['VALID']) {
    if (!isset($dbo)) {
       $dbo = new PublicConecction();
    }
@@ -33,3 +36,4 @@
    
    $dbo = Null;
    exit();
+   }

@@ -28,6 +28,8 @@
    define('TXTmenuUpdateUser', 'Editar Usuario');
    define('TXTStatus', 'Cambiar el status del Usuario');
    define('TXTStatusUpdate', 'Actualizado');
+   define('TXTmenufind', 'Buscar');
+   define('TXTmenustats', 'Estadisticas');
 
 
 //Home
@@ -57,6 +59,7 @@
    define('TXTUpdateProduct', 'Editar Producto');
    define('TXTProductDescription', 'Describir Producto');
    define('TXTImage', 'Imágen');
+   define('TXTDeleteProduct', '¿Desea borrar este Producto?');
    
    
    

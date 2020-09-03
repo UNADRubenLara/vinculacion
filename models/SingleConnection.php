@@ -17,6 +17,10 @@
             die("PDO CONNECTION ERROR: " . $e->getMessage());
          }
          
+      }
+      public function trow_error($ex){
+         die("PDO CONNECTION ERROR: " . $ex->getMessage());
+         echo $ex->getCode();
          
       }
       
