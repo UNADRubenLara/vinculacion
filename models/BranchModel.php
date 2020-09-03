@@ -16,8 +16,8 @@
             $stmt->execute();
             $branch = $stmt->fetch(PDO::FETCH_ASSOC);
             $data = array('branchText' => $branch['branch'], 'b_description' => $branch['b_description'], 'b_includes' => $branch['b_includes'], 'b_exclude' => $branch['b_exclude']);
-         } catch (Exception $ex) {
-            echo $ex[2];
+         } catch (PDOException  $ex) {
+            $this->connection->trow_error($ex);
          }
          
          return $data;
@@ -36,8 +36,8 @@
                $branch = array('branch_code' => $nt['branch_code'], 'branch' => $nt['branch'], 'b_description' => $nt['b_description'], 'b_includes' => $nt['b_includes'], 'b_exclude' => $nt['b_exclude']);
                array_push($data, $branch);
             }
-         } catch (Exception $ex) {
-            echo $ex[2];
+         } catch (PDOException  $ex) {
+            $this->connection->trow_error($ex);
          }
          
          if ($data) {

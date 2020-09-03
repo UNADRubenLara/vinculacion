@@ -13,7 +13,7 @@
 		<br>
 		<label>%s: %s</label>
 		</div>
-		<textarea id="productdetail" name="product_detail" class="textcapture" placeholder="%s" ></textarea>
+		<textarea required id="productdetail" name="product_detail" class="textcapture" placeholder="%s"></textarea>
 		<input type="file" name="image" class="loadimage">
 		<br>
 		<input type="submit" value="%s" >
@@ -29,22 +29,18 @@
       printf($template, TXTplaceholderUser, $_SESSION['username'], TXTProductDetail, $actual_branch, TXTProductDescription, TXTBtnAdd, TXTImage);
       
    } else if ($_POST['LEVEL'] == 'product-add' && $_POST['crud'] == 'add') {
-      $valid_extensions = array('jpeg', 'jpg', 'png', 'gif');
+      $product_controller = new ProductController();
       $imgFile = $_FILES['image']['name'];
-      $tmp_dir = $_FILES['image']['tmp_name'];
-      $imgSize = $_FILES['image']['size'];
-      $imgExt = strtolower(pathinfo($imgFile, PATHINFO_EXTENSION));
-      if (in_array($imgExt, $valid_extensions)) {
-         if ($imgSize < 1000000) {
-            $datos = base64_encode(file_get_contents($_FILES["image"]["tmp_name"]));
-         } else {
-            $errMSG = "Su archivo es muy grande.";
-         }
-      } else {
-         $errMSG = "Solo archivos JPG, JPEG, PNG & GIF son permitidos.";
+      if($product_controller->validate_image($imgFile)=='ok'){
+         $datos = base64_encode(file_get_contents($_FILES["image"]["tmp_name"]));
+         
       }
-  
-   $username = $_SESSION['iduser'];
+      else{
+         echo $product_controller->validate_image($imgFile);
+         exit();
+      }
+      
+    $username = $_SESSION['iduser'];
    $branch = $_SESSION['branch'];
    $newproduct = array(
       'iduser' => $username,
@@ -52,9 +48,6 @@
       'product_detail' => $_POST['product_detail'],
       'image' => $datos
    );
-   
-   
-   $product_controller = new ProductController();
    $product = $product_controller->add_product($newproduct);
       
       

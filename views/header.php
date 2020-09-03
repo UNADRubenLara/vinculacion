@@ -37,23 +37,39 @@
             <h3 class="salute">Hola %s</h3>
             <ul class="header-btn color6">
                 <li class="color1"><a href="home">%s</a></li>
-                <li class="color1"><a href="users">%s</a></li>
-                <li class="color1"><a href="products">%s</a></li>
+                <li class="color1"><a href="%s">%s</a></li>
+                <li class="color1"><a href="%s">%s</a></li>
                 <li class="color1"><a href="out">%s</a></li>
             </ul>
 		</nav>
 	';
       
       $dateHour = date('h:i:s A');
+      if($_SESSION['role']=='Admin'){
+         printf(
+            $template,
+            $dateHour,
+            $_SESSION['username'],
+            TXTmenuinit,
+            'stats',
+            TXTmenustats,
+            'users',
+            TXTmenuusers,
+            TXTmenuOut
+         );
+      }else{
       printf(
          $template,
          $dateHour,
          $_SESSION['username'],
          TXTmenuinit,
-         TXTmenuusers,
+         'find',
+         TXTmenufind,
+         'products',
          TXTmenuproduct,
          TXTmenuOut
       );
+   }
    }
    print('
 	</header>

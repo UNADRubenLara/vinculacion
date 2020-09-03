@@ -112,7 +112,7 @@
             try {
                $status = 1;
                
-               $stmt = $this->connection->prepare("UPDATE `USERS` SET `address_street` = :a, `hidentext`= :h, `phone` = :p, `mail`= :m, `fullname` = :f, `rfc` = :r, `branch` = :b, `companytype` = :c, `status` = :s, `ZP_ADDRESS_idADDRESS` = :i  WHERE `USERS`.`idusuario` = :id AND `USERS`.`username` = :u ");
+               $stmt = $this->connection->prepare("UPDATE `USERS` SET `username` = :u,  `address_street` = :a, `hidentext`= :h, `phone` = :p, `mail`= :m, `fullname` = :f, `rfc` = :r, `branch` = :b, `companytype` = :c, `status` = :s, `ZP_ADDRESS_idADDRESS` = :i  WHERE `USERS`.`idusuario` = :id;");
                $stmt->bindParam(':id', $user_data['idusuario'], PDO::PARAM_INT);
                $stmt->bindParam(':u', $user_data['username'], PDO::PARAM_STR);
                $stmt->bindParam(':h', $password, PDO::PARAM_STR);
@@ -129,10 +129,9 @@
                $stmt->closeCursor();
                return $user_data['username'] . ' Actualizado';
                
-            } catch (Exception $ex) {
-               return $ex->errorInfo[2];
-               
-            }
+           }  catch (PDOException  $ex) {
+         $this->connection->trow_error($ex);
+      }
          }
       }
       
@@ -147,9 +146,8 @@
                   $stmt->execute();
                   $stmt->closeCursor();
                   return ' Actualizado';
-               } catch (Exception $ex) {
-                  return $ex->errorInfo[2];
-                  
+               } catch (PDOException  $ex) {
+                  $this->connection->trow_error($ex);
                }
             } else {
                return TxTError . ' ' . TXTplaceholderpass;

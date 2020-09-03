@@ -7,9 +7,9 @@
 <div class="form-edit central-fr-up" >
     <form method="POST" >
         <hr>
-        <strong>Nombre de usuario:</strong><input id="username" readonly type="text" name="username" placeholder="Nombre de usuario" value="%s"
+        <strong>Nombre de usuario:</strong><input id="username"  type="text" name="username" placeholder="Nombre de usuario" value="%s"
                                                   minlength="5" maxlength="20" required>
-        <strong>Contraseña:</strong> <input id="password" type="password" name="hidentext" placeholder="contraseña" value=""
+        <strong>Contraseña:</strong> <input id="password" type="password" name="hidentext" placeholder="Nueva contraseña" value=""
                                             minlength="6" maxlength="40" required>
         <hr>
         <strong>Nombre completo:</strong> <input id="fullname" type="text" name="fullname" value="%s"

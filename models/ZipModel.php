@@ -20,7 +20,8 @@
             $stmt->execute();
             $zip = $stmt->fetch(PDO::FETCH_ASSOC);
             $data = array('C_CODIGO' => $zip['C_CODIGO'], 'C_NOMBRE' => $zip['C_NOMBRE'], 'D_CIUDAD' => $zip['D_CIUDAD'], 'D_MUNICIPIO' => $zip['D_MUNICIPIO'], 'D_ESTADO' => $zip['D_ESTADO']);
-         } catch (Exception $e) {
+         } catch (PDOException  $ex) {
+            $this->connection->trow_error($ex);
          }
          if ($data) {
             return $data;
@@ -46,8 +47,8 @@
                $colonia = array('idADDRESS' => $zip['idADDRESS'], 'C_NOMBRE' => $zip['C_NOMBRE'], 'D_MUNICIPIO' => $zip['D_MUNICIPIO'], 'D_ESTADO' => $zip['D_ESTADO']);
                array_push($data, $colonia);
             }
-         } catch (Exception $e) {
-            echo $e[2];
+         } catch (PDOException  $ex) {
+            $this->connection->trow_error($ex);
          }
          
          if ($data) {

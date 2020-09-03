@@ -1,16 +1,9 @@
 <?php
-   if ($_SESSION['role'] != '') {
+   if ($_SESSION['role'] != 'Admin') {
       printf('<h2 class="form-Title">%s</h2>', TXTmenuproduct);
       $product_controller = new ProductController();
       $products = $product_controller->list_user_products($_SESSION['iduser']);
-      if (empty($products)) {
-         printf('
-		<div class="central-fr">
-			<p class="error">%s</p>
-		</div>
-	', TXTnoproducts);
-      } else {
-         $template_products = '
+      $template_products = '
 		<div >
 		<table  class="table-list">
 			<tr>
@@ -23,6 +16,20 @@
 					</form>
 				</th>
 			</tr>';
+      
+      if (empty($products)) {
+         printf($template_products,
+            TXTId,
+            TXTProductDetail,
+            TXTBtnAdd
+         );
+         printf('
+		<div class="central-fr-up">
+			<p class="error">%s</p>
+		</div>
+	', TXTnoproducts);
+      } else {
+         
          
          for ($i = 0; $i < count($products); $i++) {
             $editar = TXTBtnEdit;
@@ -41,8 +48,8 @@
 				</td>
 				<td>
 					<form method="POST">
-						<input type="hidden" name="delete" value="product_delete">
-						<input type="hidden" name="idDelete" value="' . $products[$i]['idproduct_detail'] . '">
+						<input type="hidden" name="LEVEL" value="product-delete">
+						<input type="hidden" name="idproduct" value="' . $products[$i]['idproduct_detail'] . '">
 						<input class="button delete" type="submit" value="' . TXTBtndelete . '">
 					</form>
 				</td>
