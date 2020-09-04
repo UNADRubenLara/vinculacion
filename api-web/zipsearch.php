@@ -4,7 +4,7 @@
    include_once '../models/SingleConnection.php';
    if (isset($_GET['txt']) && $_SESSION['VALID']) {
    if (!isset($dbo)) {
-      $dbo = new PublicConecction();
+      $dbo = new SingleConnection();
    }
    $in = $_GET['txt'];
    if (!ctype_digit($in)) {

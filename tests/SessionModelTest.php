@@ -13,7 +13,7 @@
       public function testValidate_user()
       {
          $model = new SessionModel();
-         $model->validate_user('admin', 'UNAD2020-2');
+         $model->validate_user('admin', '123456');
          $this->assertEquals('Admin', $_SESSION['role']);
       }
    }

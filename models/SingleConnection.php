@@ -1,11 +1,10 @@
-<?php
-   
-   
+
+   <?php
    class SingleConnection extends PDO
    {
-      static private $dsn = 'mysql:host=kynosargos.com;dbname=kynosarg_vincula';
-      static private $username = 'kynosarg_test';
-      static private $hiddentext = 'mqsp{)g@fW30';
+      static private $dsn = "mysql:host=localhost;dbname=prueba";
+      static private $username = "root";
+      static private $hiddentext = "";
       
       protected $rows = array();
       
