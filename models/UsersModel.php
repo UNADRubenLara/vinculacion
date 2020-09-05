@@ -139,6 +139,7 @@
       {
          if ($_SESSION['role'] == 'Admin') {
             if ($this->Validate_Admin($changeUser['valid'])) {
+               if($changeUser['username']==='admin'){return 'No se puede suspender el Admin'; }
                try {
                   $stmt = $this->connection->prepare("UPDATE `USERS` SET `status` = :s WHERE `USERS`.`username` = :u ");
                   $stmt->bindParam(':u', $changeUser['username'], PDO::PARAM_STR);

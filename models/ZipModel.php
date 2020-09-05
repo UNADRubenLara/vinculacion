@@ -56,6 +56,18 @@
          } else return 0;
          
       }
+      function loadLargeZip(){
+         $conn = new SingleConnection();
+         $conn->query("SET CHARACTER SET utf8");
+         $handle = fopen('./install/ZP_ADDRESS.sql', 'rb');
+         if ($handle) {
+            while (!feof($handle)) {
+               $buffer = stream_get_line($handle, 1000000, ";\n");
+               $conn->query($buffer);
+            }
+         }
+      
+      }
       
       
    }

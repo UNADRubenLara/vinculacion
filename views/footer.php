@@ -1,6 +1,5 @@
 <?php
    $template = '
-	</main>
 </body>
 <div >
     <p class="footer">%s</p>

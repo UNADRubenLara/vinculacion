@@ -7,7 +7,7 @@ CREATE TABLE `ZP_ADDRESS` (
   `D_MUNICIPIO` varchar(50) CHARACTER SET utf8 DEFAULT NULL,
   `D_ESTADO` varchar(35) CHARACTER SET utf8 DEFAULT NULL,
   `D_CIUDAD` varchar(50) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 INSERT INTO `ZP_ADDRESS` VALUES
 (145421, 99999, 'Indefinido o Fuera de México', 'Indefinido o Fuera de Méx', 'Indefinido o Fuera de México', 'Indefinido o Fuera de México', 'Indefinido o Fuera de México');

@@ -66,7 +66,8 @@
       <input type="text" id="dbuser" name="dbuser" placeholder ="DB_UserName"><br>
       <label for="dbpassword">DBPassword</label><br>
       <input type="text" id="dbpassword" name="dbpassword" placeholder="DBPassword"><br>
-      <input type="submit" id="create" value="CreateDB" hidden="true">
+      <input type="submit" id="create" value="Iniciar Instalación" hidden="true"><br>
+      <label hidden="true" id="wait">Espere, creando base de datos, puede tardar un poco.</label>
      </form>
      <button type="button" id="TestConnection" hidden="true" onclick="test_BD();" >TestConnection</button>
    
@@ -84,11 +85,8 @@ function  verifypass(){
          document.getElementById("TestConnection").hidden=true;
          document.getElementById("pass2").style.color="red";
          document.getElementById("pass2msg").innerText=" No coinciden";
-        
      }
-    
 }
-
 
 function test_BD() {
      pass1=document.getElementById("pass1").value;
@@ -152,7 +150,12 @@ pass.addEventListener("input", function () {
         passmsg.innerText="";
     }
 });}
-
+const create = document.getElementById("create");
+const wait = document.getElementById("wait");
+if (create){
+create.addEventListener("click", function () {
+      wait.hidden=false;
+   });}
 
 </script>
 ';

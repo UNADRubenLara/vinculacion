@@ -36,7 +36,13 @@
       
    } else if ($_POST['LEVEL'] == 'product-edit' && $_POST['crud'] == 'edit') {
             
-            if ($_FILES['image']['type'] == "image/jpeg" && $_FILES['image']['size'] <= 200000) {
+            if ((
+               $_FILES['image']['type'] == "image/jpeg" ||
+               $_FILES['image']['type'] == "image/jpg" ||
+               $_FILES['image']['type'] == "image/png" ||
+               $_FILES['image']['type'] == "image/gif"
+               
+               )&& $_FILES['image']['size'] <= 200000) {
                $datos = base64_encode(file_get_contents($_FILES["image"]["tmp_name"]));
             } else {
                $datos = $_POST['sameimage'];

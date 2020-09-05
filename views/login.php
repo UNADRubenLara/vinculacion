@@ -2,7 +2,6 @@
    
    include_once 'txt-values.php';
    $template = '
-<body>
 <div class="log-Div">
     <div class="login">
     <h3 class="form-Title">%s</h3>
@@ -31,7 +30,6 @@
    print('
         </div>
 </div>
-</body>
 ');
 
 

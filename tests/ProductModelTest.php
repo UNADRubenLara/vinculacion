@@ -27,13 +27,12 @@
       public function test_get_product()
       {
          $model = new ProductModel();
-         $lista = $model->get_product('2');
+         $lista = $model->get_product('1');
          $this->assertEquals('5112', $lista["idbranch"]);
       }
       public function test_findByText(){
          $model = new ProductModel();
-         $lista = $model->findByText('%deta%');
-         var_dump($lista);
+         $lista = $model->findByText('%produc%');
          $this->assertEquals('1', $lista[0]['idproduct_detail']);
          
       }

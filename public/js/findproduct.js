@@ -21,33 +21,50 @@ function findProductByText(str) {
         function stateChanged() {
             if (bhttpxml.readyState == 4) {
                 let ArrayRecived = JSON.parse(bhttpxml.responseText);
-                if (ArrayRecived.length >= 1) {
-                    let li, select, btn;
+                let select;
+                let maxprod=20;
+                select = document.getElementById("productsfind");
+                while (select.lastElementChild) {
+                    select.removeChild(select.lastElementChild);
+                }
+                if (ArrayRecived.length >= 1 && ArrayRecived.length <= maxprod) {
+                    let li, select, btn,goProduct;
                     document.getElementById('productsfind').innerText = null;
                     ArrayRecived.forEach(fillOptions);
-
                     function fillOptions(products, i) {
                         li = document.createElement("li");
                         btn = document.createElement('button');
+                        goProduct=document.createElement("img");
                         btn.type = 'submit';
                         btn.value = products['idproduct_detail'];
-                        btn.textContent = '>>';
+                        goProduct.setAttribute("src", "./public/img/findperson.png")
+                        goProduct.setAttribute("width", "50%");
+                        goProduct.setAttribute("height", "auto");
                         li.className = 'ulproduct';
                         li.innerText = products['product_detail'];
                         select = document.getElementById("productsfind");
                         select.appendChild(li);
                         li.appendChild(btn);
+                        btn.appendChild(goProduct);
                     }
-                } else {
-                    option = document.createElement("option");
-                    option.value = 'vacio';
-                    option.text = 'vacio';
-                    select = document.getElementById("productsearch");
-                    select.appendChild(option);
+                }
+                if(!ArrayRecived) {
+                   li = document.createElement("li");
+                    li.className = 'ulproduct';
+                        li.innerText = 'Sin Resultados!';
+                        select.appendChild(li);
+                     }
+                if(ArrayRecived.length >=maxprod ) {
+                    alert(ArrayRecived.length  );
+                        li.innerText = "Más de 20 resultados, ser más específico";
+                        select.appendChild(li);
+
+                    }
+
                 }
 
             }
-        }
+
 
         let url = './api-web/IFind.php';
         url = url + "?txt=" + str;

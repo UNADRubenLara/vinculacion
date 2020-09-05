@@ -4,7 +4,6 @@
    $dbuser = $_POST['dbuser'];
    $dbpassword = $_POST['dbpassword'];
    $password = $_POST['password'];
-   echo '<h1>Espere, Creando Base de datos </h1>>'.$password;
    $file = fopen("../models/SingleConnection.php", "w");
     $template = '
    <?php
@@ -37,7 +36,7 @@
    createdb($host,$dbname,$dbuser,$dbpassword);
    createtables($host, $dbuser, $dbpassword, $dbname);
    createadmin($host, $dbuser, $dbpassword, $dbname,$password);
-   loadLargeZip($host, $dbuser, $dbpassword, $dbname,$password);
+   //loadLargeZip($host, $dbuser, $dbpassword, $dbname,$password);
    closeinstall($host);
    header('Location: http://'.$host.'/vinculacion/');
    
@@ -49,7 +48,7 @@
       if ($conn->connect_error) {
          die("Connection failed: " . $conn->connect_error);
       }
-      $sql = "CREATE DATABASE " . $dbname;
+      $sql = "CREATE DATABASE ".$dbname." CHARACTER SET utf8;" ;
       if ($conn->query($sql) === TRUE) {
          echo "Database created successfully";
       } else {
@@ -84,6 +83,7 @@
 
       foreach ($sqlfiles as $sql){
          $fileSQL = file_get_contents($sql);
+         $conn->query("SET CHARACTER SET utf8");
          if ($conn->multi_query($fileSQL)) {
             do {
                if ($result = $conn->store_result()) {
@@ -103,7 +103,8 @@
    function createadmin($host, $dbuser, $dbpassword, $dbname,$password){
       $hidentext = password_hash($password, PASSWORD_DEFAULT);
       $conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
-      $sql = "INSERT INTO `users` (`idusuario`, `username`, `hidentext`, `address_street`, `phone`, `mail`, `fullname`, `rfc`, `rol`, `branch`, `companytype`, `status`, `ZP_ADDRESS_idADDRESS`) VALUES (NULL, 'admin', '$hidentext', 'admin', '5555555555', 'vinculacion@vinculacion.edu', 'Administrador', 'XEXX010101000', '1', '5415', '2', '1', '145421');";
+      $conn->query("SET CHARACTER SET utf8");
+      $sql = "INSERT INTO `USERS` (`idusuario`, `username`, `hidentext`, `address_street`, `phone`, `mail`, `fullname`, `rfc`, `rol`, `branch`, `companytype`, `status`, `ZP_ADDRESS_idADDRESS`) VALUES (NULL, 'admin', '$hidentext', 'admin', '5555555555', 'vinculacion@vinculacion.edu', 'Administrador', 'XEXX010101000', '1', '5415', '2', '1', '145421');";
       if ($conn->query($sql) === TRUE) {
          echo "Admin created successfully";
       } else {
@@ -114,6 +115,7 @@
    
  function loadLargeZip($host, $dbuser, $dbpassword, $dbname){
     $conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
+    $conn->query("SET CHARACTER SET utf8");
     $handle = fopen('ZP_ADDRESS.sql', 'rb');
     if ($handle) {
        while (!feof($handle)) {
@@ -121,7 +123,7 @@
           $conn->query($buffer);
        }
     }
-    //echo "Peak MB: ",memory_get_peak_usage(true)/1024/1024;
+    
  }
    function closeinstall($host){
       $template="

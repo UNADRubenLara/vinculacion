@@ -33,8 +33,7 @@
       $imgFile = $_FILES['image']['name'];
       if($product_controller->validate_image($imgFile)=='ok'){
          $datos = base64_encode(file_get_contents($_FILES["image"]["tmp_name"]));
-         
-      }
+         }
       else{
          echo $product_controller->validate_image($imgFile);
          exit();
@@ -49,8 +48,8 @@
       'image' => $datos
    );
    $product = $product_controller->add_product($newproduct);
-      
-      
+   
+   
    } else {
    $controller = new ViewController();
    $controller->load_view('error401');
