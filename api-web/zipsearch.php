@@ -2,8 +2,14 @@
    include_once '../controllers/ProductController.php';
    include_once '../models/ProductModel.php';
    include_once '../models/SingleConnection.php';
+   if (version_compare(PHP_VERSION, '5.4.0', '<')) {
+      if(session_id() == '') {session_start();}
+   } else  {
+      if (session_status() == PHP_SESSION_NONE) {session_start();}
+   }
    if (isset($_GET['txt']) && $_SESSION['VALID']) {
-   if (!isset($dbo)) {
+   
+      if (!isset($dbo)) {
       $dbo = new SingleConnection();
    }
    $in = $_GET['txt'];

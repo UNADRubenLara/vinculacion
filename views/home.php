@@ -1,14 +1,27 @@
 <?php
    $template = '
-<div>
-	<h2>%s</h2>
-	<h2>%s</h2>
-	<h2>%s</h2>
+<div class="central-fr-up">
+	<div class="container center-box">
+	<section class="containerv">
+	<section><h3 class="flex-item"> %s:</h3></section>
+	<section><h3 class="flex-item">( %s )</h3></section>
+   </section>
+    <section class="containerv">
+	<section><h3 class="flex-item"> %s:</h3></section>
+	<section><h3 class="flex-item"> %s</h3></section>
+   </section>
+    <section class="containerv">
+	<section><h3 class="flex-item"> %s:</h3></section>
+	<section><h3 class="flex-item">( %s )</h3></section>
+   </section>
+	</div>
 </div>
 ';
    printf(
-      $template,
+      $template, TXTusername,
       $_SESSION['username'],
+      TXTUserFullName,
       $_SESSION['fullname'],
+      TXTUserRol,
       $_SESSION['role']
    );

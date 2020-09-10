@@ -49,7 +49,6 @@
     </form>
 </div>
 <br>
-<hr>
 ';
       $location = $edit_user['C_NOMBRE'] . ',' . $edit_user['D_MUNICIPIO'] . ', ' . $edit_user['D_CIUDAD'] . ', ' . $edit_user['D_ESTADO'];
       

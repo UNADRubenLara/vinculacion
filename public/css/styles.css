@@ -84,7 +84,7 @@ footer{
     width: 98vw;
     height: min-content;
     font-size: 2vmin;
-    margin-top: 30vmin;
+    margin-top: 45vmin;
 }
 hr{
     border: 1vmin solid var(--striking-alt-color);
@@ -344,7 +344,7 @@ h6 {
 }
 
 label {
-    font-size: 4vmin;
+    font-size: 3vmin;
     line-height: 1.35;
     letter-spacing: 0;
 }
@@ -367,7 +367,7 @@ li{
 }
 
 select {
-    font-size: 4vmin;
+    font-size: 3vmin;
     line-height: 1;
     letter-spacing: 0;
     -webkit-background-clip: padding-box;
@@ -385,12 +385,12 @@ input {
 }
 
 nav a {
-    font-size: 4vmin;
+    font-size: 3vmin;
     line-height: 1;
     letter-spacing: 0;
 }
 table.table-list td:before{
-    font-size: 4vmin;
+    font-size: 3vmin;
     line-height: 1;
     letter-spacing: 0;
 }
@@ -418,7 +418,7 @@ nav li a {
 }
 .findproduct{
     float: right;
-    height: 4vmin;
+    height: 3vmin;
 }
 
 
@@ -524,13 +524,12 @@ nav li a {
 #updateproduct{
     float: right;
     background-color: var(--btn-edit-color);
-    background-color: var(--btn-edit-color);
-}
+   }
 
 
 
 
-@media (max-width: 800px) {
+@media (max-width: 400px) {
 
     #add-user{
         position: absolute;
