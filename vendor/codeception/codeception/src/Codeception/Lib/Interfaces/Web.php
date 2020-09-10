@@ -40,8 +40,8 @@ interface Web
      *
      * But will *not* be true for strings like:
      *
-     *   - `<strong>Home</strong>`
-     *   - `<div class="strong">Home</strong>`
+     *   - `<label for="">Home</label>`
+     *   - `<div class="strong">Home</label>`
      *   - `<!-- strong -->`
      *
      * For checking the raw source code, use `seeInSource()`.
@@ -71,8 +71,8 @@ interface Web
      *
      * But will ignore strings like:
      *
-     *   - `<strong>Home</strong>`
-     *   - `<div class="strong">Home</strong>`
+     *   - `<label for="">Home</label>`
+     *   - `<div class="strong">Home</label>`
      *   - `<!-- strong -->`
      *
      * For checking the raw source code, use `seeInSource()`.

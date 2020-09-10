@@ -1,10 +1,10 @@
 <?php
    $template = '
-<article class="item">
-	<h2 >%s</h2>
-	<p ><b>%s</b></p>
-	<p ><b>%s</b></p>
-</article>
+<div>
+	<h2>%s</h2>
+	<h2>%s</h2>
+	<h2>%s</h2>
+</div>
 ';
    printf(
       $template,

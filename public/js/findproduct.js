@@ -41,6 +41,7 @@ function findProductByText(str) {
                         goProduct.setAttribute("width", "50%");
                         goProduct.setAttribute("height", "auto");
                         li.className = 'ulproduct';
+                        btn.className = 'findproduct';
                         li.innerText = products['product_detail'];
                         select = document.getElementById("productsfind");
                         select.appendChild(li);

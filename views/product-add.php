@@ -10,7 +10,7 @@
 <form method= "post" enctype="multipart/form-data">
 		<div class="center-box">
 		<label>%s: %s</label>
-		<br>
+		<hr>
 		<label>%s: %s</label>
 		</div>
 		<textarea required id="productdetail" name="product_detail" class="textcapture" placeholder="%s"></textarea>
@@ -22,7 +22,6 @@
 	</form>
 </div>
 <br>
-<hr>
 ';
       
       

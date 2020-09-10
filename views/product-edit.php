@@ -16,11 +16,10 @@
 		<label>%s: %s</label>
 		</div>
 		<textarea id="productdetail" name="product_detail" class="textcapture" placeholder="%s" >%s</textarea>
-		<img src = "data:image/png;base64,%s" width = "150px" height = "150px"/>
-		<br>
-		<input type="file" name="image" class="loadimage">
-		<br>
-		<input type="submit" value="%s" >
+		<img class="imgproduct" src = "data:image/png;base64,%s" />
+		<input id="loadimage" type="file" name="image" class="loadimage">
+		
+		<input id="updateproduct" type="submit" value="%s" >
 		<input type="hidden" name="LEVEL" value="product-edit">
 		<input type="hidden" name="crud" value="edit">
 		<input type="hidden" name="sameimage" value="%s">
@@ -28,8 +27,6 @@
 		<input  type="hidden" name="idproduct_detail" value="%s">
 	</form>
 </div>
-<br>
-<hr>
 ';
       $image = $product['image'];
       printf($template, TXTplaceholderUser, $_SESSION['username'], TXTProductDetail, $actual_branch, TXTProductDescription, $product['product_detail'], $image, TXTBtnUpdate, $image, $product['idbranch'], $product['idproduct_detail']);

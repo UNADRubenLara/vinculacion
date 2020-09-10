@@ -7,6 +7,8 @@
    define('TXTBtnUpdate', 'Actualizar');
    define('TXTBtnAdd', 'Agregar');
    define('TXTBtnEdit', 'Editar');
+   define('TXTBtnNew', 'Nuevo');
+   
 
 //footer
    define('TXTFooter', 'Vinculacion-2020');

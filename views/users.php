@@ -14,18 +14,18 @@
       } else {
          $template_users = '
 		<div >
+		<form method="POST">
+						<input type="hidden" name="LEVEL" value="user-add">
+						<input id="add-user" class="button add" type="submit" value="%s">
+		</form>
 		<table  class="table-list">
 			<tr>
 			    <th>%s</th>    
 				<th>%s</th>
 				<th>%s</th>
-				<th colspan="2">
-					<form method="POST">
-						<input type="hidden" name="LEVEL" value="user-add">
-						<input class="button add" type="submit" value="%s">
-					</form>
-				</th>
-			</tr>';
+				<th colspan="2"></th>
+			</tr>
+			<br>';
          
          for ($i = 0; $i < count($users); $i++) {
             $editar = TXTBtnEdit;
@@ -68,10 +68,11 @@
 	';
          
          printf($template_users,
+            TXTBtnNew,
             TXTId,
             TXTusername,
-            TXTUserFullName,
-            TXTBtnAdd
+            TXTUserFullName
+            
          );
       }
    } else {

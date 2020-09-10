@@ -5,10 +5,12 @@
    
       $template = '
 <div class="central-fr-up">
-<input width="32% important" type="text" id="productsearch" oninput="findProductByText(this.value)" placeholder="Buscar descripción del producto mínimo 4 caracteres">
+<section class="center-box">
+<input type="text" id="productsearch" oninput="findProductByText(this.value)" placeholder="Buscar descripción del producto mínimo 4 caracteres">
     <form method="post">
     <ul id="productsfind" name="productfind"></ul>
     </form>
+    </section>
 </div>
 ';
       print($template);

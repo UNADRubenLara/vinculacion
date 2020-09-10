@@ -209,10 +209,10 @@
  <body>
    <ul id="toolbar-filter">
      <li> <a href="#" title="Show all" onClick="showAllScenarios()">◯</a></li>
-     <li> <a href="#" title="Successful" onClick="toggleScenarios('scenarioSuccess', this.parentElement)"><strong>✔</strong> {successfulScenarios}</a></li>
-     <li> <a href="#" title="Failed" onClick="toggleScenarios('scenarioFailed', this.parentElement)"><strong>✗</strong> {failedScenarios}</a></li>
-     <li> <a href="#" title="Skipped" onClick="toggleScenarios('scenarioSkipped', this.parentElement)"><strong>S</strong> {skippedScenarios}</a></li>
-     <li> <a href="#" title="Incomplete" onClick="toggleScenarios('scenarioIncomplete', this.parentElement)"><strong>I</strong> {incompleteScenarios}</a></li>
+     <li> <a href="#" title="Successful" onClick="toggleScenarios('scenarioSuccess', this.parentElement)"><label for="">✔</label> {successfulScenarios}</a></li>
+     <li> <a href="#" title="Failed" onClick="toggleScenarios('scenarioFailed', this.parentElement)"><label for="">✗</label> {failedScenarios}</a></li>
+     <li> <a href="#" title="Skipped" onClick="toggleScenarios('scenarioSkipped', this.parentElement)"><label for="">S</label> {skippedScenarios}</a></li>
+     <li> <a href="#" title="Incomplete" onClick="toggleScenarios('scenarioIncomplete', this.parentElement)"><label for="">I</label> {incompleteScenarios}</a></li>
    </ul>
  <div class="layout">
  {header}
@@ -226,19 +226,19 @@
       <table border="0">
        <tr>
         <td width="250" class="scenarioSuccess">Successful scenarios:</td>
-        <td class="scenarioSuccessValue"><strong>{successfulScenarios}</strong></td>
+        <td class="scenarioSuccessValue"><label for="">{successfulScenarios}</label></td>
        </tr>
        <tr>
         <td class="scenarioFailed">Failed scenarios:</td>
-        <td class="scenarioFailedValue"><strong>{failedScenarios}</strong></td>
+        <td class="scenarioFailedValue"><label for="">{failedScenarios}</label></td>
        </tr>
        <tr>
         <td class="scenarioSkipped">Skipped scenarios:</td>
-        <td class="scenarioSkippedValue"><strong>{skippedScenarios}</strong></td>
+        <td class="scenarioSkippedValue"><label for="">{skippedScenarios}</label></td>
        </tr>
        <tr>
         <td class="scenarioIncomplete">Incomplete scenarios:</td>
-        <td class="scenarioIncompleteValue"><strong>{incompleteScenarios}</strong></td>
+        <td class="scenarioIncompleteValue"><label for="">{incompleteScenarios}</label></td>
        </tr>
       </table>
      </div>

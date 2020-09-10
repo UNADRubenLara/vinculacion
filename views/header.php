@@ -11,19 +11,18 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>%s</title>
-  <meta name="description" content="">
   <meta name="theme-color" content="#49838c">
   <link rel="shortcut icon" type="image/png" href="./public/img/industry.png">
   <link rel="apple-touch-icon" href="./public/img/industry128.png">
   	<link rel="icon" href="./public/img/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-startup-image" href="./public/img/favicon.ico">
   <link rel="manifest" href="./manifest.json">
-  <link rel="stylesheet" href="./public/css/normalize.css">
   <link rel="stylesheet" href="./public/css/styles.css">
   </head>
   <script src="./public/js/serviceworker.js"></script>
-    <header>
-';
+     <body>
+            <header class="containerv header">
+            ';
    printf(
       $head,
       TXTAppName
@@ -31,21 +30,26 @@
    
    if ($_SESSION['VALID']) {
       $template = '
-		<nav class="menus ">
-            <h3 class="dateHour">%s</h3>
-            <br>
-            <h3 class="salute">Hola %s</h3>
-            <ul class="header-btn color6">
-                <li class="color1"><a href="home">%s</a></li>
-                <li class="color1"><a href="%s">%s</a></li>
-                <li class="color1"><a href="%s">%s</a></li>
-                <li class="color1"><a href="out">%s</a></li>
-            </ul>
-		</nav>
+		      <section class="flex-item">
+		       <section class="containerh">
+		       <section class="flex-item"><h3 class="font-ligth">%s </h3></section>
+		      <section class="flex-item"><h3 class="font-ligth" >Hola %s</h3></section>
+		      </section>
+		      </section>
+		      <section class="flex-item-rh">
+		      <nav>
+                <a href="home">%s</a>
+                <a href="%s">%s</a>
+                <a href="%s">%s</a>
+                <a href="out">%s</a>
+             </nav>
+            </section>
+            
+            
 	';
       
       $dateHour = date('h:i:s A');
-      if($_SESSION['role']=='Admin'){
+      if ($_SESSION['role'] == 'Admin') {
          printf(
             $template,
             $dateHour,
@@ -57,21 +61,20 @@
             TXTmenuusers,
             TXTmenuOut
          );
-      }else{
-      printf(
-         $template,
-         $dateHour,
-         $_SESSION['username'],
-         TXTmenuinit,
-         'find',
-         TXTmenufind,
-         'products',
-         TXTmenuproduct,
-         TXTmenuOut
-      );
-   }
+      } else {
+         printf(
+            $template,
+            $dateHour,
+            $_SESSION['username'],
+            TXTmenuinit,
+            'find',
+            TXTmenufind,
+            'products',
+            TXTmenuproduct,
+            TXTmenuOut
+         );
+      }
    }
    print('
 	</header>
-	<body>
-	');
+	<div class="main">');

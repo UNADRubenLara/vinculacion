@@ -5,23 +5,23 @@
       $products = $product_controller->list_user_products($_SESSION['iduser']);
       $template_products = '
 		<div >
+		<form method="POST">
+						<input type="hidden" name="LEVEL" value="product-add">
+						<input class="button add" type="submit" value="%s">
+		</form>
 		<table  class="table-list">
 			<tr>
 			    <th>%s</th>
 				<th>%s</th>
 				<th colspan="2">
-					<form method="POST">
-						<input type="hidden" name="LEVEL" value="product-add">
-						<input class="button add" type="submit" value="%s">
-					</form>
 				</th>
 			</tr>';
       
       if (empty($products)) {
          printf($template_products,
+            TXTBtnAdd,
             TXTId,
-            TXTProductDetail,
-            TXTBtnAdd
+            TXTProductDetail
          );
          printf('
 		<div class="central-fr-up">
@@ -64,9 +64,10 @@
 	';
          
          printf($template_products,
+            TXTBtnAdd,
             TXTId,
-            TXTProductDetail,
-            TXTBtnAdd
+            TXTProductDetail
+            
          );
       }
    } else {

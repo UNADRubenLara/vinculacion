@@ -1,9 +1,10 @@
 <?php
    $template = '
-</body>
-<div >
-    <p class="footer">%s</p>
 </div>
+<footer>
+    %s
+</footer>
+</body>
 <script src="./public/js/reload.js"></script>
 </html>
 

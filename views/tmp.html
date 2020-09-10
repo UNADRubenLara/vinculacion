@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header class="containerv header">
+
+    <section class="flex-item">
+        <section class="containerh">
+            <section class="flex-item"><h3 class="font-ligth">04:37:52 AM </h3></section>
+            <section class="flex-item"><h3 class="font-ligth">Hola admin</h3></section>
+        </section>
+    </section>
+    <section class="flex-item-rh">
+        <nav>
+            <a href="home">Inicio</a>
+            <a href="stats">Estadisticas</a>
+            <a href="users">Usuarios</a>
+            <a href="out">Salir</a>
+        </nav>
+    </section>
+
+
+</header>
+<div class="main"><h2 class="form-Title">GESTIÓN DE USUARIOS</h2>
+
+    <div>
+        <table class="table-list">
+            <tr>
+                <th>Id</th>
+                <th>Nombre de usuario</th>
+                <th>Nombre</th>
+                <th colspan="2">
+                    <form method="POST">
+                        <input type="hidden" name="LEVEL" value="user-add">
+                        <input class="button add" type="submit" value="Agregar">
+                    </form>
+                </th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>admin</td>
+                <td>Administrador</td>
+                <td>
+                    <form method="POST">
+                        <input type="hidden" name="LEVEL" value="user-edit">
+                        <input type="hidden" name="username" value="admin">
+                        <input class="button edit" type="submit" value="Editar">
+                    </form>
+                </td>
+                <td>
+                    <form method="POST">
+                        <input type="hidden" name="LEVEL" value="user_status">
+                        <input type="hidden" name="username" value="admin">
+                        <input type="hidden" name="STATUS" value="suspend">
+                        <input class="button suspend" type="submit" value="Suspender">
+                    </form>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>2</td>
+                <td>unadmexico</td>
+                <td>Ruben Lara</td>
+                <td>
+                    <form method="POST">
+                        <input type="hidden" name="LEVEL" value="user-edit">
+                        <input type="hidden" name="username" value="unadmexico">
+                        <input class="button edit" type="submit" value="Editar">
+                    </form>
+                </td>
+                <td>
+                    <form method="POST">
+                        <input type="hidden" name="LEVEL" value="user_status">
+                        <input type="hidden" name="username" value="unadmexico">
+                        <input type="hidden" name="STATUS" value="suspend">
+                        <input class="button suspend" type="submit" value="Suspender">
+                    </form>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>3</td>
+                <td>usuarioprueba</td>
+                <td>Ruben Lara</td>
+                <td>
+                    <form method="POST">
+                        <input type="hidden" name="LEVEL" value="user-edit">
+                        <input type="hidden" name="username" value="usuarioprueba">
+                        <input class="button edit" type="submit" value="Editar">
+                    </form>
+                </td>
+                <td>
+                    <form method="POST">
+                        <input type="hidden" name="LEVEL" value="user_status">
+                        <input type="hidden" name="username" value="usuarioprueba">
+                        <input type="hidden" name="STATUS" value="suspend">
+                        <input class="button suspend" type="submit" value="Suspender">
+                    </form>
+                </td>
+            </tr>
+
+
+        </table>
+    </div>
+    <script src="./public/js/validates.js"></script>
+</div>
+<footer>
+    <p>Vinculacion-2020</p>
+</footer>
+</body>
+</html>

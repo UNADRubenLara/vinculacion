@@ -7,36 +7,36 @@
 <div class="form-edit central-fr-up" >
     <form method="POST" >
         <hr>
-        <strong>Nombre de usuario:</strong><input id="username"  type="text" name="username" placeholder="Nombre de usuario" value="%s"
+        <label for="username">Nombre de usuario:</label><input id="username"  type="text" name="username" placeholder="Nombre de usuario" value="%s"
                                                   minlength="5" maxlength="20" required>
-        <strong>Contraseña:</strong> <input id="password" type="password" name="hidentext" placeholder="Nueva contraseña" value=""
+        <label for="password">Contraseña:</label> <input id="password" type="password" name="hidentext" placeholder="Nueva contraseña" value=""
                                             minlength="6" maxlength="40" required>
         <hr>
-        <strong>Nombre completo:</strong> <input id="fullname" type="text" name="fullname" value="%s"
+        <label for="fullname">Nombre completo:</label> <input id="fullname" type="text" name="fullname" value="%s"
                                                  placeholder="Nombre o denominacion" minlength="5" maxlength="80" size="78"
                                                  required>
-        <strong>RFC:</strong> <input id="rfc" type="text" name="rfc" placeholder="RFC" minlength="10" maxlength="16" value="%s"
+        <label for="rfc">RFC:</label> <input id="rfc" type="text" name="rfc" placeholder="RFC" minlength="10" maxlength="16" value="%s"
                                      size="16" required> <br>
         <hr>
-        <strong>Calle y número:</strong> <input id="addresslocal" type="text" name="address_street" value="%s"
+        <label for="addresslocal">Calle y número:</label> <input id="addresslocal" type="text" name="address_street" value="%s"
                                                 placeholder="Calle y Numero" minlength="5" maxlength="78" size="78"
                                                 required><br>
-        <strong>Codigo Postal:</strong><input id="zip" type="number" min="1000" max="99999" value="%s" placeholder="C.P." oninput="LoadZip(this.value);" name="zipzone"/>
+        <label for="zip">Codigo Postal:</label><input id="zip" type="number" min="1000" max="99999" value="%s" placeholder="C.P." oninput="LoadZip(this.value);" name="zipzone"/>
         <select id="ziplist" name="idaddress" size="1" value="%s"><option value="%s">%s</option></select><br>
         
         
-         <strong>Rama:</strong><input id="branch" type="text" maxlength="20" minlength="4" placeholder="Busqueda..."
+         <label for="branch">Rama:</label><input id="branch" type="text" maxlength="20" minlength="4" placeholder="Busqueda..."
                oninput="LoadBranch(this.value);"/>
         <select id="branchlist" name="branch"  value="%s" size="1"  required ><option value="%s">%s</option></select>
-        <strong>Tamaño:</strong>
+        <label for="companytype">Tamaño:</label>
          <select id="companytypelist"  name="companytype" value="%s" size="1">
                 <option %s value="1">Micro</option>
                 <option %s value="2">Mediana</option>
                 <option %s value="3">Grande</option>
             </select><br>
-          <strong>Telefono:</strong><input id="phone" type="tel" value="%s" name="phone" placeholder="Telefono" minlength="10"
+          <label for="phone">Telefono:</label><input id="phone" type="tel" value="%s" name="phone" placeholder="Telefono" minlength="10"
                                          maxlength="13" required> <br>
-        <strong>Correo:</strong><input id="mail" type="email" name="mail"  value="%s"placeholder="Correo" minlength="5" size="25"
+        <label for="mail">Correo:</label><input id="mail" type="email" name="mail"  value="%s"placeholder="Correo" minlength="5" size="25"
                                        required><br>
         <hr>
         <div>
@@ -44,10 +44,8 @@
             <input type="hidden" name="LEVEL" value="user-edit">
             <input type="hidden" name="crud" value="edit">
             <input type="hidden" name="idusuario" value="%s">
-            
+           
         </div>
-
-
     </form>
 </div>
 <br>

@@ -1,4 +1,4 @@
 
       <?php
-       header('Location: http:'.kynosargos.com.'/vinculacion/');
+       header('Location: http:'.localhost.'/vinculacion/');
       
