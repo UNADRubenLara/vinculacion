@@ -24,7 +24,7 @@
          $this->size_px = $size_px;
          $this->data = $data;
          $this->n_elements = count($data);
-         $this->font_size=round($this->size_px/50);
+         $this->font_size=5;
          $this->title = $title;
          $this->set_proportions();
          

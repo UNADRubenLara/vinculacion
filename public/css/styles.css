@@ -178,6 +178,16 @@ hr{
     text-align: center;
     background-color: var(--main-bg-ligth);
 }
+.center-box-pad
+{
+    border-radius: 8px;
+    width: auto;
+    border: 2px solid var(--dark-color);
+    text-align: center;
+    background-color: var(--exalted-gradient-color);
+    margin: 1vmin;
+
+}
 
 .central-fr {
     margin: 1.5vm;
@@ -199,10 +209,16 @@ hr{
 }
 
 .imgproduct{
-    width: 40vmin;
-    height: auto;
+    width: 45vmin;
+    height: 45vmin;
     margin: 3vmin;
-    border: .2vmin  solid var(--dark-color);
+    float: left;
+}
+.imgstats{
+    width: 45vmin;
+    height: 45vmin;
+    margin: 3vmin;
+    float: bottom;
 }
 
 p {
@@ -399,6 +415,9 @@ ul {
     margin: 0;
     list-style-type: none;
 }
+li {
+    height: 7vmin;
+}
 nav li {
     display: inline-block;
 }
@@ -410,15 +429,26 @@ nav li a {
     text-decoration: none;
     white-space: nowrap;
 }
+button{
+    width: fit-content;
+    height: fit-content;
+}
 .ulproduct {
     border: .2vmin solid var(--darkest-color);
     background: var(--main-bg-ligth);
-    padding: 2vmin;
+    padding: 1vmin;
     text-align: left;
 }
 .findproduct{
     float: right;
-    height: 3vmin;
+}
+
+.findproduct{
+    height: 100%;
+}
+
+.findimg{
+    height: 100%;
 }
 
 
@@ -511,11 +541,11 @@ nav li a {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    float: left;
-    width: 50vmin;
+    width: 90%;
     height: 50vmin;
-    resize: vertical;
+    resize: initial;
     margin: 3px;
+
 }
 #loadimage{
     float: left;
@@ -525,9 +555,14 @@ nav li a {
     float: right;
     background-color: var(--btn-edit-color);
    }
+.roundlogo{
+    border-radius: 10%;
+    height: 15vmin;
+  }
 
-
-
+img {
+   width: initial;
+}
 
 @media (max-width: 400px) {
 
@@ -578,9 +613,6 @@ nav li a {
         text-align: center;
     }
 
-    img {
-        width: 50%;
-    }
 
 }
 

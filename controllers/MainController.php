@@ -45,6 +45,13 @@
                      $controller->load_view($_POST['LEVEL']);
                   }
                   break;
+               case 'stats':
+                  if (!isset($_POST['LEVEL'])) {
+                     $controller->load_view('stats');
+                  } else {
+                     $controller->load_view($_POST['LEVEL']);
+                  }
+                  break;
                
                case 'out':
                   $_SESSION['VALID'] = false;

@@ -2,9 +2,11 @@
    
    include_once 'txt-values.php';
    $template = '
-
+    <section style="height: 20vmin"><h1 class="center-box">%s</h1></section>
+    <section class="container">
+    <section class="flex-item"> <img class="imgproduct" src="./public/img/industry128.png"></section>
+    <section class="flex-item">
     <div class="center-box">
-    
     <h3>%s</h3>
     <form method="POST">
    <section class="central-body containerh">
@@ -22,11 +24,9 @@
 	</section>
 	</section>
 	</form>
-	<br>
-	<br>
 	';
    
-   printf($template, TXTLoginAdvice, TXTusername, TXTplaceholderUser, TXTplaceholderpass, TXTplaceholderpass, TXTenter);
+   printf($template, TXTAppName,TXTLoginAdvice, TXTusername, TXTplaceholderUser, TXTplaceholderpass, TXTplaceholderpass, TXTenter);
    
    
    if (isset($_GET['ERROR'])) {
@@ -38,9 +38,10 @@
       
    }
    print('
-        
         </div>
-</div>
+        </section>
+        </section>
+
 ');
 
 

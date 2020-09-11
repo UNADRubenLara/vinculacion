@@ -38,7 +38,7 @@
             $template_products .= '
 			<tr>
 			   <td>' . $products[$i]['idproduct_detail'] . '</td>
-				<td>' . substr($products[$i]['product_detail'], 0, 25) . '</td>
+				<td>' . substr($products[$i]['product_detail'], 0, 60) . '</td>
 			<td>
 					<form method="POST">
 						<input type="hidden" name="LEVEL" value="product-edit">

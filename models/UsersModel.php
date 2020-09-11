@@ -58,6 +58,8 @@
          foreach ($this->users as $user) {
             if ($user['username'] == $username) {
                return $user;
+            }elseif ($user['idusuario'] == $username){
+               return $user['fullname'];
             }
          }
       }
@@ -66,6 +68,9 @@
       {
          foreach ($this->users as $user) {
             if ($user['username'] == $username) {
+               return $user['branchText'];
+            }
+            elseif ($user['idusuario'] == $username){
                return $user['branchText'];
             }
          }

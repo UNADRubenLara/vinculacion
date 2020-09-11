@@ -28,23 +28,25 @@ function findProductByText(str) {
                     select.removeChild(select.lastElementChild);
                 }
                 if (ArrayRecived.length >= 1 && ArrayRecived.length <= maxprod) {
-                    let li, select, btn,goProduct;
+                    let li, select, btn,goProduct,section;
                     document.getElementById('productsfind').innerText = null;
                     ArrayRecived.forEach(fillOptions);
                     function fillOptions(products, i) {
                         li = document.createElement("li");
+                        section= document.createElement('section');
                         btn = document.createElement('button');
                         goProduct=document.createElement("img");
+                        goProduct.setAttribute("class",'findimg')
                         btn.type = 'submit';
                         btn.value = products['idproduct_detail'];
+                        btn.name='find';
                         goProduct.setAttribute("src", "./public/img/findperson.png")
-                        goProduct.setAttribute("width", "50%");
-                        goProduct.setAttribute("height", "auto");
                         li.className = 'ulproduct';
                         btn.className = 'findproduct';
                         li.innerText = products['product_detail'];
                         select = document.getElementById("productsfind");
-                        select.appendChild(li);
+                        select.appendChild(section);
+                        section.appendChild(li)
                         li.appendChild(btn);
                         btn.appendChild(goProduct);
                     }

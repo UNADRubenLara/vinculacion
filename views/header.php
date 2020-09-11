@@ -30,20 +30,25 @@
    
    if ($_SESSION['VALID']) {
       $template = '
+            <section class="flex-item"><img class="roundlogo" src="./public/img/industry128.png"></section>
 		      <section class="flex-item">
 		       <section class="containerh">
 		       <section class="flex-item"><h3 class="font-ligth">%s </h3></section>
-		      <section class="flex-item"><h3 class="font-ligth" >Hola %s</h3></section>
+		      <section class="flex-item"><h3 class="font-ligth" >Hola [ %s ]</h3></section>
 		      </section>
+		      </section>
+		      <section class="containerh">
 		      </section>
 		      <section class="flex-item-rh">
+		      <label class="font-ligth">%s</label>
 		      <nav>
-                <a href="home">%s</a>
+		          <a href="home">%s</a>
                 <a href="%s">%s</a>
                 <a href="%s">%s</a>
                 <a href="out">%s</a>
              </nav>
             </section>
+            
             
             
 	';
@@ -54,6 +59,7 @@
             $template,
             $dateHour,
             $_SESSION['username'],
+            TXTAppName,
             TXTmenuinit,
             'stats',
             TXTmenustats,
@@ -66,6 +72,7 @@
             $template,
             $dateHour,
             $_SESSION['username'],
+            TXTAppName,
             TXTmenuinit,
             'find',
             TXTmenufind,

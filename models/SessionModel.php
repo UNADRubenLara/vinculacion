@@ -28,7 +28,13 @@
             $_SESSION['fullname'] = ($data['fullname']);
             $_SESSION['branch'] = ($data['branch']);
             $_SESSION['LEVEL'] = 'home';
-
+            try {
+               $stmt = $this->connection->prepare("INSERT INTO `ACCESSLOG` (`idaccess`, `access_datetime`, `idusuario`) VALUES ('', CURRENT_TIME(), :id);");
+               $stmt->bindParam('id', $data["idusuario"], PDO::PARAM_STR);
+               $stmt->execute();
+               } catch (PDOException  $ex) {
+               $this->connection->trow_error($ex);
+            }
             return $data;
          }
          return 0;

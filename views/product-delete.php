@@ -16,7 +16,7 @@
 		<label>%s: %s</label>
 		</div>
 		<textarea id="productdetail" readonly id="productdetail" name="product_detail" class="textcapture" placeholder="%s" >%s</textarea>
-		<img  class="imgproduct" src = "data:image/png;base64,%s" width = "150px" height = "150px"/>
+		<img  class="imgproduct" src = "data:image/png;base64,%s" />
 		<br>
 		<label>%s   </label><input type="submit" class="delete" value="%s" >
 		<input type="hidden" name="crud" value="delete">

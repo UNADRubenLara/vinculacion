@@ -18,6 +18,16 @@ pass.addEventListener("input", function () {
         pass.setCustomValidity("");
     }
 });}
+if (pass){
+    pass.addEventListener("focusout", function () {
+        if (pass.value== username.value) {
+            alert("Su password no puede ser igual a su nombre de usuario");
+            pass.value='';
+            pass.setCustomValidity("Su password no puede ser igual a su nombre de usuario");
+        } else {
+            pass.setCustomValidity("");
+        }
+    });}
 const fullname = document.getElementById("fullname");
 if (fullname){
 fullname.addEventListener("input", function () {

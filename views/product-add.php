@@ -1,31 +1,38 @@
 <?php
    
    if ($_POST['LEVEL'] == 'product-add' && !isset($_POST['crud'])) {
-      printf('<h2 class="form-Title">%s</h2>', TXTAddProduct);
+     
       $actual_user = new UsersController();
       $actual_branch = $actual_user->get_branch($_SESSION['username']);
       
+      printf('<section class="form-add central-fr-up" >
+      <h2 class="form-Title">%s</h2>', TXTAddProduct);
       $template = '
-<div class="form-add central-fr-up"  >
-<form method= "post" enctype="multipart/form-data">
-		<div class="center-box">
+      <section class="container">
+      <form method= "post" enctype="multipart/form-data">
+		<section class="flex-item">
+		<section class="center-box">
 		<label>%s: %s</label>
 		<hr>
 		<label>%s: %s</label>
-		</div>
+		</section>
+		<section class="flex-item">
 		<textarea required id="productdetail" name="product_detail" class="textcapture" placeholder="%s"></textarea>
-		<input type="file" name="image" class="loadimage">
-		<br>
-		<input type="submit" value="%s" >
+		<label>%s</label></label><input type="file" name="image" class="loadimage">
+		</section>
+		<section class="flex-item">
+		<input type="submit" class="add" value="%s" >
 		<input type="hidden" name="LEVEL" value="product-add">
 		<input type="hidden" name="crud" value="add">
+		</section>
 	</form>
-</div>
-<br>
+	</section>
+</section>
+
 ';
       
       
-      printf($template, TXTplaceholderUser, $_SESSION['username'], TXTProductDetail, $actual_branch, TXTProductDescription, TXTBtnAdd, TXTImage);
+      printf($template, TXTplaceholderUser, $_SESSION['username'], TXTProductDetail, $actual_branch, TXTProductDescription,TXTAddImage,TXTBtnAdd, TXTImage);
       
    } else if ($_POST['LEVEL'] == 'product-add' && $_POST['crud'] == 'add') {
       $product_controller = new ProductController();

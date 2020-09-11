@@ -11,7 +11,7 @@
    
 
 //footer
-   define('TXTFooter', 'Vinculacion-2020');
+   define('TXTFooter', ' - 2020');
 
 //Login
    define('TXTLoginError', 'por favor verifique sus credenciales');
@@ -31,7 +31,7 @@
    define('TXTStatus', 'Cambiar el status del Usuario');
    define('TXTStatusUpdate', 'Actualizado');
    define('TXTmenufind', 'Buscar');
-   define('TXTmenustats', 'Estadisticas');
+   define('TXTmenustats', 'Estadísticas');
 
 
 //Home
@@ -62,6 +62,20 @@
    define('TXTProductDescription', 'Describir Producto');
    define('TXTImage', 'Imágen');
    define('TXTDeleteProduct', '¿Desea borrar este Producto?');
+   define('TXTAddImage', 'Agregar imagen');
+
+   //Vinculacion
+   define('TXTlink', '¿Desea la información de este producto?');
+   define('TXTBtnLink', 'Vincular');
+   
+   //Estadisticas
+    define('TXTAccess', 'Accesos');
+   define('TXTSelectDate', 'Selecciona las fechas:');
+   define('TXTLastMonth', 'Último mes o ');
+   define('TXTNoData', 'No Hay Datos ');
+   define('TXTProductUsers', 'Productos por usuario');
+   define('TXTMessages', 'Vinculaciones x usuario');
+   
    
    
    

@@ -2,7 +2,7 @@
    $template = '
 </div>
 <footer>
-    %s
+    %s %s
 </footer>
 </body>
 <script src="./public/js/reload.js"></script>
@@ -12,5 +12,6 @@
    echo '<script src="./public/js/validates.js"></script>';
    printf(
       $template,
+      TXTAppName,
       TXTFooter
    );
