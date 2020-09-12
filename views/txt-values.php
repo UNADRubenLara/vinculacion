@@ -32,6 +32,11 @@
    define('TXTStatusUpdate', 'Actualizado');
    define('TXTmenufind', 'Buscar');
    define('TXTmenustats', 'Estadísticas');
+   define('TXTmenuTools', 'Útilerias');
+   define('TXTmenuToolsAdmin', 'ToolsAdmin');
+   define('TXTmenuToolsUsers', 'ToolsUsers');
+   
+   
 
 
 //Home
@@ -70,7 +75,7 @@
    
    //Estadisticas
     define('TXTAccess', 'Accesos');
-   define('TXTSelectDate', 'Selecciona las fechas:');
+   define('TXTSelectDate', 'Seleccionar las fechas:');
    define('TXTLastMonth', 'Último mes o ');
    define('TXTNoData', 'No Hay Datos ');
    define('TXTProductUsers', 'Productos por usuario');

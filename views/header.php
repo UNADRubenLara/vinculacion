@@ -46,8 +46,9 @@
                 <a href="%s">%s</a>
                 <a href="%s">%s</a>
                 <a href="out">%s</a>
-             </nav>
-            </section>
+                </nav>
+             </section>
+             <section><a href="%s"><button class="utils">%s</button></a></section>
             
             
             
@@ -65,7 +66,9 @@
             TXTmenustats,
             'users',
             TXTmenuusers,
-            TXTmenuOut
+            TXTmenuOut,
+            "toolsadmin",
+            TXTmenuTools
          );
       } else {
          printf(
@@ -78,7 +81,9 @@
             TXTmenufind,
             'products',
             TXTmenuproduct,
-            TXTmenuOut
+            TXTmenuOut,
+            "toolsusers",
+            TXTmenuTools
          );
       }
    }

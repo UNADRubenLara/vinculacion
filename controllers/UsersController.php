@@ -32,6 +32,9 @@
       {
          return $this->model->get_user($username);
       }
+   public function get_data_user($username){
+      return $this->model->get_data_user($username);
+   }
       
       public function change_status($changeUser = array())
       {

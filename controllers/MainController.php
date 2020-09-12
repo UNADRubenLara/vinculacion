@@ -53,14 +53,28 @@
                   }
                   break;
                
+                  case 'toolsusers':
+                  if (!isset($_POST['LEVEL'])) {
+                     $controller->load_view('toolsusers');
+                  } else {
+                     $controller->load_view($_POST['LEVEL']);
+                  }
+                  break;
+   
+               case 'toolsadmin':
+                  if (!isset($_POST['LEVEL'])) {
+                     $controller->load_view('toolsadmin');
+                  } else {
+                     $controller->load_view($_POST['LEVEL']);
+                  }
+                  break;
+               
                case 'out':
                   $_SESSION['VALID'] = false;
                   $controller->load_view('login');
                   break;
-               
-               default:
-                  $controller->load_view('error404');
-                  break;
+                  
+              
             }
             
          } else {

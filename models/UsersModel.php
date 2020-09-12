@@ -63,6 +63,16 @@
             }
          }
       }
+      public function get_data_user($username)
+      {
+         foreach ($this->users as $user) {
+            if ($user['username'] == $username) {
+               return $user;
+            }elseif ($user['idusuario'] == $username){
+               return $user;
+            }
+         }
+      }
       
       public function get_branch($username)
       {

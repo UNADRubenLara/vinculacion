@@ -36,9 +36,17 @@
       printf($template, TXTplaceholderUser, $product_user, TXTProductDetail, $actual_branch, $image,TXTProductDescription, $product['product_detail'],  TXTlink,TXTBtnLink, $product['idproduct_detail']);
       
    } else if ($_POST['LEVEL'] == 'product-display' && $_POST['action'] == 'vincular') {
+      echo $_POST['idproduct_detail'];
+        $actual_product = new ProductController();
+        $product = $actual_product->get_product($_POST['idproduct_detail']);
+        $provider = new UsersController();
+        $providerdata=$provider->get_data_user($product['idusuario']);
+        var_dump($providerdata);
+        echo '<hr>';
+        var_dump($product);
+     
       
       
-      header("Refresh:3" );
    } else {
       $controller = new ViewController();
       $controller->load_view('error401');
