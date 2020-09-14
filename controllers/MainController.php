@@ -74,7 +74,7 @@
                   $controller->load_view('login');
                   break;
    
-               case 'home':
+               default:
                   $controller->load_view('home');
                   break;
                   
