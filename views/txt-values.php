@@ -8,6 +8,9 @@
    define('TXTBtnAdd', 'Agregar');
    define('TXTBtnEdit', 'Editar');
    define('TXTBtnNew', 'Nuevo');
+   define('TXTWait', 'Espere, cargando los datos.');
+   define('TXTduplicated', 'Los datos ya existen.');
+   define('TXTError', 'Error: ');
    
 
 //footer
@@ -80,6 +83,10 @@
    define('TXTNoData', 'No Hay Datos ');
    define('TXTProductUsers', 'Productos por usuario');
    define('TXTMessages', 'Vinculaciones x usuario');
+   
+   //herramientas
+   
+   define('TXTloadZipTable', 'Cargar tabla de códigos Postales');
    
    
    

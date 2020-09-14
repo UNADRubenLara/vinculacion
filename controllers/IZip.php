@@ -21,6 +21,12 @@
             return $this->model->findByZip($zipcode);
          }
       }
-      
+   
+      public function loadLargeZip($file){
+         return $this->model->loadLargeZip($file);
+      }
       
    }
+      
+      
+   
