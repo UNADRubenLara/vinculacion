@@ -13,73 +13,21 @@
          if (!isset($_SESSION['VALID'])) {
             $_SESSION['VALID'] = false;
          }
-      
          
          if ($_SESSION['VALID']) {
             $this->MainController = isset($_GET['LEVEL']) ? $_GET['LEVEL'] : 'home';
             $controller = new ViewController();
-            
-            switch ($this->MainController) {
-               case 'home':
-                  $controller->load_view('home');//$this->MainController
-                  break;
-               
-               case 'users':
-                  if (!isset($_POST['LEVEL'])) {
-                     $controller->load_view('users');
-                  } else {
-                     $controller->load_view($_POST['LEVEL']);
-                  }
-                  break;
-               case 'products':
-                  if (!isset($_POST['LEVEL'])) {
-                     $controller->load_view('products');
-                  } else {
-                     $controller->load_view($_POST['LEVEL']);
-                  }
-                  break;
-               case 'find':
-                  if (!isset($_POST['LEVEL'])) {
-                     $controller->load_view('find');
-                  } else {
-                     $controller->load_view($_POST['LEVEL']);
-                  }
-                  break;
-               case 'stats':
-                  if (!isset($_POST['LEVEL'])) {
-                     $controller->load_view('stats');
-                  } else {
-                     $controller->load_view($_POST['LEVEL']);
-                  }
-                  break;
-               
-                  case 'toolsusers':
-                  if (!isset($_POST['LEVEL'])) {
-                     $controller->load_view('toolsusers');
-                  } else {
-                     $controller->load_view($_POST['LEVEL']);
-                  }
-                  break;
-   
-               case 'toolsadmin':
-                  if (!isset($_POST['LEVEL'])) {
-                     $controller->load_view('toolsadmin');
-                  } else {
-                     $controller->load_view($_POST['LEVEL']);
-                  }
-                  break;
-               
-               case 'out':
-                  $_SESSION['VALID'] = false;
-                  $controller->load_view('login');
-                  break;
-   
-               default:
-                  $controller->load_view('home');
-                  break;
-                  
-              
+            if ($this->MainController == 'out') {
+               $_SESSION['VALID'] = false;
+               $controller->load_view('login');
+            } else {
+               if (!isset($_POST['LEVEL'])) {
+                  $controller->load_view($this->MainController);
+               } else {
+                  $controller->load_view($_POST['LEVEL']);
+               }
             }
+            
             
          } else {
             if (!isset($_POST['USER']) && !isset($_POST['PASS'])) {
