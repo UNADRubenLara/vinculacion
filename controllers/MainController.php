@@ -73,6 +73,10 @@
                   $_SESSION['VALID'] = false;
                   $controller->load_view('login');
                   break;
+   
+               case 'home':
+                  $controller->load_view('home');
+                  break;
                   
               
             }

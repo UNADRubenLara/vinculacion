@@ -1,11 +1,11 @@
 <?php
-     if ($_POST['LEVEL'] == 'product-display' && isset($_POST['find']) && isset($_SESSION['VALID'])) {
+   if ($_POST['LEVEL'] == 'product-display' && isset($_POST['find']) && isset($_SESSION['VALID'])) {
       printf('<h2 class="form-Title">%s</h2>', TXTAppName);
       $actual_product = new ProductController();
       $product = $actual_product->get_product($_POST['find']);
       $actual_user = new UsersController();
       $actual_branch = $actual_user->get_branch($product['idusuario']);
-      $product_user=$actual_user->get_user($product['idusuario']);
+      $product_user = $actual_user->get_user($product['idusuario']);
       $template = '
       <section class="form-edit center-box central-fr-up"  >
       <section class="container">
@@ -33,19 +33,16 @@
 </section>
 ';
       $image = $product['image'];
-      printf($template, TXTplaceholderUser, $product_user, TXTProductDetail, $actual_branch, $image,TXTProductDescription, $product['product_detail'],  TXTlink,TXTBtnLink, $product['idproduct_detail']);
+      printf($template, TXTplaceholderUser, $product_user, TXTProductDetail, $actual_branch, $image, TXTProductDescription, $product['product_detail'], TXTlink, TXTBtnLink, $product['idproduct_detail']);
       
    } else if ($_POST['LEVEL'] == 'product-display' && $_POST['action'] == 'vincular') {
-      echo $_POST['idproduct_detail'];
-        $actual_product = new ProductController();
-        $product = $actual_product->get_product($_POST['idproduct_detail']);
-        $provider = new UsersController();
-        $providerdata=$provider->get_data_user($product['idusuario']);
-        var_dump($providerdata);
-        echo '<hr>';
-        var_dump($product);
-     
-      
+      $actual_product = new ProductController();
+      $product = $actual_product->get_product($_POST['idproduct_detail']);
+      $provider = new UsersController();
+      $providerdata = $provider->get_data_user($product['idusuario']);
+      var_dump($providerdata);
+      echo '<hr>';
+      var_dump($product);
       
    } else {
       $controller = new ViewController();
