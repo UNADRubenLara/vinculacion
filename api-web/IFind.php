@@ -11,7 +11,10 @@
       $txt = $_GET['txt'];
       $ProductControl = new ProductController();
       $data=$ProductControl->findByText($txt);
-      echo json_encode($data);
+      $string= json_encode($data);
+      $string=str_replace('\r', ' ', $string);
+      $string=str_replace('\n', ' ', $string);
+      echo $string;
    } else {
       echo 'ifind.php?txt=TextoaBuscar   (Con Sesion iniciada) ';
    }

@@ -18,7 +18,8 @@
       
       public function findByText($txt)
       {
-         return $this->model->findByText($txt);
+         $rt=$this->model->findByText($txt);
+         return $rt;
       }
       
       public function list_user_products($iduser = '')

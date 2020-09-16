@@ -11,6 +11,7 @@
    define('TXTWait', 'Espere, cargando los datos.');
    define('TXTduplicated', 'Los datos ya existen.');
    define('TXTError', 'Error: ');
+   define('TXTSameId', 'Error mismo cliente ');
    
 
 //footer
@@ -62,6 +63,17 @@
    define('TXTUserBtnActivate', 'Activar');
    define('TXTUserStatusActive', 'Activo');
    define('TXTUserStatusInactive', 'Inactivo');
+   define('TXTUserBranchText', 'Rama ');
+   define('TXTUserMail', 'Correo');
+   define('TXTUserZip', 'C.P.');
+   define('TXTUserPhone', 'Teléfono');
+   define('TXTUserAddress_street', 'Dirección ');
+   define('TXTUserUbication', 'Colonia ');
+   define('TXTUserCity', 'Ciudad ');
+   define('TXTUserState', 'Estado');
+   define('TXTUserLocation', 'Municipio');
+   
+   
    
    // Vista Productos
    define('TXTProductDetail', 'Descripción');
@@ -75,6 +87,8 @@
    //Vinculacion
    define('TXTlink', '¿Desea la información de este producto?');
    define('TXTBtnLink', 'Vincular');
+   define('TXTUserData', 'Datos del Proveedor: ');
+   define('TXTUserActiveMessages', 'Vinculaciones a evaluar: ');
    
    //Estadisticas
     define('TXTAccess', 'Accesos');

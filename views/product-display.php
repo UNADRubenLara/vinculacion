@@ -40,9 +40,67 @@
       $product = $actual_product->get_product($_POST['idproduct_detail']);
       $provider = new UsersController();
       $providerdata = $provider->get_data_user($product['idusuario']);
-      var_dump($providerdata);
-      echo '<hr>';
-      var_dump($product);
+      $message=new MessageController();
+      if($message->create_message($_POST['idproduct_detail'],$product['idusuario'])==00000){
+      $template='
+       <section class="form-edit center-box central-fr-up"  >
+          <section class="containerv">
+            <section class="containerh">
+		              <section class="flex-item-lf">
+		                          <h2  > %s </h2>
+		                          <label >%s: </label><label >%s</label><br>
+		                          <label >%s: </label><label >%s</label><br>
+		                          <label >%s: </label><label >%s</label>
+		              </section>
+		             <section class="flex-item-lf ulproduct">
+                        
+                        <label >%s: </label><label >%s</label><br>
+                        <label >%s: </label><label >%s</label><br>
+                        <label >%s: </label><label >%s</label><br>
+                        <label >%s: </label><label >%s</label><br>
+                        <label >%s: </label><label >%s</label><br>
+                        <label >%s: </label><label >%s</label><br>
+                        <label >%s: </label><label >%s</label><br>
+                        <label >%s: </label><label >%s</label><br>
+		               </section>
+		       </section>
+	       <section class="flex-item-rh central-fr-up">
+             <img  class="imgproduct" src = "data:image/png;base64,%s"/>
+          </section>
+        </section>
+         ';
+   
+         $phone=preg_replace("/([0-9]{3})([0-9]{3})([0-9]{4})/", "$1-$2-$3", $providerdata['phone']);
+         printf(
+            $template,
+            TXTUserData,
+            TXTProductDetail,
+            $product['product_detail'],
+            TXTUserFullName,
+            $providerdata['fullname'],
+            TXTUserBranchText,
+            $providerdata['branchText'],
+            TXTUserMail,
+            $providerdata['mail'],
+            TXTUserPhone,
+            $phone,
+            TXTUserAddress_street,
+            $providerdata['address_street'],
+            TXTUserUbication,
+            $providerdata['C_NOMBRE'],
+            TXTUserCity,
+            $providerdata['D_CIUDAD'],
+            TXTUserZip,
+            $providerdata['C_CODIGO'],
+            TXTUserLocation,
+            $providerdata['D_MUNICIPIO'],
+            TXTUserState,
+            $providerdata['D_ESTADO'],
+            $image = $product['image'],
+            );
+         
+        
+      }
       
    } else {
       $controller = new ViewController();

@@ -12,8 +12,8 @@
       public function list_messages($date_init, $date_end)
       {
          try {
-            $date_init=$date_init." 00:00:00";
-            $date_end=$date_end." 00:00:00";
+            $date_init = $date_init . " 00:00:00";
+            $date_end = $date_end . " 23:59:59";
             
             $stmt = $this->connection->prepare("SELECT * FROM `MESSAGES` WHERE  (`messaje_datetime` BETWEEN :di AND :de)");
             $stmt->bindParam(':di', $date_init, PDO::PARAM_STR);
@@ -28,22 +28,61 @@
             return $data;
          }
          return 0;
-   
+         
       }
       
-      public function create_message($product)
+      public function create_message($product, $proveedor)
+      {
+         $messaje_datetime = date("yy-m-d G:i:s");
+         $idproducto = $product;
+         $idcliente = $_SESSION['iduser'];
+         $idproveedor = $proveedor;
+         if ($idcliente == $idproveedor) {
+            return TXTSameId;
+         } else {
+            try {
+               $stmt = $this->connection->prepare("INSERT INTO `MESSAGES` (`idmessage`, `messaje_datetime`, `idproducto`, `idcliente`, `idproveedor`, `success`) VALUES (NULL, :dt, :pr, :cl, :pv, NULL);");
+               $stmt->bindParam(':dt', $messaje_datetime, PDO::PARAM_STR);
+               $stmt->bindParam(':pr', $idproducto, PDO::PARAM_STR);
+               $stmt->bindParam(':cl', $idcliente, PDO::PARAM_STR);
+               $stmt->bindParam(':pv', $idproveedor, PDO::PARAM_STR);
+               $stmt->execute();
+               $respose=$stmt->errorCode();
+               $stmt->closeCursor();
+              
+            } catch (Exception $ex) {
+               return $ex[2];
+            }
+            return $respose;
+         }
+      }
+      
+      private function send_message($product)
       {
          $data = $this->send_message($product);
          return $data;
       }
       
-      private function send_message($product)
+      public function resend_messages($idmessage)
       {
-         $data = array();
-         return $data;
       }
-            public function resend_messages($idmessage)
-      {
+   
+      public function actives_messages($iduser){
+         try {
+         $stmt = $this->connection->prepare("SELECT * FROM `MESSAGES` WHERE `idcliente` = :id AND `success` IS NULL");
+         $stmt->bindParam(':id', $iduser, PDO::PARAM_STR);
+         $stmt->execute();
+         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (Exception $ex) {
+         return $ex[2];
+      }
+         return $data;
+         
+         }
+      
+   
+      public function sucefull_messages($idmessage){
+      
       }
       
       

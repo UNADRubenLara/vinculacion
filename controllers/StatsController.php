@@ -65,7 +65,8 @@
          for($i=0; $i<count($rawdata); $i++)
          {
             $id=$rawdata[$i]['idcliente'];
-            array_unshift($list,$id);
+            $username=$this->Usersmodel->get_data_user($id);
+            array_unshift($list,$username['username']);
          }
          return array_count_values($list);
       }

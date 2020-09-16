@@ -17,6 +17,7 @@
             $stmt->bindParam('user', $user, PDO::PARAM_STR);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
+          
           } catch (PDOException  $ex) {
               $this->connection->trow_error($ex);
          }
@@ -35,6 +36,7 @@
                } catch (PDOException  $ex) {
                $this->connection->trow_error($ex);
             }
+            
             return $data;
          }
          return 0;

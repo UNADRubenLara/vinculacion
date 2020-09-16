@@ -28,6 +28,7 @@
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
+            
          } catch (Exception $ex) {
             return $ex[2];
          }
@@ -108,6 +109,7 @@
                $stmt->bindParam(':s', $status, PDO::PARAM_INT);
                $stmt->bindParam(':i', $user_data['idaddress'], PDO::PARAM_INT);
                $stmt->execute();
+               
                if ($this->connection->lastInsertId() == 0) {
                   return $user_data['username'] . ' No guardado verificar duplicado';
                } else {

@@ -80,7 +80,7 @@
         <h3>%s</h3>';
       printf($template, TXTMessages);
       echo '<img class="imgstats" src="';
-      $accesos->pie_graph();
+      $messages->pie_graph();
       echo '" alt="graph"/></section>';
    } else{
       $template = '

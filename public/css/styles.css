@@ -113,6 +113,11 @@ hr{
     padding: 3px;
     text-align: center;
 }
+.flex-item-lf {
+    padding: 3px;
+    text-align: left;
+    justify-content: flex-start;
+}
 
 .flex-item-rh {
     padding: 3px;
@@ -464,8 +469,6 @@ button{
 .findimg{
     height: 100%;
 }
-
-
 
 .form-Title {
     text-align: center;

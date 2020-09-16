@@ -36,6 +36,7 @@
                $branch = array('branch_code' => $nt['branch_code'], 'branch' => $nt['branch'], 'b_description' => $nt['b_description'], 'b_includes' => $nt['b_includes'], 'b_exclude' => $nt['b_exclude']);
                array_push($data, $branch);
             }
+            
          } catch (PDOException  $ex) {
             $this->connection->trow_error($ex);
          }

@@ -9,9 +9,15 @@
          $this->model = new MessageModel();
       }
       
-      public function create_message($product)
+      public function create_message($product, $proveedor)
       {
-         return $this->model->create_message($product);
+         return $this->model->create_message($product, $proveedor);
+      }
+      
+      public function actives_messages($iduser)
+      {
+         return $this->model->actives_messages($iduser);
+         
       }
       
       public function list_messages($date_init, $date_end)

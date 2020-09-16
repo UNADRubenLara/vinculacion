@@ -31,7 +31,7 @@
             $stmt->bindParam(':p', $txt, PDO::PARAM_STR);
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-         } catch (PDOException  $ex) {
+            } catch (PDOException  $ex) {
             $this->connection->trow_error($ex);
          }
          if ($data) {

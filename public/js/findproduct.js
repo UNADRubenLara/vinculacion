@@ -52,7 +52,7 @@ function findProductByText(str) {
                     }
                 }
                 if(!ArrayRecived) {
-                   li = document.createElement("li");
+                   let li = document.createElement("li");
                     li.className = 'ulproduct';
                         li.innerText = 'Sin Resultados!';
                         select.appendChild(li);
@@ -67,7 +67,6 @@ function findProductByText(str) {
                 }
 
             }
-
 
         let url = './api-web/IFind.php';
         url = url + "?txt=" + str;

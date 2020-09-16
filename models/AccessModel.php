@@ -20,6 +20,7 @@
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             $stmt->closeCursor();
+            
          } catch (Exception $ex) {
             return $ex[2];
          }
