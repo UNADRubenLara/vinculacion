@@ -39,6 +39,8 @@
    define('TXTmenuTools', 'Útilerias');
    define('TXTmenuToolsAdmin', 'ToolsAdmin');
    define('TXTmenuToolsUsers', 'ToolsUsers');
+   define('TXTActions', 'Acciones');
+   define('TXTView', 'Ver');
    
    
 

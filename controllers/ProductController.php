@@ -18,13 +18,17 @@
       
       public function findByText($txt)
       {
-         $rt=$this->model->findByText($txt);
-         return $rt;
+         return $this->model->findByText($txt);
       }
       
       public function list_user_products($iduser = '')
       {
          return $this->model->list_user_products($iduser);
+      }
+      
+      public function list_user_deleted_products($iduser = '')
+      {
+         return $this->model->list_user_deleted_products($iduser);
       }
       
       public function add_product($product = '')

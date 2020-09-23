@@ -11,7 +11,7 @@
       public function list_products()
       {
          try {
-            $stmt = $this->connection->prepare("SELECT `idproduct_detail`, `idbranch`, `product_detail`, `idusuario` FROM `PRODUCT_DETAIL`");
+            $stmt = $this->connection->prepare("SELECT `idproduct_detail`, `idbranch`, `product_detail`, `idusuario` FROM `PRODUCT_DETAIL` WHERE `status` = 1");
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
          } catch (PDOException  $ex) {
@@ -59,7 +59,22 @@
       public function list_user_products($iduser = '')
       {
          try {
-            $stmt = $this->connection->prepare("SELECT * FROM `PRODUCT_DETAIL` WHERE `idusuario` = :p");
+            $stmt = $this->connection->prepare("SELECT * FROM `PRODUCT_DETAIL` WHERE `idusuario` = :p AND `status` = 1");
+            $stmt->bindParam(':p', $iduser, PDO::PARAM_STR);
+            $stmt->execute();
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+         } catch (PDOException  $ex) {
+            $this->connection->trow_error($ex);
+         }
+         if ($data) {
+            return $data;
+         }
+         return 0;
+      }
+      public function list_user_deleted_products($iduser = '')
+      {
+         try {
+            $stmt = $this->connection->prepare("SELECT * FROM `PRODUCT_DETAIL` WHERE `idusuario` = :p AND `status` = 2");
             $stmt->bindParam(':p', $iduser, PDO::PARAM_STR);
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -116,7 +131,7 @@
       public function delete_product($idproduct)
       {
          try {
-            $stmt = $this->connection->prepare("DELETE FROM `PRODUCT_DETAIL` WHERE `PRODUCT_DETAIL`.`idproduct_detail` =:id");
+            $stmt = $this->connection->prepare("UPDATE `PRODUCT_DETAIL` SET `status` = '2' WHERE `PRODUCT_DETAIL`.`idproduct_detail` =:id");
             $stmt->bindParam(':id', $idproduct, PDO::PARAM_STR);
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

@@ -5,9 +5,10 @@
    {
       private $image;
       private $red, $green, $blue, $orange, $brown, $white, $black,  $almost_white;
-      private array $data, $elements_percent;
-      private int $size_px, $n_elements,$font_size;
-      private string $title;
+      private $data;
+      private $elements_percent;
+      private  $size_px, $n_elements,$font_size;
+      private  $title;
       
       public function __construct($data, $size_px, $title)
       {

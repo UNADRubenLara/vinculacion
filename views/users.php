@@ -23,7 +23,7 @@
 			    <th>%s</th>    
 				<th>%s</th>
 				<th>%s</th>
-				<th colspan="2"></th>
+				<th colspan="3">%s</th>
 			</tr>
 			<br>';
          
@@ -43,6 +43,7 @@
 				<td>' . $users[$i]['username'] . '</td>
 				<td>' . $users[$i]['fullname'] . '</td>
 				<td>
+				
 					<form method="POST">
 						<input type="hidden" name="LEVEL" value="user-edit">
 						<input type="hidden" name="username" value="' . $users[$i]['username'] . '">
@@ -55,7 +56,15 @@
 						<input type="hidden" name="username" value="' . $users[$i]['username'] . '">
 						<input type="hidden" name="STATUS" value="' . $status . '">
 						<input class="button ' . $status . '" type="submit" value="' . $statusbtn . '">
-					</form>
+					   </form>
+				</td>
+				<td>
+					<form method="POST">
+						<input type="hidden" name="LEVEL" value="products">
+						<input type="hidden" name="idusuario" value="' . $users[$i]['idusuario'] . '">
+						<input type="hidden" name="username" value="' .  $users[$i]['username'] . '">
+						<input class="button edit" type="submit" value="' . TXTmenuproduct . '">
+					   </form>
 				</td>
 			</tr>
 			
@@ -71,7 +80,8 @@
             TXTBtnNew,
             TXTId,
             TXTusername,
-            TXTUserFullName
+            TXTUserFullName,
+            TXTActions
             
          );
       }
