@@ -67,8 +67,8 @@
          );
       }
    } else {
-      
-      printf('<h2 class="form-Title">%s [%s]</h2>', TXTmenuproduct, $_POST['username']);
+      $username=$_POST['username'];
+      printf('<h2 class="form-Title">%s [%s]</h2>', TXTmenuproduct, $username);
       $product_controller = new ProductController();
       $products = $product_controller->list_user_products($_POST['idusuario']);
       if (empty($products)) {
@@ -111,9 +111,7 @@
          
          printf($template_admin,
             TXTId,
-            TXTProductDetail,
-         
-         );
+            TXTProductDetail);
       }
    }
       

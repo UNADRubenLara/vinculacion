@@ -7,7 +7,7 @@
    } else  {
       if (session_status() == PHP_SESSION_NONE) {session_start();}
    }
-   if (isset($_GET['txt']) && $_SESSION['VALID']) {
+   if (isset($_GET['txt'])) {
    
       if (!isset($dbo)) {
       $dbo = new SingleConnection();
@@ -32,9 +32,8 @@
       } catch (Exception $e) {
          echo $e[2];
       }
-      
    }
-   if ($data) {
+   if (!empty($data)) {
       echo json_encode($data);
    } else {
       echo "";

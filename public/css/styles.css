@@ -219,6 +219,16 @@ hr{
     margin: 3vmin;
     float: left;
 }
+
+.thimgproduct{
+    width: 15vmin;
+    height:15vmin;
+    margin: 1vmin;
+
+}
+.space{
+    height: 5vmin;
+    }
 .imgstats{
     width: 45vmin;
     height: 45vmin;

@@ -41,6 +41,7 @@
    define('TXTmenuToolsUsers', 'ToolsUsers');
    define('TXTActions', 'Acciones');
    define('TXTView', 'Ver');
+   define('TXTMsgToEval', 'Vinculaciones Pendientes');
    
    
 
@@ -55,6 +56,8 @@
    define('TXTnousers', 'No hay usuarios en la BD');
    define('TXTnoproducts', 'No hay productos en la BD');
    define('TxTError', 'Error de');
+   define('TXTErrorOutRange', 'Valor Fuera de rango');
+   
 
 
 //Vista usuarios
@@ -89,16 +92,26 @@
    //Vinculacion
    define('TXTlink', '¿Desea la información de este producto?');
    define('TXTBtnLink', 'Vincular');
+   define('TXTEvaluatePending', 'Pendiente de Evaluar');
    define('TXTUserData', 'Datos del Proveedor: ');
-   define('TXTUserActiveMessages', 'Vinculaciones a evaluar: ');
+   define('TXTNotSuccessful', 'No se logro el trato');
+   define('TXTSuccessful', 'Se logro el trato una vez');
+   define('TXTSuccessfulandcontract', 'Se hizo contrato temporal');
+   define('TXTSuccessfulandprovider', 'Se hizo contrato como cliente');
+   define('TXTEvaluate', 'Evaluar');
+   
+   
+   
    
    //Estadisticas
-    define('TXTAccess', 'Accesos');
+   define('TXTAccess', 'Accesos');
    define('TXTSelectDate', 'Seleccionar las fechas:');
    define('TXTLastMonth', 'Último mes o ');
    define('TXTNoData', 'No Hay Datos ');
    define('TXTProductUsers', 'Productos por usuario');
    define('TXTMessages', 'Vinculaciones x usuario');
+   define('TXTMessagesStats', 'Vinculaciones Logradas');
+   
    
    //herramientas
    

@@ -47,9 +47,9 @@
                $stmt->bindParam(':cl', $idcliente, PDO::PARAM_STR);
                $stmt->bindParam(':pv', $idproveedor, PDO::PARAM_STR);
                $stmt->execute();
-               $respose=$stmt->errorCode();
+               $respose = $stmt->errorCode();
                $stmt->closeCursor();
-              
+               
             } catch (Exception $ex) {
                return $ex[2];
             }
@@ -66,24 +66,45 @@
       public function resend_messages($idmessage)
       {
       }
-   
-      public function actives_messages($iduser){
+      
+      public function actives_messages($iduser)
+      {
          try {
-         $stmt = $this->connection->prepare("SELECT * FROM `MESSAGES` WHERE `idcliente` = :id AND `success` IS NULL");
-         $stmt->bindParam(':id', $iduser, PDO::PARAM_STR);
-         $stmt->execute();
-         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (Exception $ex) {
-         return $ex[2];
-      }
+            $stmt = $this->connection->prepare("SELECT * FROM `MESSAGES` WHERE `idcliente` = :id AND `success` IS NULL");
+            $stmt->bindParam(':id', $iduser, PDO::PARAM_STR);
+            $stmt->execute();
+            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+         } catch (Exception $ex) {
+            return $ex[2];
+         }
          return $data;
          
-         }
-      
-   
-      public function sucefull_messages($idmessage){
-      
       }
       
       
+      public function evaluate_messages($idmessage, $evaluation)
+      {
+         if ($evaluation >= 0 and $evaluation <= 3) {
+            try {
+               $stmt = $this->connection->prepare("UPDATE `MESSAGES` SET `success` = :ev WHERE `MESSAGES`.`idmessage` = :id ");
+               $stmt->bindParam(':id', $idmessage, PDO::PARAM_STR);
+               $stmt->bindParam(':ev', $evaluation, PDO::PARAM_STR);
+               
+               $stmt->execute();
+               $respose = $stmt->errorCode();
+               $stmt->closeCursor();
+               
+            } catch (Exception $ex) {
+               return $ex[2];
+            }
+            return $respose;
+         } else {
+            
+            return TXTErrorOutRange;
+         }
+      }
+      
    }
+      
+      
+   

@@ -31,6 +31,11 @@
          
          return $this->model->resend_messages($idmessage);
       }
+      public function evaluate_messages($idmessage,$evaluation)
+      {
+      
+         return $this->model->evaluate_messages($idmessage,$evaluation);
+      }
       
       
    }

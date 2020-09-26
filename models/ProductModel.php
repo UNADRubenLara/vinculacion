@@ -25,13 +25,15 @@
       
       public function findByText($txt)
       {
+         $user = $_SESSION['iduser'];
          try {
-            $txt='%'.$txt.'%';
-            $stmt = $this->connection->prepare("SELECT `idproduct_detail`, `idbranch`, `product_detail`, `idusuario` FROM `PRODUCT_DETAIL` WHERE`PRODUCT_DETAIL`.`product_detail` LIKE :p ;");
+            $txt = '%' . $txt . '%';
+            $stmt = $this->connection->prepare("SELECT `idproduct_detail`, `idbranch`, `product_detail`, `idusuario` FROM `PRODUCT_DETAIL` WHERE`PRODUCT_DETAIL`.`product_detail` LIKE :p AND `PRODUCT_DETAIL`.`idusuario` != :us AND `PRODUCT_DETAIL`.`status` = 1 ;");
+            $stmt->bindParam(':us', $user, PDO::PARAM_STR);
             $stmt->bindParam(':p', $txt, PDO::PARAM_STR);
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException  $ex) {
+         } catch (PDOException  $ex) {
             $this->connection->trow_error($ex);
          }
          if ($data) {
@@ -56,6 +58,23 @@
          return 0;
       }
       
+      public function get_image_product($product)
+      {
+         try {
+            $stmt = $this->connection->prepare("SELECT `image` FROM `PRODUCT_DETAIL` WHERE `idproduct_detail` = :p");
+            $stmt->bindParam(':p', $product, PDO::PARAM_STR);
+            $stmt->execute();
+            $data = $stmt->fetch(PDO::FETCH_ASSOC);
+         } catch (PDOException  $ex) {
+            $this->connection->trow_error($ex);
+         }
+         if ($data) {
+            return $data;
+         }
+         return 0;
+      }
+      
+      
       public function list_user_products($iduser = '')
       {
          try {
@@ -71,6 +90,7 @@
          }
          return 0;
       }
+      
       public function list_user_deleted_products($iduser = '')
       {
          try {

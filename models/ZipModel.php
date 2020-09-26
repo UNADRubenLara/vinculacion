@@ -56,10 +56,10 @@
          } else return 0;
          
       }
-      function loadLargeZip(){
+      function loadLargeZip($file){
          $conn = new SingleConnection();
          $conn->query("SET CHARACTER SET utf8");
-         $handle = fopen('./install/ZP_ADDRESS.sql', 'rb');
+         $handle = fopen($file, 'rb');
          if ($handle) {
             while (!feof($handle)) {
                $buffer = stream_get_line($handle, 1000000, ";\n");

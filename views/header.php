@@ -71,6 +71,9 @@
             TXTmenuTools
          );
       } else {
+         $messages = new MessageController();
+         $messagestoevaluate=count($messages->actives_messages($_SESSION['iduser']));
+         $messagestoevaluate=TXTMsgToEval.'-'.$messagestoevaluate;
          printf(
             $template,
             $dateHour,
@@ -83,7 +86,7 @@
             TXTmenuproduct,
             TXTmenuOut,
             "toolsusers",
-            TXTmenuTools
+            $messagestoevaluate
          );
       }
    }

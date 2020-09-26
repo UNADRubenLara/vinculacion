@@ -92,4 +92,27 @@
    }
    
    
-   echo '</section>';//end graph section
+   echo '</section>';
+   //grafico 4
+   
+   $evaluatedmsgsarray=$statsdata->stats_messages($date_init, $date_end);
+   if ($evaluatedmsgsarray) {
+      $evaluatedmsg = new GDGraph($evaluatedmsgsarray, 350, TXTMessagesStats);
+      $template = '
+     <section class="flex-item-rh center-box-pad">
+        <h3>%s</h3>';
+      printf($template, TXTMessagesStats);
+      echo '<img class="imgstats" src="';
+      $evaluatedmsg->pie_graph();
+      echo '" alt="graph"/></section>';
+   } else{
+      $template = '
+     <section class="flex-item-rh center-box-pad">
+        <h3>%s</h3>
+        <h2>%s</h2>
+        </section>';
+      printf($template, TXTProductUsers,TXTNoData);
+   }
+   
+   //end graph section
+

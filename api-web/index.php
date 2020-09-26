@@ -17,7 +17,12 @@
 <body>
 	<div>
     <h1>API-WEB</h1>
-	<input type="button" value="BACK" onclick="history.back()">
+    <form method="get" action="zipsearch.php">
+    <input type="text" name="txt">
+    <input type="submit" value="ZIP">
+    </form>
+    <input type="button" value="BACK" onclick="history.back()">
+	
 	</div>
 </body>
 </html>

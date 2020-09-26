@@ -82,8 +82,32 @@
             array_unshift($list,$id);
          }
          return array_count_values($list);
-      }}
+      }
+      
+      }
+   
+      public function stats_messages($date_init, $date_end)
+      {
+         $rawdata= $this->messagemodel->list_messages($date_init, $date_end);
+         $list=array();
+         if ($rawdata){
+            for($i=0; $i<count($rawdata); $i++)
+            {
+               $id=$rawdata[$i]['success'];
+               if($id==null){$id=TXTEvaluatePending;}
+               if($id=='0'){$id=TXTNotSuccessful;}
+               if($id=='1'){$id=TXTSuccessful;}
+               if($id=='2'){$id=TXTSuccessfulandcontract;}
+               if($id=='3'){$id=TXTSuccessfulandprovider;}
+               
+               array_unshift($list,$id);
+            }
+            return array_count_values($list);
+         }
+      }
+
    }
+   
 
    
       
