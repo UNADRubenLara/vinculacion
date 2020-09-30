@@ -99,3 +99,4 @@ productdetail.addEventListener("input", function () {
 
 
 
+

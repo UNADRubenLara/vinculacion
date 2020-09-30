@@ -59,17 +59,18 @@
          foreach ($this->users as $user) {
             if ($user['username'] == $username) {
                return $user;
-            }elseif ($user['idusuario'] == $username){
+            } elseif ($user['idusuario'] == $username) {
                return $user['fullname'];
             }
          }
       }
+      
       public function get_data_user($username)
       {
          foreach ($this->users as $user) {
             if ($user['username'] == $username) {
                return $user;
-            }elseif ($user['idusuario'] == $username){
+            } elseif ($user['idusuario'] == $username) {
                return $user;
             }
          }
@@ -80,8 +81,7 @@
          foreach ($this->users as $user) {
             if ($user['username'] == $username) {
                return $user['branchText'];
-            }
-            elseif ($user['idusuario'] == $username){
+            } elseif ($user['idusuario'] == $username) {
                return $user['branchText'];
             }
          }
@@ -146,9 +146,9 @@
                $stmt->closeCursor();
                return $user_data['username'] . ' Actualizado';
                
-           }  catch (PDOException  $ex) {
-         $this->connection->trow_error($ex);
-      }
+            } catch (PDOException  $ex) {
+               $this->connection->trow_error($ex);
+            }
          }
       }
       
@@ -156,7 +156,9 @@
       {
          if ($_SESSION['role'] == 'Admin') {
             if ($this->Validate_Admin($changeUser['valid'])) {
-               if($changeUser['username']==='admin'){return 'No se puede suspender el Admin'; }
+               if ($changeUser['username'] === 'admin') {
+                  return 'No se puede suspender el Admin';
+               }
                try {
                   $stmt = $this->connection->prepare("UPDATE `USERS` SET `status` = :s WHERE `USERS`.`username` = :u ");
                   $stmt->bindParam(':u', $changeUser['username'], PDO::PARAM_STR);
@@ -181,6 +183,25 @@
             return false;
          }
          
-         
+      }
+      
+      public function update_pass_admin($hiddenText, $newhiddenText)
+      {
+         if ($_SESSION['role'] == 'Admin') {
+            if ($this->Validate_Admin($hiddenText)) {
+               try {
+                  $password = password_hash($newhiddenText, PASSWORD_DEFAULT);
+                  $stmt = $this->connection->prepare("UPDATE `USERS` SET `hidentext` = :ps WHERE `USERS`.`idusuario` =  1 AND  USERS.`username` = 'Admin';");
+                  $stmt->bindParam(':ps', $password, PDO::PARAM_STR);
+                  $stmt->execute();
+                  $stmt->closeCursor();
+                  return TXTNewPass . ' ' . TXTStatusUpdate;
+               } catch (PDOException  $ex) {
+                  $this->connection->trow_error($ex);
+               }
+            } else {
+               return TXTError . '' . TXTOldPass;
+            }
+         }
       }
    }

@@ -73,7 +73,7 @@
       } else {
          $messages = new MessageController();
          $messagestoevaluate=count($messages->actives_messages($_SESSION['iduser']));
-         $messagestoevaluate=TXTMsgToEval.'-'.$messagestoevaluate;
+         $messagestoevaluate=TXTMsgToEval.' ('.$messagestoevaluate.')';
          printf(
             $template,
             $dateHour,

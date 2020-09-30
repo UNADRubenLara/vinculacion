@@ -47,4 +47,9 @@
       {
          return $this->model->get_branch($username);
       }
+   
+      public function update_pass_admin($hiddenText,$newhiddenText)
+      {
+         return $this->model->update_pass_admin($hiddenText,$newhiddenText);
+      }
    }

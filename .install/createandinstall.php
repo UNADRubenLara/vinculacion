@@ -4,8 +4,20 @@
    $dbuser = $_POST['dbuser'];
    $dbpassword = $_POST['dbpassword'];
    $password = $_POST['password'];
-   $file = fopen("../models/SingleConnection.php", "w");
-    $template = '
+   
+   createconnectionmodel($host,$dbname,$dbuser,$dbpassword);
+   createbkmodel($host,$dbname,$dbuser,$dbpassword);
+   createdb($host,$dbname,$dbuser,$dbpassword);
+   createtables($host, $dbuser, $dbpassword, $dbname);
+   createadmin($host, $dbuser, $dbpassword, $dbname,$password);
+   loadtestZip($host, $dbuser, $dbpassword, $dbname,$password);
+   closeinstall($host);
+   header('Location: http://'.$host.'/vinculacion/');
+   
+   function createconnectionmodel($host,$dbname,$dbuser,$dbpassword)
+   {
+      $file = fopen("../models/SingleConnection.php", "w");
+      $template = '
    <?php
    class SingleConnection extends PDO
    {
@@ -31,15 +43,44 @@
       }
       
    }';
-   fwrite($file, $template);
-   fclose($file);
-   createdb($host,$dbname,$dbuser,$dbpassword);
-   createtables($host, $dbuser, $dbpassword, $dbname);
-   createadmin($host, $dbuser, $dbpassword, $dbname,$password);
-   //loadLargeZip($host, $dbuser, $dbpassword, $dbname,$password);
-   closeinstall($host);
-   header('Location: http://'.$host.'/vinculacion/');
+      fwrite($file, $template);
+      fclose($file);
+   }
    
+   function createbkmodel($host,$dbname,$dbuser,$dbpassword){
+    $file = fopen("../backup/backup.php", "w");
+      $template='
+      <?php
+   class BackupModel
+   {
+      public function __construct($password)
+      {
+         $this->backup_db($password);
+      }
+   
+      private function backup_db($password)
+      {
+         if ($_SESSION["role"] == "Admin") {
+            include "Mysqldump.php";
+            try {
+               $dump = new Mysqldump("mysql:host='.$host.';dbname='.$dbname.'", "'.$dbuser.'", "'.$dbpassword.'");
+               $dump->start("./backup.sql.gzip");
+            } catch (\Exception $e) {
+               return TxTError . "-" . TXTBackupmailbody . "[" . $e->getMessage() . "]";
+            }
+            return TXTBackupmailbody . " " . TXTStatusUpdate;
+      
+         }
+         else {
+            header("Location: /");
+         }
+      }
+     }
+      ';
+      fwrite($file, $template);
+      fclose($file);
+      
+   }
    
    function createdb($host, $dbname, $dbuser, $dbpassword)
    {
@@ -113,6 +154,18 @@
       $conn->close();
    }
    
+   function loadtestZip($host, $dbuser, $dbpassword, $dbname){
+      $conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
+      $conn->query("SET CHARACTER SET utf8");
+      $handle = fopen('test_table.sql', 'rb');
+      if ($handle) {
+         while (!feof($handle)) {
+            $buffer = stream_get_line($handle, 1000000, ";\n");
+            $conn->query($buffer);
+         }
+      }
+      
+   }
  function loadLargeZip($host, $dbuser, $dbpassword, $dbname){
     $conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
     $conn->query("SET CHARACTER SET utf8");

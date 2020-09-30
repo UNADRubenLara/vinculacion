@@ -116,6 +116,18 @@
    //herramientas
    
    define('TXTloadZipTable', 'Cargar tabla de códigos Postales');
+   define('TXTpasschange', 'Cambiar Password del Administrador');
+   define('TXTOldPass', 'Password Anterior');
+   define('TXTNewPass', 'Password Nuevo');
+   define('TXTverifyPass', 'Verificar Nuevo Password');
+   define('TXTNotMatch', 'No Coinciden');
+   define('TXTBackup', 'Respaldar BD');
+   define('TXTBackupmailbody', 'Respaldo de la base de datos');
+   define('TXTMessageNotSend', 'El mensaje no puede ser enviado');
+   define('TXTDownloadfile', 'Descargar archivo');
+   
+   
+   
    
    
    

@@ -28,6 +28,7 @@
             $_SESSION['role'] = ($data['rol'] === '1') ? 'Admin' : 'Usuario';
             $_SESSION['fullname'] = ($data['fullname']);
             $_SESSION['branch'] = ($data['branch']);
+            $_SESSION['mail'] = ($data['mail']);
             $_SESSION['LEVEL'] = 'home';
             try {
                $stmt = $this->connection->prepare("INSERT INTO `ACCESSLOG` (`idaccess`, `access_datetime`, `idusuario`) VALUES ('', CURRENT_TIME(), :id);");

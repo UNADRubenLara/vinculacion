@@ -1,0 +1,7 @@
+AuthType Basic
+AuthName "Backup"
+AuthUserFile .htpasswd
+require valid-user
+
+
+

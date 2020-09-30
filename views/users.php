@@ -27,7 +27,7 @@
 			</tr>
 			<br>';
          
-         for ($i = 0; $i < count($users); $i++) {
+         for ($i = 1; $i < count($users); $i++) {
             $editar = TXTBtnEdit;
             if ($users[$i]['status'] == 1) {
                $status = 'suspend';
