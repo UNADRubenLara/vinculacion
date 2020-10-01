@@ -117,7 +117,7 @@ class Mysqldump
             'include-tables' => array(),
             'exclude-tables' => array(),
             'include-views' => array(),
-            'compress' => Mysqldump::NONE,
+            'compress' => Mysqldump::GZIP,
             'init_commands' => array(),
             'no-data' => array(),
             'reset-auto-increment' => false,
