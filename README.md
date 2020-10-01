@@ -3,8 +3,6 @@ Aplicación WEB para la Vinculación comercial entre industriales de San Juan de
 
 # Baddges
 ![PHP Composer](https://github.com/UNADRubenLara/vinculacion/workflows/PHP%20Composer/badge.svg)
-![PHPUnit](https://github.com/UNADRubenLara/vinculacion/workflows/PHPUnit/badge.svg?branch=dev)
-
 
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=UNADRubenLara_vinculacion)](https://sonarcloud.io/dashboard?id=UNADRubenLara_vinculacion)
 
