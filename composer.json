@@ -12,6 +12,11 @@
   "require": {
     "ext-mysqli": "*",
     "ifsnop/mysqldump-php": "*"
+
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+
   }
 
 }

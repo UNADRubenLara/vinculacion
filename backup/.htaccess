@@ -1,7 +1,7 @@
-AuthType Basic
-AuthName "Backup"
+AuthType Digest
+AuthName "Admin"
+AuthDigestDomain /backup/
 AuthUserFile .htpasswd
-require valid-user
-
-
+Require user Admin
+Satisfy All
 

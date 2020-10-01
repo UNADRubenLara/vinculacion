@@ -114,8 +114,8 @@
          $backupfile=new BackupController();
          $backupfile->backup_db();
          echo '<h2 class="form-Title">' . 'Respaldo hecho' . '</h2>';
-         echo '<a href="./backup/backup.sql">'.TXTDownloadfile.'</a>';
-        
+         echo '<a href="./backup/backup.sql" target="_blank">'.TXTDownloadfile.'</a>';
+         
       } else {
          refreshtime(0);
       }
