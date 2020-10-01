@@ -84,7 +84,11 @@
                 </section>
       ';
             printf($template, TXTWait);
-            $response = $filltable->loadLargeZip($_FILES["ziptable"]["tmp_name"]);
+            if (isset($filltable)) {
+               if (!empty($filltable)) {
+                  $response = $filltable->loadLargeZip($_FILES["ziptable"]["tmp_name"]);
+               }
+            }
             $template = '<section class="container">
                 <section class="flex-item">
                     <h2>%s</h2>
@@ -151,10 +155,6 @@
     }
 
     function verifybackup() {
-        if (document.getElementById("backuppassword").value.length < 6) {
-            document.getElementById("backupdata").disabled = true;
-        } else {
-            document.getElementById("backupdata").disabled = false;
-        }
+        document.getElementById("backupdata").disabled = document.getElementById("backuppassword").value.length < 6 ? true : false;
     }
 </script>
