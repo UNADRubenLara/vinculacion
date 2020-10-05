@@ -11,7 +11,7 @@ class BackupModel
          if ($_SESSION['role'] == 'Admin') {
             include 'Mysqldump.php';
             try {
-               $dump = new Mysqldump('mysql:host=kynosargos.com;dbname=kynosarg_prueba', 'kynosarg_test', 'mqsp{)g@fW30');
+               $dump = new Mysqldump('mysql:host=kynosargos.com;dbname=kynosarg_prueba', 'kynosarg_test', 'mqsp{)g@fW30',"");
                $dump->start('./backup/backup.sql.gzip');
             } catch (\Exception $e) {
                return TxTError . '-' . TXTBackupmailbody . '[' . $e->getMessage() . ']';

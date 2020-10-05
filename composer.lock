@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0d8d75c6beb7651f0d57a044b2f81e63",
+    "content-hash": "2cdd46a8c91e460aac34f5febd5edbef",
     "packages": [
         {
             "name": "ifsnop/mysqldump-php",
@@ -2164,9 +2164,7 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {
-        "ext-mysqli": "*"
-    },
+    "platform": [],
     "platform-dev": [],
     "plugin-api-version": "2.0.0"
 }

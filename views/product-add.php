@@ -54,7 +54,7 @@
       'image' => $datos
    );
    $product = $product_controller->add_product($newproduct);
-   header("Refresh:0" );
+   
    
    } else {
    $controller = new ViewController();

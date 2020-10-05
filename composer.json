@@ -10,8 +10,7 @@
     }
   ],
   "require": {
-    "ext-mysqli": "*",
-    "ifsnop/mysqldump-php": "*"
+       "ifsnop/mysqldump-php": "*"
 
   },
   "require-dev": {

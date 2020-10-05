@@ -30,6 +30,9 @@
             $_SESSION['branch'] = ($data['branch']);
             $_SESSION['mail'] = ($data['mail']);
             $_SESSION['LEVEL'] = 'home';
+            $_SESSION['timer'] = time();
+            $_SESSION['timeoflife'] = 300;
+            
             try {
                $stmt = $this->connection->prepare("INSERT INTO `ACCESSLOG` (`idaccess`, `access_datetime`, `idusuario`) VALUES ('', CURRENT_TIME(), :id);");
                $stmt->bindParam('id', $data["idusuario"], PDO::PARAM_STR);
