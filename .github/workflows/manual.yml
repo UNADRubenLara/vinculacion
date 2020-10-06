@@ -16,6 +16,6 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
-        ftp-server: ftp.cpe-integrando.com
-        ftp-username: embryoco@vinculacion.embryo9.com
+        ftp-server:  ftp.embryo9.com
+        ftp-username: unadm@embryo9.com
         ftp-password: ${{ secrets.FTP_PASSWORD }}
