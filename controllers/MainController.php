@@ -18,8 +18,10 @@
             $this->MainController = isset($_GET['LEVEL']) ? $_GET['LEVEL'] : 'home';
             $controller = new ViewController();
             if ($this->MainController == 'out') {
-               $_SESSION['VALID'] = false;
-               $controller->load_view('login');
+               session_unset();
+               session_destroy();
+               header("Location: ./");
+               exit();
             } else {
                if (!isset($_POST['LEVEL'])) {
                   $controller->load_view($this->MainController);
@@ -43,7 +45,7 @@
                   header('Location: ./?ERROR=' . $_POST['USER']);
                } else {
                   $_SESSION['VALID'] = true;
-                  header('Location: ./home');
+                  print ('<script type="application/javascript"> window.location.href = ".";</script>');
                }
                
                

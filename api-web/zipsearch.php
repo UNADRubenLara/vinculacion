@@ -12,7 +12,8 @@
       if (!isset($dbo)) {
       $dbo = new SingleConnection();
    }
-   $in = $_GET['txt'];
+   
+   $in = htmlEntities($_GET['txt'], ENT_QUOTES);
    if (!ctype_digit($in)) {
       echo "Data Error";
       exit;

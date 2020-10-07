@@ -11,8 +11,8 @@
       if (!isset($dbo)) {
          $dbo = new SingleConnection();
       }
-   
-      $in = '%' . $_GET['txt'] . '%';
+      ;
+      $in = '%' . htmlEntities($_GET['txt']) . '%';
       $data = [];
    
       if (strlen($in) > 3) {

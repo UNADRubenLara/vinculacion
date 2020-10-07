@@ -55,7 +55,7 @@
         <h2>%s</h2>
         <form class="central-fr-up" method="post">
                        <input type="hidden" name="action" value="backup">
-                       <label for="backuppassword>">%s: </label><input type="password" id="backuppassword" oninput="verifybackup();"><br>
+                       <label for="backuppassword>">%s: </label><input type="password" name="backuppassword" id="backuppassword" oninput="verifybackup();"><br>
                        <label id="username" hidden></label>
                        <input id="backupdata" type="submit" value="%s" disabled>
                     </form>
@@ -115,10 +115,19 @@
          echo '<h2 class="form-Title">' . $admindata->update_pass_admin($oldpassword, $password) . '</h2>';
          refreshtime(2);
       } elseif ($_POST['action'] == 'backup') {
-         $backupfile=new BackupController();
-         $backupfile->backup_db();
-         echo '<h2 class="form-Title">' . 'Respaldo hecho' . '</h2>';
-         echo '<a href="./backup/backup.sql.gzip?Admin:lapl720109PZ6" download>'.TXTDownloadfile.'</a>';
+         $admindata = new UsersController();
+         $pass=$_POST['backuppassword'];
+         if($admindata->Validate_Admin($pass)){
+            $backupfile=new BackupController();
+            $backupfile->backup_db();
+            echo '<h2 class="form-Title">' . TXTBackupok. '</h2>';
+            echo '<a href="./backup/backup.sql.gzip" download>'.TXTDownloadfile.'</a>';
+         }else{
+            $_POST['backuppassword'];
+            echo '<h2 class="form-Title">' . TXTError .' '.TXTplaceholderpass. '</h2>';
+            refreshtime(2);
+         }
+        
          
       } else {
          refreshtime(0);

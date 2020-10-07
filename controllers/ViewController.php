@@ -2,7 +2,7 @@
    
    class ViewController
    {
-      
+     
       private static $view_path = './views/';
       
       public function load_view($view)
@@ -18,7 +18,7 @@
       {
          if (isset($_SESSION['timer'])) {
             $doomtime = $_SESSION['timer'] + ($_SESSION['timeoflife'] - time());
-            if ($doomtime <= 0) {
+            if ($doomtime < 0) {
                session_unset();
                session_destroy();
                header("Location: /vinculacion");

@@ -37,6 +37,7 @@
       printf($template, $_GET['ERROR'], TXTLoginError);
       
    }
+   
    print('
         </div>
         </section>

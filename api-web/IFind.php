@@ -8,7 +8,7 @@
       if (session_status() == PHP_SESSION_NONE) {session_start();}
    }
    if (isset($_GET['txt']) && $_SESSION['VALID']) {
-      $txt = $_GET['txt'];
+      $txt = htmlEntities($_GET['txt'], ENT_QUOTES);
       $ProductControl = new ProductController();
       $data=$ProductControl->findByText($txt);
       $string= json_encode($data);

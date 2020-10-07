@@ -1,7 +1,0 @@
-AuthType Digest
-AuthName "Admin"
-AuthDigestDomain /backup/
-AuthUserFile .htpasswd
-Require user Admin
-Satisfy All
-

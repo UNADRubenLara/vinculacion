@@ -19,6 +19,6 @@
       echo '<script src="./public/js/findproduct.js"></script>';
    }
    if ($_SESSION['VALID'] && isset($_POST['find'])){
-      echo $_POST['find'];
+      echo htmlentities($_POST['find']);
       exit();
    }

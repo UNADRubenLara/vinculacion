@@ -125,6 +125,7 @@
    define('TXTBackupmailbody', 'Respaldo de la base de datos');
    define('TXTMessageNotSend', 'El mensaje no puede ser enviado');
    define('TXTDownloadfile', 'Descargar archivo');
+   define('TXTBackupok', 'Respaldo hecho');
    
    
    

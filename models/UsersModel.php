@@ -173,9 +173,10 @@
                return TxTError . ' ' . TXTplaceholderpass;
             }
          }
+         return "";
       }
       
-      private function Validate_Admin($hiddenText = '')
+      public function Validate_Admin($hiddenText)
       {
          if (password_verify($hiddenText, $this->users[0]['hidentext'])) {
             return true;

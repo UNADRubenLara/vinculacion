@@ -1,4 +1,6 @@
 RewriteEngine On
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
 RewriteCond %{SCRIPT_FILENAME} !-d
 RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^(.*)$ index.php?LEVEL=$1 [L]

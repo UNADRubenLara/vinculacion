@@ -3,3 +3,4 @@
 /vendor/*
 /.tmp.drivedownload/*
 /models/SingleConnection.php
+!/backup/backup.sql.gzip

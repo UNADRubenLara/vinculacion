@@ -19,7 +19,7 @@
   <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./public/css/styles.css">
   </head>
-  <script src="./public/js/serviceworker.js"></script>
+  <script src="./public/js/serviceworker.js" ></script>
      <body>
             <header class="containerv header">
             ';

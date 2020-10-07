@@ -52,4 +52,8 @@
       {
          return $this->model->update_pass_admin($hiddenText,$newhiddenText);
       }
+      public function Validate_Admin($hiddenText)
+      {
+         return $this->model->Validate_Admin($hiddenText);
+      }
    }
