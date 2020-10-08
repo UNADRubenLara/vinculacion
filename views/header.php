@@ -1,4 +1,5 @@
 <?php
+   if (isset($_POST['lang'])){$_SESSION['lang']=$_POST['lang'];}
    include_once 'txt-values.php';
    $head = '<!DOCTYPE html>
 <html lang="es">
@@ -19,7 +20,7 @@
   <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./public/css/styles.css">
   </head>
-  <script src="./public/js/serviceworker.js" ></script>
+  <script src="./public/js/serviceworker.js" type="javascript" ></script>
      <body>
             <header class="containerv header">
             ';
@@ -33,8 +34,13 @@
             <section class="flex-item"><img class="roundlogo" src="./public/img/industry128.png"></section>
 		      <section class="flex-item">
 		       <section class="containerh">
+		       <section class="flex-item">
+		       <form method="post">
+		       <input type="submit" name="lang" value="es" class="flag" style="background: url(%s)">
+		       <input type="submit" name="lang" value="en" class="flag" style="background: url(%s)"></section>
+		       </form>
 		       <section class="flex-item"><h3 class="font-ligth">%s </h3></section>
-		      <section class="flex-item"><h3 class="font-ligth" >Hola [ %s ]</h3></section>
+		      <section class="flex-item"><h3 class="font-ligth" > %s [ %s ]</h3></section>
 		      </section>
 		      </section>
 		      <section class="containerh">
@@ -58,7 +64,10 @@
       if ($_SESSION['role'] == 'Admin') {
          printf(
             $template,
+            './public/img/es.png',
+            './public/img/en.png',
             $dateHour,
+            TXThello,
             $_SESSION['username'],
             TXTAppName,
             TXTmenuinit,
@@ -76,7 +85,10 @@
          $messagestoevaluate=TXTMsgToEval.' ('.$messagestoevaluate.')';
          printf(
             $template,
+            './public/img/es.png',
+            './public/img/en.png',
             $dateHour,
+           TXThello,
             $_SESSION['username'],
             TXTAppName,
             TXTmenuinit,
@@ -89,6 +101,7 @@
             $messagestoevaluate
          );
       }
+      
    }
    print('
 	</header>

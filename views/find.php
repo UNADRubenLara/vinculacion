@@ -6,7 +6,7 @@
       $template = '
 <div class="central-fr-up">
 <section class="center-box">
-  <input type="text" id="productsearch" oninput="findProductByText(this.value)" placeholder="Buscar descripción del producto mínimo 4 caracteres">
+  <input type="text" id="productsearch" oninput="findProductByText(this.value)" placeholder="%s">
     <form method="post">
     <ul id="productsfind" name="productfind"></ul>
     <input type="hidden" name="LEVEL" value="product-display">
@@ -14,7 +14,7 @@
     </section>
 </div>
 ';
-      print($template);
+      printf($template,TXTFindProduct);
    
       echo '<script src="./public/js/findproduct.js"></script>';
    }

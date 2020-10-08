@@ -7,36 +7,35 @@
 <div class="form-edit central-fr-up" >
     <form method="POST" >
         <hr>
-        <label for="username">Nombre de usuario:</label><input id="username"  type="text" name="username" placeholder="Nombre de usuario" value="%s"
+        <label for="username">%s</label><input id="username"  type="text" name="username" placeholder="%s" value="%s"
                                                   minlength="5" maxlength="20" required>
-        <label for="password">Contraseña:</label> <input id="password" type="password" name="hidentext" placeholder="Nueva contraseña" value=""
+        <label for="password">%s:</label> <input id="password" type="password" name="hidentext" placeholder="%s" value=""
                                             minlength="6" maxlength="40" required>
         <hr>
-        <label for="fullname">Nombre completo:</label> <input id="fullname" type="text" name="fullname" value="%s"
-                                                 placeholder="Nombre o denominacion" minlength="5" maxlength="80" size="78"
+        <label for="fullname">%s</label> <input id="fullname" type="text" name="fullname" value="%s"
+                                                 placeholder="%s" minlength="5" maxlength="80" size="78"
                                                  required>
-        <label for="rfc">RFC:</label> <input id="rfc" type="text" name="rfc" placeholder="RFC" minlength="10" maxlength="16" value="%s"
+        <label for="rfc">%s</label> <input id="rfc" type="text" name="rfc" placeholder="%s" minlength="10" maxlength="16" value="%s"
                                      size="16" required> <br>
         <hr>
-        <label for="addresslocal">Calle y número:</label> <input id="addresslocal" type="text" name="address_street" value="%s"
-                                                placeholder="Calle y Numero" minlength="5" maxlength="78" size="78"
+        <label for="addresslocal">%s</label> <input id="addresslocal" type="text" name="address_street" value="%s"
+                                                placeholder="%s" minlength="5" maxlength="78" size="78"
                                                 required><br>
-        <label for="zip">Codigo Postal:</label><input id="zip" type="number" min="1000" max="99999" value="%s" placeholder="C.P." oninput="LoadZip(this.value);" name="zipzone"/>
+        <label for="zip">%s</label><input id="zip" type="number" min="1000" max="99999" value="%s" placeholder="C.P." oninput="LoadZip(this.value);" name="zipzone"/>
         <select id="ziplist" name="idaddress" size="1" value="%s"><option value="%s">%s</option></select><br>
-        
-        
-         <label for="branch">Rama:</label><input id="branch" type="text" maxlength="20" minlength="4" placeholder="Busqueda..."
+         <label for="branch">%s</label><input id="branch" type="text" maxlength="20" minlength="4" placeholder="%s..."
                oninput="LoadBranch(this.value);"/>
         <select id="branchlist" name="branch"  value="%s" size="1"  required ><option value="%s">%s</option></select>
-        <label for="companytype">Tamaño:</label>
-         <select id="companytypelist"  name="companytype" value="%s" size="1">
-                <option %s value="1">Micro</option>
-                <option %s value="2">Mediana</option>
-                <option %s value="3">Grande</option>
+        <br>
+        <label for="companytype">%s</label>
+        <select id="companytypelist"  name="companytype" value="%s" size="1">
+                <option %s value="1">%s</option>
+                <option %s value="2">%s</option>
+                <option %s value="3">%s</option>
             </select><br>
-          <label for="phone">Telefono:</label><input id="phone" type="tel" value="%s" name="phone" placeholder="Telefono" minlength="10"
+          <label for="phone">%s:</label><input id="phone" type="tel" value="%s" name="phone" placeholder="%s" minlength="10"
                                          maxlength="13" required> <br>
-        <label for="mail">Correo:</label><input id="mail" type="email" name="mail"  value="%s"placeholder="Correo" minlength="5" size="25"
+        <label for="mail">%s:</label><input id="mail" type="email" name="mail"  value="%s"placeholder="Correo" minlength="5" size="25"
                                        required><br>
         <hr>
         <div>
@@ -56,11 +55,47 @@
       $companyType = $edit_user['companytype'] == 2 ? $med = 'selected' : $med = '';
       $companyType = $edit_user['companytype'] == 3 ? $big = 'selected' : $big = '';
       
-      printf($template, $edit_user['username'], $edit_user['fullname'], $edit_user['rfc'],
-         $edit_user['address_street'], $edit_user['C_CODIGO'], $edit_user['ZP_ADDRESS_idADDRESS'],
-         $edit_user['ZP_ADDRESS_idADDRESS'], $location, $edit_user['branch'], $edit_user['branch'],
-         $edit_user['branchText'], $edit_user['companytype'], $micro, $med, $big, $edit_user['phone'],
-         $edit_user['mail'], TXTBtnUpdate, $edit_user['idusuario']);
+      printf(
+         $template,
+         TXTusername,
+         TXTusername,
+         $edit_user['username'],
+         TXTplaceholderpass,
+         TXTNewPass,
+         TXTUserFullName,
+         TXTUserFullNameplacehoder,
+         $edit_user['fullname'],
+         TXTUserRFC,
+         TXTUserRFC,
+         $edit_user['rfc'],
+         TXTUserAddress,
+         TXTUserAddress,
+         $edit_user['address_street'],
+         TXTUserZip,
+         $edit_user['C_CODIGO'],
+         $edit_user['ZP_ADDRESS_idADDRESS'],
+         $edit_user['ZP_ADDRESS_idADDRESS'],
+         $location,
+         TXTUserBranchText,
+         TXTmenufind,
+         $edit_user['branch'],
+         $edit_user['branch'],
+         $edit_user['branchText'],
+         TXTUserSize,
+         $edit_user['companytype'],
+         $micro,
+         TXTUserSmall,
+         $med,
+         TXTUserMedium,
+         $big,
+         TXTUserBig,
+         TXTUserPhone,
+         $edit_user['phone'],
+         TXTUserPhone,
+         TXTUserMail,
+         $edit_user['mail'],
+         TXTBtnUpdate,
+         $edit_user['idusuario']);
       
    } else if ($_POST['LEVEL'] == 'user-edit' && $_SESSION['role'] == 'Admin' && $_POST['crud'] == 'edit') {
       

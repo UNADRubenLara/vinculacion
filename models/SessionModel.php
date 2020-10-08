@@ -30,8 +30,9 @@
             $_SESSION['branch'] = ($data['branch']);
             $_SESSION['mail'] = ($data['mail']);
             $_SESSION['LEVEL'] = 'home';
+            $_SESSION['lang'] = 'es';
             $_SESSION['timer'] = time();
-            $_SESSION['timeoflife'] = 300;
+            $_SESSION['timeoflife'] = 600;
             
             
             try {

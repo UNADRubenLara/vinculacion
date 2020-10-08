@@ -2,7 +2,8 @@ const CACHE_NAME = 'v1.0_vinculacion',
     urlsToCache = [
         './',
         './public/js/serviceworker.js',
-        './public/img/'
+        './public/img/',
+        './public/views/'
     ]
 self.addEventListener('install', i => {
     i.waitUntil(

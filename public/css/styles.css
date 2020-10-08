@@ -584,6 +584,10 @@ button{
     border-radius: 10%;
     height: 15vmin;
   }
+.flag{
+    color: transparent !important;
+   background-size: auto !important;
+}
 
 img {
    width: initial;
@@ -637,7 +641,6 @@ img {
     table.table-list td:last-child {
         text-align: center;
     }
-
 
 }
 

@@ -1,5 +1,4 @@
 <?php
-   
    include_once 'txt-values.php';
    $template = '
     <section style="height: 20vmin"><h1 class="center-box">%s</h1></section>
