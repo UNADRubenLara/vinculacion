@@ -2,20 +2,20 @@
    include_once '../controllers/ProductController.php';
    include_once '../models/ProductModel.php';
    include_once '../models/SingleConnection.php';
+   
    if (version_compare(PHP_VERSION, '5.4.0', '<')) {
       if(session_id() == '') {session_start();}
    } else  {
       if (session_status() == PHP_SESSION_NONE) {session_start();}
    }
-   if (isset($_GET['txt']) && $_SESSION['VALID']) {
-      if (!isset($dbo)) {
+   
+   if (isset($_GET['txt'])) {
+        if (!isset($dbo)) {
          $dbo = new SingleConnection();
       }
-      ;
-      $in = '%' . htmlEntities($_GET['txt']) . '%';
-      $data = [];
-   
-      if (strlen($in) > 3) {
+      $in = '%' . $_GET['txt'] . '%';
+         $data = [];
+       if (strlen($in) > 3) {
          try {
             $stmt = $dbo->prepare("select branch_code, branch, b_description, b_includes, b_exclude from BRANCH where branch like :text");
             $stmt->bindParam('text', $in, PDO::PARAM_STR);

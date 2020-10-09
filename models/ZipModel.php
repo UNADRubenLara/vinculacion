@@ -66,6 +66,7 @@
                $conn->query($buffer);
             }
          }
+         return 'ok';
       
       }
       

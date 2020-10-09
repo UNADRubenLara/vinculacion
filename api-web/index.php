@@ -21,6 +21,10 @@
     <input type="text" name="txt">
     <input type="submit" value="ZIP">
     </form>
+    <form method="get" action="brandsearch.php">
+    <input type="text" name="txt">
+    <input type="submit" value="brand">
+    </form>
     <input type="button" value="BACK" onclick="history.back()">
 	
 	</div>

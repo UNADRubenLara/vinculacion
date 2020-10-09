@@ -1,10 +1,10 @@
 const CACHE_NAME = 'v1.0_vinculacion',
     urlsToCache = [
         './',
-        './public/js/serviceworker.js',
         './public/img/',
         './public/views/'
     ]
+
 self.addEventListener('install', i => {
     i.waitUntil(
         caches.open(CACHE_NAME)
@@ -38,7 +38,7 @@ self.addEventListener('fetch', f => {
         caches.match(f.request)
             .then(res => {
                 if (res) {
-                    return res
+                    return res.toString();
                 }
                 return fetch(f.request)
             })

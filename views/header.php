@@ -20,7 +20,17 @@
   <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./public/css/styles.css">
   </head>
-  <script src="./public/js/serviceworker.js" type="javascript" ></script>
+  <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", ()=> {
+      navigator
+      .serviceWorker
+      .register("serviceWorker.js")
+      .then(()=>console.log("Ready."))
+      .catch(()=>console.log("Err..."));
+    });
+  }
+</script>
      <body>
             <header class="containerv header">
             ';

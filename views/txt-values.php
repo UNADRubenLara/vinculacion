@@ -136,6 +136,8 @@
       define('TXTMessageNotSend', 'El mensaje no puede ser enviado');
       define('TXTDownloadfile', 'Descargar archivo');
       define('TXTBackupok', 'Respaldo hecho');
+      define('TXTSelectfile', 'Seleccionar archivo');
+      
    } else {
       //General
       
@@ -270,5 +272,6 @@
       define('TXTMessageNotSend', 'The message cannot be sent');
       define('TXTDownloadfile', 'Download file');
       define('TXTBackupok', 'Backup done');
+      define('TXTSelectfile', 'Select file');
    }
   

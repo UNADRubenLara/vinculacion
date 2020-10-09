@@ -13,7 +13,7 @@
       {
          try {
             $date_init=$date_init." 00:00:00";
-            $date_end=$date_end." 00:00:00";
+            $date_end=$date_end." 23:59:59";
             $stmt = $this->connection->prepare("SELECT * FROM `ACCESSLOG` WHERE  (`access_datetime` BETWEEN :di AND :de)");
             $stmt->bindParam(':di', $date_init, PDO::PARAM_STR);
             $stmt->bindParam(':de', $date_end, PDO::PARAM_STR);

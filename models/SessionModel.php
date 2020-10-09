@@ -34,7 +34,6 @@
             $_SESSION['timer'] = time();
             $_SESSION['timeoflife'] = 600;
             
-            
             try {
                $stmt = $this->connection->prepare("INSERT INTO `ACCESSLOG` (`idaccess`, `access_datetime`, `idusuario`) VALUES ('', CURRENT_TIME(), :id);");
                $stmt->bindParam('id', $data["idusuario"], PDO::PARAM_STR);

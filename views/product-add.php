@@ -18,7 +18,8 @@
 		</section>
 		<section class="flex-item">
 		<textarea required id="productdetail" name="product_detail" class="textcapture" placeholder="%s"></textarea>
-		<label>%s</label></label><input type="file" name="image" class="loadimage">
+		<br>
+		<label for="loadimage" class="upload">%s</label><input hidden id="loadimage" type="file" name="image">
 		</section>
 		<section class="flex-item">
 		<input type="submit" class="add" value="%s" >

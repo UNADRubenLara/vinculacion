@@ -489,6 +489,20 @@ button{
     font-size: 3vmin;
     border-radius: 5px;
 }
+.upload{
+    margin: 3px;
+    border: 2px solid var(--darkest-color);
+    background-color: var(--striking-alt-color);
+    font-size: 3vmin;
+    border-radius: 5px;
+}
+.upload:hover {
+    margin: 3px;
+    border: 3px solid var(--darkest-color);
+    background-color: var(--btn-add-color);
+    font-size: 3vmin;
+    border-radius: 5px;
+}
 
 .add {
     background-color: var(--btn-add-color);

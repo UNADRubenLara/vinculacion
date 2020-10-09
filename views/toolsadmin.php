@@ -13,17 +13,19 @@
    else{refreshtime(0);}
 
    function printform(){
-      printf('<h2 class="form-Title">%s</h2>', TXTmenuTools);
+      printf(' <h2 class="form-Title">%s</h2>', TXTmenuTools);
+      
       $templatezip = '
                        <form class="central-fr-up" method="post" enctype="multipart/form-data">
                        <h2 >%s: </h2>
                        <br>
-                       <input type="file" name="ziptable">
+                       <label for="files" class="upload">%s</label>
+                       <input id="files"  type="file" name="ziptable" style="visibility:hidden;">
                        <input type="hidden" name="action" value="loadzip">
                        <input type="submit" value="%s" >
                     </form>
         </section>';
-      printf($templatezip, TXTloadZipTable, TXTUserBtnActivate);
+      printf($templatezip, TXTloadZipTable,TXTSelectfile, TXTUserBtnActivate);
    
       $templatepass = '
         <section class="center-box flex-item">
@@ -69,11 +71,9 @@
    }
    
    function loadzip(){
-      $filename=$_FILES['ziptable']['tmp_name'];
-      $ext = pathinfo($filename, PATHINFO_EXTENSION);
-      
+       $ext = pathinfo($_FILES['ziptable']['name'], PATHINFO_EXTENSION);
       if ($ext== 'sql') {
-         $filltable = new IZip();
+          $filltable = new IZip();
          printf('<h2 class="form-Title">%s</h2>', TXTmenuTools);
          $templatezip = '
                     <section class="center-box">
@@ -82,12 +82,10 @@
                     <h2>%s</h2>
                     </section>';
          printf($templatezip, TXTWait);
-         try {
+       
             $response = $filltable->loadLargeZip($_FILES["ziptable"]["tmp_name"]);
-         } catch (Exception $e) {
-         
-         }
-         $templatezip = '<section class="container">
+        
+             $templatezip = '<section class="container">
                 <section class="flex-item">
                 <h2>%s</h2>
                 </section>';
@@ -102,6 +100,7 @@
             $errortext = TXTError . $response[0];
             printf($templatezip,
                $errortext);}
+         echo '<form method="post"> <input type="submit" value="'.TXTReturn.'"></form>' ;
       }else{
          unset($_FILES['ziptable']['tmp_name']);
          echo '<h2 class="form-Title">' .TXTError.' '.TXTDownloadfile . '</h2>';
