@@ -1,5 +1,5 @@
 
-CREATE TABLE `USERS` (
+CREATE TABLE IF NOT EXISTS `USERS` (
   `idusuario` int(11) NOT NULL,
   `username` varchar(45) CHARACTER SET utf8 NOT NULL,
   `hidentext` varchar(60) CHARACTER SET utf8 NOT NULL,

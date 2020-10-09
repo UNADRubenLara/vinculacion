@@ -1,5 +1,5 @@
 
-CREATE TABLE `MESSAGES` (
+CREATE TABLE IF NOT EXISTS `MESSAGES` (
   `idmessage` int(11) NOT NULL,
   `messaje_datetime` datetime NOT NULL,
   `idproducto` int(11) NOT NULL,

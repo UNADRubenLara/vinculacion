@@ -1,5 +1,5 @@
 
-CREATE TABLE `ROL` (
+CREATE TABLE IF NOT EXISTS `ROL` (
   `idperfiles` int(11) NOT NULL,
   `perfiltype` varchar(45) CHARACTER SET utf8 DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_spanish_ci;

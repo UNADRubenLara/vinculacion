@@ -1,5 +1,5 @@
 
-CREATE TABLE `PRODUCT_DETAIL` (
+CREATE TABLE IF NOT EXISTS `PRODUCT_DETAIL` (
   `idproduct_detail` int(11) NOT NULL,
   `idbranch` int(6) NOT NULL,
   `product_detail` mediumtext CHARACTER SET utf8 COLLATE utf8_spanish_ci,

@@ -1,5 +1,5 @@
 
-CREATE TABLE `BRANCH` (
+CREATE TABLE IF NOT EXISTS `BRANCH` (
   `branch_code` int(11) NOT NULL,
   `branch` varchar(300) CHARACTER SET utf8 DEFAULT NULL,
   `b_description` mediumtext CHARACTER SET utf8,
