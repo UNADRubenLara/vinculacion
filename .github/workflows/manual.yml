@@ -17,5 +17,5 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@3.1.1
       with:
         ftp-server:  ftp.embryo9.com
-        ftp-username: unadm@embryo9.com
+        ftp-username: ${{ secrets.ftp_username }}
         ftp-password: ${{ secrets.FTP_PASSWORD }}
