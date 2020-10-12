@@ -42,7 +42,7 @@
                if (!$session) {
                   $login_form = new ViewController();
                   $login_form->load_view('login');
-                  echo '<h2 class="form-Title delete">['.$_POST['USER'].'] '.TXTLoginError.'</h2>';
+                  echo '<h2 class="form-Title delete">['.htmlentities($_POST['USER']).'] '.TXTLoginError.'</h2>';
                   } else {
                   $_SESSION['VALID'] = true;
                   print ('<script type="application/javascript"> window.location.href = ".";</script>');
