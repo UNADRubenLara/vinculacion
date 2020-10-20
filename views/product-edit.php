@@ -32,19 +32,19 @@
       printf($template, TXTplaceholderUser, $_SESSION['username'], TXTProductDetail, $actual_branch, TXTProductDescription, $product['product_detail'], $image, TXTBtnUpdate, $image, $product['idbranch'], $product['idproduct_detail']);
       
    } else if ($_POST['LEVEL'] == 'product-edit' && $_POST['crud'] == 'edit') {
-            
-            if ((
-               $_FILES['image']['type'] == "image/jpeg" ||
-               $_FILES['image']['type'] == "image/jpg" ||
-               $_FILES['image']['type'] == "image/png" ||
-               $_FILES['image']['type'] == "image/gif"
-               
-               )&& $_FILES['image']['size'] <= 200000) {
-               $datos = base64_encode(file_get_contents($_FILES["image"]["tmp_name"]));
-            } else {
-               $datos = $_POST['sameimage'];
-            }
-            
+      
+      if ((
+            $_FILES['image']['type'] == "image/jpeg" ||
+            $_FILES['image']['type'] == "image/jpg" ||
+            $_FILES['image']['type'] == "image/png" ||
+            $_FILES['image']['type'] == "image/gif"
+         
+         ) && $_FILES['image']['size'] <= 200000) {
+         $datos = base64_encode(file_get_contents($_FILES["image"]["tmp_name"]));
+      } else {
+         $datos = $_POST['sameimage'];
+      }
+      
       $username = $_SESSION['iduser'];
       $product = array(
          'idproduct_detail' => $_POST['idproduct_detail'],
@@ -55,7 +55,7 @@
       );
       $product_controller = new ProductController();
       $updated_product = $product_controller->update_product($product);
-      header("Refresh:0" );
+      header("Refresh:0");
       
    } else {
       $controller = new ViewController();

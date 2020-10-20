@@ -25,7 +25,7 @@
 	</form>
 	';
    
-   printf($template, TXTAppName,TXTLoginAdvice, TXTusername, TXTplaceholderUser, TXTplaceholderpass, TXTplaceholderpass, TXTenter);
+   printf($template, TXTAppName, TXTLoginAdvice, TXTusername, TXTplaceholderUser, TXTplaceholderpass, TXTplaceholderpass, TXTenter);
    
    
    if (isset($_GET['ERROR'])) {

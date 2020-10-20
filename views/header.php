@@ -1,5 +1,7 @@
 <?php
-   if (isset($_POST['lang'])){$_SESSION['lang']=$_POST['lang'];}
+   if (isset($_POST['lang'])) {
+      $_SESSION['lang'] = $_POST['lang'];
+   }
    include_once 'txt-values.php';
    $head = '<!DOCTYPE html>
 <html lang="es">
@@ -13,7 +15,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>%s</title>
   <meta name="theme-color" content="#49838c">
-  <link rel="shortcut icon" type="image/png" href="./public/img/industry.png">
+  <link rel="shortcut icon" type="image/png" href="./public/img/industry128.png">
   <link rel="apple-touch-icon" href="./public/img/industry128.png">
   	<link rel="icon" href="./public/img/favicon.ico" type="image/x-icon" />
   <link rel="apple-touch-startup-image" href="./public/img/favicon.ico">
@@ -91,14 +93,14 @@
          );
       } else {
          $messages = new MessageController();
-         $messagestoevaluate=count($messages->actives_messages($_SESSION['iduser']));
-         $messagestoevaluate=TXTMsgToEval.' ('.$messagestoevaluate.')';
+         $messagestoevaluate = count($messages->actives_messages($_SESSION['iduser']));
+         $messagestoevaluate = TXTMsgToEval . ' (' . $messagestoevaluate . ')';
          printf(
             $template,
             './public/img/es.png',
             './public/img/en.png',
             $dateHour,
-           TXThello,
+            TXThello,
             $_SESSION['username'],
             TXTAppName,
             TXTmenuinit,

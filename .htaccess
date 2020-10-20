@@ -6,4 +6,10 @@ RewriteCond %{SCRIPT_FILENAME} !-f
 RewriteRule ^(.*)$ index.php?LEVEL=$1 [L]
 RewriteRule ^api-web/(.*)$ /brandsearch.php?text=$1 [L]
 RewriteRule ^api-web/(.*)$ /zipsearch.php?text=$1 [L]
+ErrorDocument 404 views/error404.php
+ErrorDocument 401 views/error401.php
+<FilesMatch ".(jpg|gif|png/ico)$">
+Order Deny,Allow
+    Allow from all
+</FilesMatch>
 

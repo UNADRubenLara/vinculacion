@@ -18,7 +18,7 @@
 }
 
 html {
-    background: url("../img/container.png") no-repeat center center fixed;
+    background: url("../img/container.jpg") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -26,7 +26,7 @@ html {
     margin: 0;
     padding: 0;
     width: inherit;
-    height: inherit ;
+    height: inherit;
 }
 
 body {
@@ -75,7 +75,7 @@ nav a:hover {
     background-color: var(--darkest-color);
 }
 
-footer{
+footer {
     background-color: var(--dark-color);
     text-align: center;
     position: absolute;
@@ -84,7 +84,8 @@ footer{
     font-size: 2vmin;
     margin-top: 45vmin;
 }
-hr{
+
+hr {
     border: 1vmin solid var(--striking-alt-color);
 }
 
@@ -111,6 +112,7 @@ hr{
     padding: 3px;
     text-align: center;
 }
+
 .flex-item-lf {
     padding: 3px;
     text-align: left;
@@ -181,8 +183,8 @@ hr{
     text-align: center;
     background-color: var(--main-bg-ligth);
 }
-.center-box-pad
-{
+
+.center-box-pad {
     border-radius: 8px;
     width: auto;
     border: 2px solid var(--dark-color);
@@ -200,7 +202,6 @@ hr{
 
 .central-fr-up {
     margin: 0 15% 0 15%;
-    border: solid .2vmin;
     border-radius: 6px;
 }
 
@@ -211,23 +212,25 @@ hr{
     text-align: center;
 }
 
-.imgproduct{
+.imgproduct {
     width: 45vmin;
     height: 45vmin;
     margin: 3vmin;
     float: left;
 }
 
-.thimgproduct{
+.thimgproduct {
     width: 15vmin;
-    height:15vmin;
+    height: 15vmin;
     margin: 1vmin;
 
 }
-.space{
+
+.space {
     height: 5vmin;
-    }
-.imgstats{
+}
+
+.imgstats {
     width: 45vmin;
     height: 45vmin;
     margin: 3vmin;
@@ -247,7 +250,7 @@ a:hover {
 }
 
 table {
-   line-height: normal;
+    line-height: normal;
     width: 100%;
 }
 
@@ -330,6 +333,7 @@ input:invalid,
 textarea:invalid {
     color: var(--error-color);
 }
+
 h1, h2, h3, h4, h5, h6, label, option {
     margin-top: 0;
     margin-bottom: 2vmin;
@@ -389,7 +393,8 @@ option {
     line-height: 1.35;
     letter-spacing: 0;
 }
-li{
+
+li {
     font-size: 3vmin;
     line-height: 1.35;
     letter-spacing: 0;
@@ -418,22 +423,27 @@ nav a {
     line-height: 1;
     letter-spacing: 0;
 }
-table.table-list td:before{
+
+table.table-list td:before {
     font-size: 3vmin;
     line-height: 1;
     letter-spacing: 0;
 }
+
 ul {
     padding: 0;
     margin: 0;
     list-style-type: none;
 }
+
 li {
     height: 7vmin;
 }
+
 nav li {
     display: inline-block;
 }
+
 nav li a {
     padding: 5px 10px;
     display: block;
@@ -442,10 +452,12 @@ nav li a {
     text-decoration: none;
     white-space: nowrap;
 }
-button{
+
+button {
     width: fit-content;
     height: fit-content;
 }
+
 .utils {
     float: top;
     border: none;
@@ -463,18 +475,20 @@ button{
 .ulproduct {
     border: .2vmin solid var(--darkest-color);
     background: var(--main-bg-ligth);
-    padding: 1vmin;
+    content-visibility: visible;
+    padding: 4vmin;
     text-align: left;
 }
-.findproduct{
+
+.findproduct {
     float: right;
 }
 
-.findproduct{
+.findproduct {
     height: 100%;
 }
 
-.findimg{
+.findimg {
     height: 100%;
 }
 
@@ -489,13 +503,15 @@ button{
     font-size: 3vmin;
     border-radius: 5px;
 }
-.upload{
+
+.upload {
     margin: 3px;
     border: 2px solid var(--darkest-color);
     background-color: var(--striking-alt-color);
     font-size: 3vmin;
     border-radius: 5px;
 }
+
 .upload:hover {
     margin: 3px;
     border: 3px solid var(--darkest-color);
@@ -586,32 +602,41 @@ button{
     margin: 3px;
 
 }
-#loadimage{
+
+#loadimage {
     float: left;
-     border: 3px solid var(--striking-alt-color);
+    border: 3px solid var(--striking-alt-color);
 }
-#updateproduct{
+
+#updateproduct {
     float: right;
     background-color: var(--btn-edit-color);
-   }
-.roundlogo{
+}
+
+.roundlogo {
     border-radius: 10%;
     height: 15vmin;
-  }
-.flag{
+}
+
+.flag {
     color: transparent !important;
-   background-size: auto !important;
+    background-size: auto !important;
+}
+
+.border {
+    border-style: solid;
 }
 
 img {
-   width: initial;
+    width: initial;
 }
 
 @media (max-width: 400px) {
 
-    #add-user{
+    #add-user {
         position: absolute;
-         }
+    }
+
     #username {
         width: 20vmin;
     }

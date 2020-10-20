@@ -32,9 +32,11 @@
       {
          return $this->model->get_user($username);
       }
-   public function get_data_user($username){
-      return $this->model->get_data_user($username);
-   }
+      
+      public function get_data_user($username)
+      {
+         return $this->model->get_data_user($username);
+      }
       
       public function change_status($changeUser = array())
       {
@@ -47,11 +49,12 @@
       {
          return $this->model->get_branch($username);
       }
-   
-      public function update_pass_admin($hiddenText,$newhiddenText)
+      
+      public function update_pass_admin($hiddenText, $newhiddenText)
       {
-         return $this->model->update_pass_admin($hiddenText,$newhiddenText);
+         return $this->model->update_pass_admin($hiddenText, $newhiddenText);
       }
+      
       public function Validate_Admin($hiddenText)
       {
          return $this->model->Validate_Admin($hiddenText);

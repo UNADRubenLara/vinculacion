@@ -3,16 +3,23 @@
       <section class="center-box flex-item">'
    );
    if ($_SESSION['role'] == 'Admin' && $_SESSION['VALID'] && isset($_POST['action'])) {
-        if ($_POST['action'] == 'loadzip') { loadzip();}
-       elseif ($_POST['action'] == 'changepassword') {changepass();}
-       elseif ($_POST['action'] == 'backup') {backup();}
-       else {printform();}
-    }
-   elseif ($_SESSION['role'] == 'Admin' && $_SESSION['VALID']) {
-       printform();}
-   else{refreshtime(0);}
-
-   function printform(){
+      if ($_POST['action'] == 'loadzip') {
+         loadzip();
+      } elseif ($_POST['action'] == 'changepassword') {
+         changepass();
+      } elseif ($_POST['action'] == 'backup') {
+         backup();
+      } else {
+         printform();
+      }
+   } elseif ($_SESSION['role'] == 'Admin' && $_SESSION['VALID']) {
+      printform();
+   } else {
+      refreshtime(0);
+   }
+   
+   function printform()
+   {
       printf(' <h2 class="form-Title">%s</h2>', TXTmenuTools);
       
       $templatezip = '
@@ -25,8 +32,8 @@
                        <input type="submit" value="%s" >
                     </form>
         </section>';
-      printf($templatezip, TXTloadZipTable,TXTSelectfile, TXTUserBtnActivate);
-   
+      printf($templatezip, TXTloadZipTable, TXTSelectfile, TXTUserBtnActivate);
+      
       $templatepass = '
         <section class="center-box flex-item">
         <h2>%s</h2>
@@ -51,7 +58,7 @@
          TXTNotMatch,
          TXTBtnUpdate
       );
-   
+      
       $templatebk = '
         <section class="center-box flex-item">
         <h2>%s</h2>
@@ -65,15 +72,16 @@
          $templatebk,
          TXTBackup,
          TXTplaceholderpass,
-         TXTBackup );
-       
-       
+         TXTBackup);
+      
+      
    }
    
-   function loadzip(){
-       $ext = pathinfo($_FILES['ziptable']['name'], PATHINFO_EXTENSION);
-      if ($ext== 'sql') {
-          $filltable = new IZip();
+   function loadzip()
+   {
+      $ext = pathinfo($_FILES['ziptable']['name'], PATHINFO_EXTENSION);
+      if ($ext == 'sql') {
+         $filltable = new IZip();
          printf('<h2 class="form-Title">%s</h2>', TXTmenuTools);
          $templatezip = '
                     <section class="center-box">
@@ -82,59 +90,65 @@
                     <h2>%s</h2>
                     </section>';
          printf($templatezip, TXTWait);
-       
-            $response = $filltable->loadLargeZip($_FILES["ziptable"]["tmp_name"]);
-        
-             $templatezip = '<section class="container">
+         
+         $response = $filltable->loadLargeZip($_FILES["ziptable"]["tmp_name"]);
+         
+         $templatezip = '<section class="container">
                 <section class="flex-item">
                 <h2>%s</h2>
                 </section>';
          
          if ($response[0] = 0) {
             printf($templatezip,
-               TXTStatusUpdate);}
-         elseif ($response[0] = 1062) {
+               TXTStatusUpdate);
+         } elseif ($response[0] = 1062) {
             printf($templatezip,
-               TXTduplicated);}
-         else {
+               TXTduplicated);
+         } else {
             $errortext = TXTError . $response[0];
             printf($templatezip,
-               $errortext);}
-         echo '<form method="post"> <input type="submit" value="'.TXTReturn.'"></form>' ;
-      }else{
+               $errortext);
+         }
+         echo '<form method="post"> <input type="submit" value="' . TXTReturn . '"></form>';
+      } else {
          unset($_FILES['ziptable']['tmp_name']);
-         echo '<h2 class="form-Title">' .TXTError.' '.TXTDownloadfile . '</h2>';
-         echo '<form method="post"> <input type="submit" value="'.TXTReturn.'"></form>' ;
+         echo '<h2 class="form-Title">' . TXTError . ' ' . TXTDownloadfile . '</h2>';
+         echo '<form method="post"> <input type="submit" value="' . TXTReturn . '"></form>';
       }
       
    }
    
-   function backup(){
-         $admindata = new UsersController();
-         $pass = $_POST['backuppassword'];
-         
-         if ($admindata->Validate_Admin($pass)) {
-            $backupfile = new BackupController();
-            $backupfile->backup_db();
-            echo '<h2 class="form-Title">' . TXTBackupok . '</h2>';
-            echo '<a href="./backup/backup.sql.gzip" download>' . TXTDownloadfile . '</a>';
-         }
-         else{
-            echo '<h2 ">' . TXTError.' '.TXTplaceholderpass. '</h2>';
-            echo '<form method="post"> <input type="submit" value="'.TXTReturn.'"></form>' ;
-         }
+   function backup()
+   {
+      $admindata = new UsersController();
+      $pass = $_POST['backuppassword'];
+      
+      if ($admindata->Validate_Admin($pass)) {
+         $backupfile = new BackupController();
+         $backupfile->backup_db();
+         echo '<h2 class="form-Title">' . TXTBackupok . '</h2>';
+         echo '<a href="./backup/backup.sql.gzip" download>' . TXTDownloadfile . '</a>';
+      } else {
+         echo '<h2 ">' . TXTError . ' ' . TXTplaceholderpass . '</h2>';
+         echo '<form method="post"> <input type="submit" value="' . TXTReturn . '"></form>';
+      }
    }
    
-   function changepass(){
+   function changepass()
+   {
       $admindata = new UsersController();
       $oldpassword = $_POST['oldpassword'];
       $password = $_POST['password'];
       unset($_POST['action']);
       echo '<h2 class="form-Title">' . $admindata->update_pass_admin($oldpassword, $password) . '</h2>';
-      echo '<form method="post"> <input type="submit" value="'.TXTReturn.'"></form>';
-      }
+      echo '<form method="post"> <input type="submit" value="' . TXTReturn . '"></form>';
+   }
    
-   function refreshtime($time) { header("Refresh:" . $time);}
+   function refreshtime($time)
+   {
+      header("Refresh:" . $time);
+   }
+
 ?>
 <script type="application/javascript">
     function verifypass() {

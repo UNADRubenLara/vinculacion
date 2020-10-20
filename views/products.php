@@ -30,8 +30,8 @@
 	', TXTnoproducts);
       } else {
          for ($i = 0; $i < count($products); $i++) {
-               $editar = TXTBtnEdit;
-               $template_products .= '
+            $editar = TXTBtnEdit;
+            $template_products .= '
 			<tr>
 			   <td>' . $products[$i]['idproduct_detail'] . '</td>
 				<td>' . substr($products[$i]['product_detail'], 0, 60) . '</td>
@@ -52,7 +52,7 @@
 			</tr>
 			
 		';
-            }
+         }
          
          $template_products .= '
 		</table>
@@ -67,7 +67,7 @@
          );
       }
    } else {
-      $username=$_POST['username'];
+      $username = $_POST['username'];
       printf('<h2 class="form-Title">%s [%s]</h2>', TXTmenuproduct, $username);
       $product_controller = new ProductController();
       $products = $product_controller->list_user_products($_POST['idusuario']);

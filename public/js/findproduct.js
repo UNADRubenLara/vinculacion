@@ -1,4 +1,5 @@
 function findProductByText(str) {
+
     if (str.length > 3) {
         let bhttpxml;
         try {
@@ -19,57 +20,63 @@ function findProductByText(str) {
         }
 
         function stateChanged() {
-            if (bhttpxml.readyState == 4) {
+            const select = document.getElementById("productsfind");
+            select.innerText = 4 - parseInt(bhttpxml.readyState);
+            if (bhttpxml.readyState === 4) {
                 let ArrayRecived = JSON.parse(bhttpxml.responseText);
-                let select;
-                let maxprod=20;
-                select = document.getElementById("productsfind");
+                let maxprod = 20;
                 while (select.lastElementChild) {
                     select.removeChild(select.lastElementChild);
                 }
                 if (ArrayRecived.length >= 1 && ArrayRecived.length <= maxprod) {
-                    let li, select, btn,goProduct,section;
+                    let li, select, btn, goProduct, section;
                     document.getElementById('productsfind').innerText = null;
                     ArrayRecived.forEach(fillOptions);
-                    function fillOptions(products, i) {
+
+                    function fillOptions(products) {
                         li = document.createElement("li");
-                        section= document.createElement('section');
+                        section = document.createElement('section');
                         btn = document.createElement('button');
-                        goProduct=document.createElement("img");
-                        goProduct.setAttribute("class",'findimg')
+                        goProduct = document.createElement("img");
+                        goProduct.setAttribute("class", 'findimg')
                         btn.type = 'submit';
                         btn.value = products['idproduct_detail'];
-                        btn.name='find';
+                        btn.name = 'find';
                         goProduct.setAttribute("src", "./public/img/findperson.png")
                         li.className = 'ulproduct';
                         btn.className = 'findproduct';
-                        li.innerText = products['product_detail'];
+                        li.innerText = products['product_detail'].substr(0, 80) + '...';
                         select = document.getElementById("productsfind");
                         select.appendChild(section);
-                        section.appendChild(li)
-                        li.appendChild(btn);
+                        section.appendChild(li);
+                        let iduser = document.getElementById("iduser").value;
+                        if (products["idusuario"] != iduser) {
+                            li.appendChild(btn);
+                        }
                         btn.appendChild(goProduct);
                     }
                 }
-                if(!ArrayRecived) {
-                   let li = document.createElement("li");
+                if (!ArrayRecived) {
+                    let li = document.createElement("li");
                     li.className = 'ulproduct';
-                        li.innerText = 'Sin Resultados!';
-                        select.appendChild(li);
-                     }
-                if(ArrayRecived.length >=maxprod ) {
-                    alert(ArrayRecived.length  );
-                        li.innerText = "Más de 20 resultados, ser más específico";
-                        select.appendChild(li);
-
-                    }
+                    li.innerText = 'Sin Resultados!';
+                    select.appendChild(li);
+                }
+                if (ArrayRecived.length >= maxprod) {
+                    let li = document.createElement("li");
+                    alert(ArrayRecived.length);
+                    li.innerText = "Más de 20 resultados, ser más específico";
+                    select.appendChild(li);
 
                 }
 
             }
 
-        let url = './api-web/IFind.php';
-        url = url + "?txt=" + str;
+        }
+
+        let id = document.getElementById('iduser').value;
+        let url = './api-web/ifind.php';
+        url = url + "?txt=" + str + "&id=" + id;
         bhttpxml.onreadystatechange = stateChanged;
         bhttpxml.open("GET", url, true);
         bhttpxml.send(null);

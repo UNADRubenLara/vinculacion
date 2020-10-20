@@ -1,6 +1,7 @@
 const CACHE_NAME = 'v1.0_vinculacion',
     urlsToCache = [
         './',
+        './public/img/container.jpg',
         './public/img/',
         './public/views/'
     ]

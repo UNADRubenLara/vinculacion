@@ -17,12 +17,12 @@
             $stmt->bindParam('user', $user, PDO::PARAM_STR);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_ASSOC);
-          
-          } catch (PDOException  $ex) {
-              $this->connection->trow_error($ex);
+            
+         } catch (PDOException  $ex) {
+            $this->connection->trow_error($ex);
          }
          
-         if ($data["username"]== $user && password_verify($pass, $data["hidentext"])) {
+         if ($data["username"] == $user && password_verify($pass, $data["hidentext"])) {
             $_SESSION['iduser'] = $data["idusuario"];
             $_SESSION['username'] = $data['username'];
             $_SESSION['role'] = ($data['rol'] === '1') ? 'Admin' : 'Usuario';
@@ -38,7 +38,7 @@
                $stmt = $this->connection->prepare("INSERT INTO `ACCESSLOG` (`idaccess`, `access_datetime`, `idusuario`) VALUES ('', CURRENT_TIME(), :id);");
                $stmt->bindParam('id', $data["idusuario"], PDO::PARAM_STR);
                $stmt->execute();
-               } catch (PDOException  $ex) {
+            } catch (PDOException  $ex) {
                $this->connection->trow_error($ex);
             }
             

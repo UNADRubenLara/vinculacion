@@ -6,12 +6,11 @@
       $actual_user = new UsersController();
       $actual_branch = $actual_user->get_branch($product['idusuario']);
       $product_user = $actual_user->get_user($product['idusuario']);
+      $image = $product['image'];
       $template = '
       <section class="form-edit center-box central-fr-up"  >
       <section class="container">
 		<section class="flex-item-hr">
-		<label>%s: %s</label>
-		<br>
 		<label>%s: %s</label>
 		<hr>
 		</section>
@@ -24,8 +23,8 @@
 		<section class="flex-item-hr">
 		';
       
-      if($_SESSION['role']!='Admin'){
-         $template.='
+      if ($_SESSION['role'] != 'Admin') {
+         $template .= '
        <form method="post">
 		<label >%s   </label>
 		<input type="submit" name="vincula" class="edit" value="%s" >
@@ -35,10 +34,8 @@
 		</form>
 		</section>
         </section>';
-         $image = $product['image'];
+         
          printf($template,
-            TXTplaceholderUser,
-            $product_user,
             TXTProductDetail,
             $actual_branch,
             $image,
@@ -48,14 +45,12 @@
             TXTBtnLink,
             $product['idproduct_detail']
          );
-      }else{
-         $template.='
+      } else {
+         $template .= '
         </section>
         </section>';
          $image = $product['image'];
          printf($template,
-            TXTplaceholderUser,
-            $product_user,
             TXTProductDetail,
             $actual_branch,
             $image,
@@ -63,25 +58,25 @@
             $product['product_detail']
          );
       }
-     
       
    } else if ($_POST['LEVEL'] == 'product-display' && $_POST['action'] == 'vincular') {
       $actual_product = new ProductController();
       $product = $actual_product->get_product($_POST['idproduct_detail']);
       $provider = new UsersController();
       $providerdata = $provider->get_data_user($product['idusuario']);
-      $message=new MessageController();
-      $mesagerror=$message->create_message($_POST['idproduct_detail'],$product['idusuario']);
-      if($mesagerror==00000){
-      $template='
+      $message = new MessageController();
+      $mesagerror = $message->create_message($_POST['idproduct_detail'], $product['idusuario']);
+      if ($mesagerror) {
+         
+         $template = '
        <section class="form-edit center-box central-fr-up"  >
           <section class="containerv">
             <section class="containerh">
 		              <section class="flex-item-rh central-fr-up">
 		                          <h2  > %s </h2>
-		                          <label >%s: </label><label >%s</label><br>
-		                          <label >%s: </label><label >%s</label><br>
-		                          <label >%s: </label><label >%s</label>
+		                          <section class="border"><label>%s: %s</label><br></section>
+		                          <section class="border"><label >%s: </label><label >%s</label><br>
+		                          <label >%s: </label><label >%s</label></section >
 		              </section>
 		             <section class=" flex-item-rh central-fr-up ulproduct">
                         
@@ -107,8 +102,8 @@
           
         </section>
          ';
-   
-         $phone=preg_replace("/([0-9]{3})([0-9]{3})([0-9]{4})/", "$1-$2-$3", $providerdata['phone']);
+         
+         $phone = preg_replace("/([0-9]{3})([0-9]{3})([0-9]{4})/", "$1-$2-$3", $providerdata['phone']);
          printf(
             $template,
             TXTUserData,
@@ -135,7 +130,7 @@
             TXTUserState,
             $providerdata['D_ESTADO'],
             $image = $product['image']
-            );
+         );
       }
       
    } else {

@@ -14,7 +14,7 @@
             $AddBranch = $this->brand_search($UserList[$i]['branch']);
             $UserList[$i]["branchText"] = $AddBranch['branchText'];
             $AddAddress = $this->findByCode($UserList[$i]['ZP_ADDRESS_idADDRESS']);
-            while (list($key, $value) = each($AddAddress)) {
+            foreach ($AddAddress as $key => $value) {
                $UserList[$i][$key] = $value;
             }
          }

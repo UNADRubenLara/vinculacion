@@ -62,7 +62,7 @@
 					<form method="POST">
 						<input type="hidden" name="LEVEL" value="products">
 						<input type="hidden" name="idusuario" value="' . $users[$i]['idusuario'] . '">
-						<input type="hidden" name="username" value="' .  $users[$i]['username'] . '">
+						<input type="hidden" name="username" value="' . $users[$i]['username'] . '">
 						<input class="button edit" type="submit" value="' . TXTmenuproduct . '">
 					   </form>
 				</td>
@@ -82,7 +82,7 @@
             TXTusername,
             TXTUserFullName,
             TXTActions
-            
+         
          );
       }
    } else {

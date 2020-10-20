@@ -25,6 +25,10 @@
     <input type="text" name="txt">
     <input type="submit" value="brand">
     </form>
+    <form method="get" action="ifind.php">
+    <input type="text" name="txt">
+    <input type="submit" value="Product">
+    </form>
     <input type="button" value="BACK" onclick="history.back()">
 	
 	</div>

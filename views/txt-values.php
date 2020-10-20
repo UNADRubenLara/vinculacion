@@ -89,8 +89,8 @@
       define('TXTUserBig', 'GRANDE');
       define('TXTUserMedium', 'MEDIANA');
       define('TXTUserSmall', 'MICRO');
-   
-   
+      
+      
       // Vista Productos
       define('TXTProductDetail', 'Descripción');
       define('TXTAddProduct', 'Agregar Producto');

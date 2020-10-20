@@ -56,7 +56,9 @@
          } else return 0;
          
       }
-      function loadLargeZip($file){
+      
+      function loadLargeZip($file)
+      {
          $conn = new SingleConnection();
          $conn->query("SET CHARACTER SET utf8");
          $handle = fopen($file, 'rb');
@@ -67,7 +69,7 @@
             }
          }
          return 'ok';
-      
+         
       }
       
       

@@ -10,12 +10,9 @@
     }
   ],
   "require": {
-       "ifsnop/mysqldump-php": "*"
-
+    "ifsnop/mysqldump-php": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "*"
-
   }
-
 }

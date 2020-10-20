@@ -25,11 +25,9 @@
       
       public function findByText($txt)
       {
-         $user = $_SESSION['iduser'];
          try {
             $txt = '%' . $txt . '%';
-            $stmt = $this->connection->prepare("SELECT `idproduct_detail`, `idbranch`, `product_detail`, `idusuario` FROM `PRODUCT_DETAIL` WHERE`PRODUCT_DETAIL`.`product_detail` LIKE :p AND `PRODUCT_DETAIL`.`idusuario` != :us AND `PRODUCT_DETAIL`.`status` = 1 ;");
-            $stmt->bindParam(':us', $user, PDO::PARAM_STR);
+            $stmt = $this->connection->prepare("SELECT `idproduct_detail`, `idbranch`, `product_detail`, `idusuario` FROM `PRODUCT_DETAIL` WHERE`PRODUCT_DETAIL`.`product_detail` LIKE :p  AND `PRODUCT_DETAIL`.`status` = 1 ;");
             $stmt->bindParam(':p', $txt, PDO::PARAM_STR);
             $stmt->execute();
             $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

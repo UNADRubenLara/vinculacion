@@ -41,6 +41,7 @@
       {
          return $this->model->get_product($product);
       }
+      
       public function get_image_product($product = '')
       {
          return $this->model->get_image_product($product);

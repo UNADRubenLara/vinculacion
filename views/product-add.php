@@ -1,7 +1,7 @@
 <?php
    
    if ($_POST['LEVEL'] == 'product-add' && !isset($_POST['crud'])) {
-     
+      
       $actual_user = new UsersController();
       $actual_branch = $actual_user->get_branch($_SESSION['username']);
       
@@ -33,33 +33,32 @@
 ';
       
       
-      printf($template, TXTplaceholderUser, $_SESSION['username'], TXTProductDetail, $actual_branch, TXTProductDescription,TXTAddImage,TXTBtnAdd, TXTImage);
+      printf($template, TXTplaceholderUser, $_SESSION['username'], TXTProductDetail, $actual_branch, TXTProductDescription, TXTAddImage, TXTBtnAdd, TXTImage);
       
    } else if ($_POST['LEVEL'] == 'product-add' && $_POST['crud'] == 'add') {
       $product_controller = new ProductController();
       $imgFile = $_FILES['image']['name'];
-      if($product_controller->validate_image($imgFile)=='ok'){
+      if ($product_controller->validate_image($imgFile) == 'ok') {
          $datos = base64_encode(file_get_contents($_FILES["image"]["tmp_name"]));
-         }
-      else{
+      } else {
          echo $product_controller->validate_image($imgFile);
          exit();
       }
       
-    $username = $_SESSION['iduser'];
-   $branch = $_SESSION['branch'];
-   $newproduct = array(
-      'iduser' => $username,
-      'idbranch' => $branch,
-      'product_detail' => $_POST['product_detail'],
-      'image' => $datos
-   );
-   $product = $product_controller->add_product($newproduct);
-   
-   
+      $username = $_SESSION['iduser'];
+      $branch = $_SESSION['branch'];
+      $newproduct = array(
+         'iduser' => $username,
+         'idbranch' => $branch,
+         'product_detail' => $_POST['product_detail'],
+         'image' => $datos
+      );
+      $product = $product_controller->add_product($newproduct);
+      $controller = new ViewController();
+      $controller->load_view('products');
    } else {
-   $controller = new ViewController();
-   $controller->load_view('error401');
-}
+      $controller = new ViewController();
+      $controller->load_view('error401');
+   }
    
    

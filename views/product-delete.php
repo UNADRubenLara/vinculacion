@@ -27,15 +27,15 @@
 <br>
 ';
       $image = $product['image'];
-      printf($template, TXTplaceholderUser, $_SESSION['username'], TXTProductDetail, $actual_branch, TXTProductDescription, $product['product_detail'], $image, TXTDeleteProduct,TXTBtndelete, $product['idproduct_detail']);
+      printf($template, TXTplaceholderUser, $_SESSION['username'], TXTProductDetail, $actual_branch, TXTProductDescription, $product['product_detail'], $image, TXTDeleteProduct, TXTBtndelete, $product['idproduct_detail']);
       
    } else if ($_POST['LEVEL'] == 'product-delete' && $_POST['crud'] == 'delete') {
       
       $idproduct = $_POST['idproduct_detail'];
       $product_controller = new ProductController();
       $delete_product = $product_controller->delete_product($idproduct);
-      header("Refresh:0" );
-
+      header("Refresh:0");
+      
    } else {
       $controller = new ViewController();
       $controller->load_view('error401');

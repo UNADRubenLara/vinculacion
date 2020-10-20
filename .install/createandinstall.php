@@ -5,16 +5,16 @@
    $dbpassword = $_POST['dbpassword'];
    $password = $_POST['password'];
    
-   createconnectionmodel($host,$dbname,$dbuser,$dbpassword);
-   createbkmodel($host,$dbname,$dbuser,$dbpassword);
-   createdb($host,$dbname,$dbuser,$dbpassword);
+   createconnectionmodel($host, $dbname, $dbuser, $dbpassword);
+   createbkmodel($host, $dbname, $dbuser, $dbpassword);
+   createdb($host, $dbname, $dbuser, $dbpassword);
    createtables($host, $dbuser, $dbpassword, $dbname);
-   createadmin($host, $dbuser, $dbpassword, $dbname,$password);
-   loadtestZip($host, $dbuser, $dbpassword, $dbname,$password);
+   createadmin($host, $dbuser, $dbpassword, $dbname, $password);
+   loadtestZip($host, $dbuser, $dbpassword, $dbname, $password);
    closeinstall($host);
-   header('Location: http://'.$host.'/vinculacion/');
+   header('Location: http://' . $host . '/vinculacion/');
    
-   function createconnectionmodel($host,$dbname,$dbuser,$dbpassword)
+   function createconnectionmodel($host, $dbname, $dbuser, $dbpassword)
    {
       $file = fopen("../models/SingleConnection.php", "w");
       $template = '
@@ -47,9 +47,10 @@
       fclose($file);
    }
    
-   function createbkmodel($host,$dbname,$dbuser,$dbpassword){
-    $file = fopen("../backup/backup.php", "w");
-      $template='
+   function createbkmodel($host, $dbname, $dbuser, $dbpassword)
+   {
+      $file = fopen("../backup/backup.php", "w");
+      $template = '
       <?php
    class BackupModel
    {
@@ -63,7 +64,7 @@
          if ($_SESSION["role"] == "Admin") {
             include "Mysqldump.php";
             try {
-               $dump = new Mysqldump("mysql:host='.$host.';dbname='.$dbname.'", "'.$dbuser.'", "'.$dbpassword.'");
+               $dump = new Mysqldump("mysql:host=' . $host . ';dbname=' . $dbname . '", "' . $dbuser . '", "' . $dbpassword . '");
                $dump->start("./backup.sql.gzip");
             } catch (\Exception $e) {
                return TxTError . "-" . TXTBackupmailbody . "[" . $e->getMessage() . "]";
@@ -89,7 +90,7 @@
       if ($conn->connect_error) {
          die("Connection failed: " . $conn->connect_error);
       }
-      $sql = "CREATE DATABASE IF NOT EXIST ".$dbname." CHARACTER SET utf8;" ;
+      $sql = "CREATE DATABASE IF NOT EXIST " . $dbname . " CHARACTER SET utf8;";
       if ($conn->query($sql) === TRUE) {
          echo "Database created successfully";
       } else {
@@ -100,7 +101,7 @@
    
    function createtables($host, $dbuser, $dbpassword, $dbname)
    {
-      $sqlfiles=array('vincula_table_ACCESSLOG.sql',
+      $sqlfiles = array('vincula_table_ACCESSLOG.sql',
          'vincula_table_BRANCH.sql',
          'vincula_table_COMPANY_TYPE.sql',
          'vincula_table_MESSAGES.sql',
@@ -110,38 +111,40 @@
          'vincula_table_USERS.sql',
          'vincula_table_ZP_ADDRESS.sql',
          'vincula_extra.sql'
-         );
+      );
       
       $conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
       if ($conn->connect_error) {
          die("Connection failed: " . $conn->connect_error);
       }
-      if ($conn->query('USE '.$dbname) === TRUE) {
+      if ($conn->query('USE ' . $dbname) === TRUE) {
          echo "Database selected successfully";
       } else {
          echo "Error selecting database: " . $conn->error;
       }
-
-      foreach ($sqlfiles as $sql){
+      
+      foreach ($sqlfiles as $sql) {
          $fileSQL = file_get_contents($sql);
          $conn->query("SET CHARACTER SET utf8");
          if ($conn->multi_query($fileSQL)) {
             do {
                if ($result = $conn->store_result()) {
                   while ($row = $result->fetch_assoc()) {
-                     echo$row;
+                     echo $row;
                   }
                   $result->free();
                }
-         
+               
             } while ($conn->next_result());
          }
-      
+         
       }
       
       $conn->close();
    }
-   function createadmin($host, $dbuser, $dbpassword, $dbname,$password){
+   
+   function createadmin($host, $dbuser, $dbpassword, $dbname, $password)
+   {
       $hidentext = password_hash($password, PASSWORD_DEFAULT);
       $conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
       $conn->query("SET CHARACTER SET utf8");
@@ -154,7 +157,8 @@
       $conn->close();
    }
    
-   function loadtestZip($host, $dbuser, $dbpassword, $dbname){
+   function loadtestZip($host, $dbuser, $dbpassword, $dbname)
+   {
       $conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
       $conn->query("SET CHARACTER SET utf8");
       $handle = fopen('test_table.sql', 'rb');
@@ -166,20 +170,24 @@
       }
       
    }
- function loadLargeZip($host, $dbuser, $dbpassword, $dbname){
-    $conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
-    $conn->query("SET CHARACTER SET utf8");
-    $handle = fopen('ZP_ADDRESS.sql', 'rb');
-    if ($handle) {
-       while (!feof($handle)) {
-          $buffer = stream_get_line($handle, 1000000, ";\n");
-          $conn->query($buffer);
-       }
-    }
-    
- }
-   function closeinstall($host){
-      $template="
+   
+   function loadLargeZip($host, $dbuser, $dbpassword, $dbname)
+   {
+      $conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
+      $conn->query("SET CHARACTER SET utf8");
+      $handle = fopen('ZP_ADDRESS.sql', 'rb');
+      if ($handle) {
+         while (!feof($handle)) {
+            $buffer = stream_get_line($handle, 1000000, ";\n");
+            $conn->query($buffer);
+         }
+      }
+      
+   }
+   
+   function closeinstall($host)
+   {
+      $template = "
       <?php
        header('Location: http:'.$host.'/vinculacion/');
       ";

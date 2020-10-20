@@ -57,12 +57,6 @@
          }
       }
       
-      private function send_message($product)
-      {
-         $data = $this->send_message($product);
-         return $data;
-      }
-      
       public function resend_messages($idmessage)
       {
       }
@@ -80,7 +74,6 @@
          return $data;
          
       }
-      
       
       public function evaluate_messages($idmessage, $evaluation)
       {
@@ -102,6 +95,12 @@
             
             return TXTErrorOutRange;
          }
+      }
+      
+      private function send_message($product)
+      {
+         $data = $this->send_message($product);
+         return $data;
       }
       
    }

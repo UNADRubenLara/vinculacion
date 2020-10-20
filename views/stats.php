@@ -39,13 +39,13 @@
       echo '<img class="imgstats" src="';
       $accesos->bar_graph();
       echo '" alt="graph"/></section>';
-   } else{
+   } else {
       $template = '
      <section class="flex-item-rh center-box-pad">
         <h3>%s</h3>
         <h2>%s</h2>
         </section>';
-      printf($template, TXTAccess,TXTNoData);
+      printf($template, TXTAccess, TXTNoData);
       
    }
    
@@ -62,13 +62,13 @@
       echo '<img class="imgstats" src="';
       $products->pie_graph();
       echo '" alt="graph"/></section>';
-   } else{
+   } else {
       $template = '
      <section class="flex-item-rh center-box-pad">
         <h3>%s</h3>
         <h2>%s</h2>
         </section>';
-      printf($template, TXTProductUsers,TXTNoData);
+      printf($template, TXTProductUsers, TXTNoData);
    }
    
    //Grafico 3
@@ -82,20 +82,20 @@
       echo '<img class="imgstats" src="';
       $messages->pie_graph();
       echo '" alt="graph"/></section>';
-   } else{
+   } else {
       $template = '
      <section class="flex-item-rh center-box-pad">
         <h3>%s</h3>
         <h2>%s</h2>
         </section>';
-      printf($template, TXTMessages,TXTNoData);
+      printf($template, TXTMessages, TXTNoData);
    }
    
    
    echo '</section>';
    //grafico 4
    
-   $evaluatedmsgsarray=$statsdata->stats_messages($date_init, $date_end);
+   $evaluatedmsgsarray = $statsdata->stats_messages($date_init, $date_end);
    if ($evaluatedmsgsarray) {
       $evaluatedmsg = new GDGraph($evaluatedmsgsarray, 350, TXTMessagesStats);
       $template = '
@@ -105,13 +105,13 @@
       echo '<img class="imgstats" src="';
       $evaluatedmsg->pie_graph();
       echo '" alt="graph"/></section>';
-   } else{
+   } else {
       $template = '
      <section class="flex-item-rh center-box-pad">
         <h3>%s</h3>
         <h2>%s</h2>
         </section>';
-      printf($template, TXTProductUsers,TXTNoData);
+      printf($template, TXTProductUsers, TXTNoData);
    }
    
    //end graph section

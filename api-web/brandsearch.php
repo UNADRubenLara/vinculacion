@@ -3,19 +3,13 @@
    include_once '../models/ProductModel.php';
    include_once '../models/SingleConnection.php';
    
-   if (version_compare(PHP_VERSION, '5.4.0', '<')) {
-      if(session_id() == '') {session_start();}
-   } else  {
-      if (session_status() == PHP_SESSION_NONE) {session_start();}
-   }
-   
    if (isset($_GET['txt'])) {
-        if (!isset($dbo)) {
+      if (!isset($dbo)) {
          $dbo = new SingleConnection();
       }
       $in = '%' . $_GET['txt'] . '%';
-         $data = [];
-       if (strlen($in) > 3) {
+      $data = [];
+      if (strlen($in) > 3) {
          try {
             $stmt = $dbo->prepare("select branch_code, branch, b_description, b_includes, b_exclude from BRANCH where branch like :text");
             $stmt->bindParam('text', $in, PDO::PARAM_STR);
@@ -29,13 +23,13 @@
             echo $ex[2];
          }
       }
-   
+      
       if ($data) {
          echo json_encode($data);
       } else {
          echo "";
       }
-   
+      
       $dbo = Null;
       exit();
    }
