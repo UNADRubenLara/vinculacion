@@ -41,27 +41,10 @@
          foreach ($this->data as $elements => $element) {
             $percent = $element / $total;
             $this->elements_percent[$elements] = $percent;
-            
          }
       }
       
-      public function pie_graph()
-      {
-         $this->set_title();
-         $follow_fill = 0;
-         $follow_fill_line = $this->size_px;
-         foreach ($this->elements_percent as $element => $elements) {
-            $color_pie = imagecolorallocate($this->image, rand(50, 150), rand(50, 150), rand(50, 150));
-            $star = $follow_fill;
-            $end = round($follow_fill + (360.00 * $elements));
-            imagefilledarc($this->image, $this->size_px * .5, $this->size_px * .5, $this->size_px * .9, $this->size_px * .9, $star, $end, $color_pie, IMG_ARC_ROUNDED);
-            $follow_fill = $end;
-            $label = '(' . round($elements * 100) . '%)-' . $element;
-            imagestring($this->image, $this->font_size, 1, $follow_fill_line, $label, $color_pie);
-            $follow_fill_line = $follow_fill_line + (round($this->size_px * .5 / $this->n_elements));
-         }
-         $this->send_image();
-      }
+     
       
       private function set_title()
       {
@@ -103,6 +86,23 @@
          }
          $this->send_image();
          
+      }
+      public function pie_graph()
+      {
+         $this->set_title();
+         $follow_fill = 0;
+         $follow_fill_line = $this->size_px;
+         foreach ($this->elements_percent as $element => $elements) {
+            $color_pie = imagecolorallocate($this->image, rand(50, 150), rand(50, 150), rand(50, 150));
+            $star = $follow_fill;
+            $end = round($follow_fill + (360.00 * $elements)+5);
+            imagefilledarc($this->image, $this->size_px * .5, $this->size_px * .5, $this->size_px * .9, $this->size_px * .9, $star, $end, $color_pie, IMG_ARC_ROUNDED);
+            $follow_fill = $end;
+            $label = '(' . round($elements * 100) . '%)-' . $element;
+            imagestring($this->image, $this->font_size, 1, $follow_fill_line, $label, $color_pie);
+            $follow_fill_line = $follow_fill_line + (round($this->size_px * .5 / $this->n_elements));
+         }
+         $this->send_image();
       }
       
       

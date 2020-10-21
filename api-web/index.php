@@ -18,15 +18,15 @@
 	<div>
     <h1>API-WEB</h1>
     <form method="get" action="zipsearch.php">
-    <input type="text" name="txt">
+    <input type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="txt">
     <input type="submit" value="ZIP">
     </form>
     <form method="get" action="brandsearch.php">
-    <input type="text" name="txt">
+    <input type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="txt">
     <input type="submit" value="brand">
     </form>
     <form method="get" action="ifind.php">
-    <input type="text" name="txt">
+    <input type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="txt">
     <input type="submit" value="Product">
     </form>
     <input type="button" value="BACK" onclick="history.back()">

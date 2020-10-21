@@ -34,7 +34,6 @@
       
       
       printf($template, TXTplaceholderUser, $_SESSION['username'], TXTProductDetail, $actual_branch, TXTProductDescription, TXTAddImage, TXTBtnAdd, TXTImage);
-      
    } else if ($_POST['LEVEL'] == 'product-add' && $_POST['crud'] == 'add') {
       $product_controller = new ProductController();
       $imgFile = $_FILES['image']['name'];
@@ -42,7 +41,7 @@
          $datos = base64_encode(file_get_contents($_FILES["image"]["tmp_name"]));
       } else {
          echo $product_controller->validate_image($imgFile);
-         exit();
+         $datos = base64_encode(file_get_contents("./public/img/nocamera.png"));
       }
       
       $username = $_SESSION['iduser'];

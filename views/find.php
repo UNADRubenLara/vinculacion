@@ -6,7 +6,7 @@
       $template = '
 <div class="central-fr-up">
 <section class="center-box">
-  <input type="text" id="productsearch" oninput="findProductByText(this.value)" placeholder="%s">
+  <input type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" id="productsearch" oninput="findProductByText(this.value)" placeholder="%s">
     <input id="iduser" hidden value="%s">
     <form method="post">
     <ul id="productsfind" name="productfind"></ul>

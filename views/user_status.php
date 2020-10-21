@@ -7,7 +7,7 @@
         <div class="user-edit central-fr-up" >
         <form method="POST" >
         <hr>
-        <label for="">Nombre de usuario:</label><input id="username" readonly type="text" name="username"
+        <label for="">Nombre de usuario:</label><input id="username" readonly type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="username"
         placeholder="Nombre de usuario" value="%s" minlength="5" maxlength="20" required> <h2 class="%s">%s</h2>
         <hr>
         <label for="">Contraseña:</label> <input id="password" type="password" name="hidentext" placeholder="contraseña" value=""

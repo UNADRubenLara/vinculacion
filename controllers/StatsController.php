@@ -19,20 +19,10 @@
       public function date_access($date_init, $date_end)
       {
          $rawdata = $this->Accessmodel->date_access($date_init, $date_end);
-         $userlist = $this->Usersmodel->list_users();
-         $newlist = array();
-         if ($rawdata) {
-            foreach ($userlist as $keyuser => $varuser) {
-               foreach ($rawdata as $keyaccess => $varaccess) {
-                  if ($varuser['idusuario'] == $keyaccess) {
-                     $username = $varuser['username'];
-                     $newlist[$username] = $varaccess;
-                  }
-               }
-            }
-            return $newlist;
-         }
+         return $this->newlist($rawdata);
+         
       }
+      
       
       public function data_product_users()
       {
@@ -45,21 +35,10 @@
                array_unshift($list, $id);
             }
             $cleardata = array_count_values($list);
-            $userlist = $this->Usersmodel->list_users();
-            $newlist = array();
-            if ($cleardata) {
-               foreach ($userlist as $keyuser => $varuser) {
-                  foreach ($cleardata as $keyaccess => $varaccess) {
-                     if ($varuser['idusuario'] == $keyaccess) {
-                        $username = $varuser['username'];
-                        $newlist[$username] = $varaccess;
-                     }
-                  }
-               }
-               return $newlist;
-            }
          }
+         return $this->newlist($cleardata);
       }
+      
       
       public function messages($date_init, $date_end)
       {
@@ -73,6 +52,23 @@
             }
             return array_count_values($list);
          }
+         return array_count_values($list);
+      }
+      
+      private function newlist($rawdata)
+      {
+         $userlist = $this->Usersmodel->list_users();
+         if ($rawdata) {
+            foreach ($userlist as $keyuser => $varuser) {
+               foreach ($rawdata as $keyaccess => $varaccess) {
+                  if ($varuser['idusuario'] == $keyaccess) {
+                     $username = $varuser['username'];
+                     $newlist[$username] = $varaccess;
+                  }
+               }
+            }
+         }
+         return $newlist;
       }
       
       public function messages_suceful($date_init, $date_end)

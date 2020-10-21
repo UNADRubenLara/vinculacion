@@ -11,7 +11,7 @@
    <section class="central-body containerh">
    <section class="flex-item">
    <label for="username">%s:</label><br>
-	<input id="username" type="text" class="user"  name="USER" minlength = "5" maxlength = "15" placeholder = "%s"   autocomplete="username" required />
+	<input id="username" type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" class="user"  name="USER" minlength = "5" maxlength = "15" placeholder = "%s"   autocomplete="username" required />
 	</section>
 	<section class="flex-item">
 	<label for="password">%s:</label><br>

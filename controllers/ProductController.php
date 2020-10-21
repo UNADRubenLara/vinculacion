@@ -33,7 +33,6 @@
       
       public function add_product($product = '')
       {
-         
          return $this->model->add_product($product);
       }
       
@@ -64,7 +63,6 @@
          //$tmp_dir = $_FILES['image']['tmp_name'];
          $imgSize = $_FILES['image']['size'];
          $imgExt = strtolower(pathinfo($image, PATHINFO_EXTENSION));
-         
          if (in_array($imgExt, $valid_extensions)) {
             if ($imgSize < 100000) {
                $msg = 'ok';
@@ -74,6 +72,7 @@
          } else {
             $msg = "Solo archivos JPG, JPEG, PNG & GIF son permitidos.";
          }
+         
          return $msg;
       }
       
