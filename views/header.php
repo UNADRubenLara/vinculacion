@@ -34,7 +34,9 @@
   }
 </script>
      <body>
-            <header class="containerv header">
+     <section id="page-container">
+     <section id="content-wrap">
+            <header  class="containerv header">
             ';
    printf(
       $head,

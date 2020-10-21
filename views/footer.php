@@ -2,18 +2,17 @@
    
    $template = '
 </div>
-<footer>
-    %s %s
-</footer>
+</section>
+<footer id="footer"> %s %s <a  href="%s" target="_blank">GITHUB</a></footer>
+</section>
 </body>
 <script src="./public/js/reload.js"></script>
-</html>
-
-';
+</html>';
    echo '<script src="./public/js/validates.js"></script>';
    printf(
       $template,
       TXTAppName,
-      TXTFooter
+      TXTFooter,
+      TXTGitHub
    );
 

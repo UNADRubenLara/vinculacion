@@ -5,6 +5,7 @@
    }
    if ($_SESSION['lang'] == 'es') {
       //General
+      define('TXTGitHub','https://github.com/UNADRubenLara/vinculacion#baddges');
       define('TXTenter', 'Entrar');
       define('TXTId', 'Id');
       define('TXThello', 'Hola ');

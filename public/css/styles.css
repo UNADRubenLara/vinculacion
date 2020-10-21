@@ -79,11 +79,11 @@ footer {
     background-color: var(--dark-color);
     text-align: center;
     position: absolute;
+    padding-top:  1vmin;
     width: 98vw;
     height: min-content;
     font-size: 2vmin;
-    margin-top: 45vmin;
-}
+   }
 
 hr {
     border: 1vmin solid var(--striking-alt-color);
@@ -203,6 +203,11 @@ hr {
 .central-fr-up {
     margin: 0 15% 0 15%;
     border-radius: 6px;
+    border-style: outset;
+    border-width: 3px;
+    background-color: var(--main-bg-ligth);
+    border-color: var(--title-color);
+    padding: 2vmin;
 }
 
 .central-body {
@@ -629,6 +634,22 @@ button {
 
 img {
     width: initial;
+}
+
+#page-container {
+    position: relative;
+    min-height: 96vmin;
+}
+
+#content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
 }
 
 @media (max-width: 400px) {
