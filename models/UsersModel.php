@@ -63,6 +63,7 @@
                return $user['fullname'];
             }
          }
+         return $user;
       }
       
       public function get_data_user($username)
@@ -144,7 +145,7 @@
                $stmt->bindParam(':i', $user_data['idaddress'], PDO::PARAM_INT);
                echo $stmt->execute();
                $stmt->closeCursor();
-               return $user_data['username'] . ' Actualizado';
+               return $user_data['username'] . ' '.TXTOKUpdate;
                
             } catch (PDOException  $ex) {
                $this->connection->trow_error($ex);
@@ -165,7 +166,7 @@
                   $stmt->bindParam(':s', $changeUser['newStatus'], PDO::PARAM_INT);
                   $stmt->execute();
                   $stmt->closeCursor();
-                  return ' Actualizado';
+                  return TXTOKUpdate;
                } catch (PDOException  $ex) {
                   $this->connection->trow_error($ex);
                }

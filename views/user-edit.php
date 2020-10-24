@@ -12,14 +12,14 @@
         <label for="password">%s:</label> <input id="password" type="password" name="hidentext" placeholder="%s" value=""
                                             minlength="6" maxlength="40" required>
         <hr>
-        <label for="fullname">%s</label> <input id="fullname" type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="fullname" value="%s"
-                                                 placeholder="%s" minlength="5" maxlength="80" size="78"
+        <label for="fullname">%s</label> <input id="fullname" type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ .:,;$)]+" name="fullname"
+                                                 placeholder="%s" value="%s" minlength="5" maxlength="80" size="78"
                                                  required>
         <label for="rfc">%s</label> <input id="rfc" type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="rfc" placeholder="%s" minlength="10" maxlength="16" value="%s"
                                      size="16" required> <br>
         <hr>
-        <label for="addresslocal">%s</label> <input id="addresslocal" type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="address_street" value="%s"
-                                                placeholder="%s" minlength="5" maxlength="78" size="78"
+        <label for="addresslocal">%s</label> <input id="addresslocal" type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="address_street"
+                                                placeholder="%s" value="%s" minlength="5" maxlength="78" size="78"
                                                 required><br>
         <label for="zip">%s</label><input id="zip" type="number" min="1000" max="99999" value="%s" placeholder="C.P." oninput="LoadZip(this.value);" name="zipzone"/>
         <select id="ziplist" name="idaddress" size="1" value="%s"><option value="%s">%s</option></select><br>
@@ -63,7 +63,7 @@
          TXTplaceholderpass,
          TXTNewPass,
          TXTUserFullName,
-         TXTUserFullNameplacehoder,
+         TXTUserFullName,
          $edit_user['fullname'],
          TXTUserRFC,
          TXTUserRFC,
@@ -116,7 +116,7 @@
       $users_controller->update($update_user);
       $template = '
 <div>
-    <p class="item  add">Usuario <b>%s</b></p>
+    <h2 class="item  add">Usuario <b>%s</b></h2>
 </div>
 <script>
     window.onload = function () {

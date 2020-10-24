@@ -11,6 +11,7 @@
       define('TXThello', 'Hola ');
       define('TXTBtndelete', 'Borrar');
       define('TXTBtnUpdate', 'Actualizar');
+      define('TXTOKUpdate', 'Actualizado');
       define('TXTBtnAdd', 'Agregar');
       define('TXTBtnEdit', 'Editar');
       define('TXTBtnNew', 'Nuevo');

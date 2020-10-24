@@ -80,7 +80,7 @@
         <h3>%s</h3>';
       printf($template, TXTMessages);
       echo '<img class="imgstats" src="';
-      $messages->pie_graph();
+      $messages->bar_graph();
       echo '" alt="graph"/></section>';
    } else {
       $template = '
@@ -103,7 +103,7 @@
         <h3>%s</h3>';
       printf($template, TXTMessagesStats);
       echo '<img class="imgstats" src="';
-      $evaluatedmsg->bar_graph();
+      $evaluatedmsg->pie_graph();
       echo '" alt="graph"/></section>';
    } else {
       $template = '
