@@ -16,3 +16,7 @@ Aplicación WEB para la Vinculación comercial entre industriales de San Juan de
 
 # Site Deploy
 ![Publish Website](https://github.com/UNADRubenLara/vinculacion/workflows/Publish%20Website/badge.svg?event=push)
+
+# Author
+[![Acredited Scrum Manager](https://scrummanager.com/website/img/acreditado-en.png)](https://scrummanager.com/website/c/profile/member.php?id=13672)
+
