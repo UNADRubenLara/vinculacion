@@ -1,3 +1,4 @@
-<?php
-   header('Location: http:' . kynosargos . com . '/vinculacion/');
+
+      <?php
+       header('Location: http:'.embryo9.com.'/vinculacion/');
       

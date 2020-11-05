@@ -15,7 +15,7 @@
 		<br>
 		<label>%s: %s</label>
 		</div>
-		<textarea id="productdetail" name="product_detail" class="textcapture" placeholder="%s" >%s</textarea>
+		<textarea id="productdetail" name="product_detail" class="textcapture" pattern="[a-zA-Z0-9ñÑáéíóú-_]+" placeholder="%s" >%s</textarea>
 		<img class="imgproduct" src = "data:image/png;base64,%s" />
 		<input id="loadimage" type="file" name="image" class="loadimage">
 		

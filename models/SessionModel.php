@@ -22,7 +22,7 @@
             $this->connection->trow_error($ex);
          }
          
-         if ($data["username"] == $user && password_verify($pass, $data["hidentext"])) {
+          if ($data["username"] == $user && password_verify($pass, $data["hidentext"])) {
             $_SESSION['iduser'] = $data["idusuario"];
             $_SESSION['username'] = $data['username'];
             $_SESSION['role'] = ($data['rol'] === '1') ? 'Admin' : 'Usuario';

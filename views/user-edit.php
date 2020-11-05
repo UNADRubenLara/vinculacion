@@ -7,23 +7,23 @@
 <div class="form-edit central-fr-up" >
     <form method="POST" >
         <hr>
-        <label for="username">%s</label><input id="username"  type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="username" placeholder="%s" value="%s"
+        <label for="username">%s</label><input id="username"  type="text" pattern="[a-zA-Z0-9ñÑáéíóú-_]" name="username" placeholder="%s" value="%s"
                                                   minlength="5" maxlength="20" required>
         <label for="password">%s:</label> <input id="password" type="password" name="hidentext" placeholder="%s" value=""
                                             minlength="6" maxlength="40" required>
         <hr>
-        <label for="fullname">%s</label> <input id="fullname" type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ .:,;$)]+" name="fullname"
+        <label for="fullname">%s</label> <input id="fullname" type="text" pattern="[a-zA-Z0-9ñÑáéíóú]" name="fullname"
                                                  placeholder="%s" value="%s" minlength="5" maxlength="80" size="78"
                                                  required>
-        <label for="rfc">%s</label> <input id="rfc" type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="rfc" placeholder="%s" minlength="10" maxlength="16" value="%s"
+        <label for="rfc">%s</label> <input id="rfc" type="text" pattern="[a-zA-Z0-9]" name="rfc" placeholder="%s" minlength="10" maxlength="16" value="%s"
                                      size="16" required> <br>
         <hr>
-        <label for="addresslocal">%s</label> <input id="addresslocal" type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="address_street"
+        <label for="addresslocal">%s</label> <input id="addresslocal" type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ .:,;$)]+" name="address_street"
                                                 placeholder="%s" value="%s" minlength="5" maxlength="78" size="78"
                                                 required><br>
         <label for="zip">%s</label><input id="zip" type="number" min="1000" max="99999" value="%s" placeholder="C.P." oninput="LoadZip(this.value);" name="zipzone"/>
         <select id="ziplist" name="idaddress" size="1" value="%s"><option value="%s">%s</option></select><br>
-         <label for="branch">%s</label><input id="branch" type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" maxlength="20" minlength="4" placeholder="%s..."
+         <label for="branch">%s</label><input id="branch" type="text" pattern="[a-zA-Z0-9]" maxlength="20" minlength="4" placeholder="%s..."
                oninput="LoadBranch(this.value);"/>
         <select id="branchlist" name="branch"  value="%s" size="1"  required ><option value="%s">%s</option></select>
         <br>

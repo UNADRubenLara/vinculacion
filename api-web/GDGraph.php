@@ -95,7 +95,7 @@
          foreach ($this->elements_percent as $element => $elements) {
             $color_pie = imagecolorallocate($this->image, rand(50, 150), rand(50, 150), rand(50, 150));
             $star = $follow_fill;
-            $end = round($follow_fill + (360.00 * $elements)+5);
+            $end = round($follow_fill + (360.00 * $elements));
             imagefilledarc($this->image, $this->size_px * .5, $this->size_px * .5, $this->size_px * .9, $this->size_px * .9, $star, $end, $color_pie, IMG_ARC_ROUNDED);
             $follow_fill = $end;
             $label = '(' . round($elements * 100) . '%)-' . $element;

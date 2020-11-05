@@ -159,6 +159,7 @@
 
 
 // footer
+      define('TXTGitHub','https://github.com/UNADRubenLara/vinculacion#baddges');
       define('TXTFooter', '- 2020');
 
 //Login

@@ -53,19 +53,19 @@
 <div class="container">
    <form action="createandinstall.php" method="post">
       <label for="pass1">Admin New Password</label><label id="pass1msg" style="color: red"></label><br>
-      <input type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" id="pass1" name="password" placeholder="password" oninput="verifypass();"><br>
+      <input type="text"  id="pass1" name="password" placeholder="password" oninput="verifypass();"><br>
    
       <label for="pass2">Verify Admin New Password</label><label id="pass2msg" style="color: red"></label><br>
-      <input type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" id="pass2" name="password" placeholder="Re-type password" oninput="verifypass();"><br>
+      <input type="text" id="pass2" name="password" placeholder="Re-type password" oninput="verifypass();"><br>
       <hr>
       <label for="host">Host</label><br>
-      <input type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" id="host" name="host" value="' . $_SERVER['SERVER_NAME'] . '" ><br>
+      <input type="text" pattern="[a-zA-Z0-9/\-_(@ .:,)]+" id="host" name="host" value="' . $_SERVER['SERVER_NAME'] . '" ><br>
       <label for="dbname">DBName</label><br>
-      <input type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" id="dbname" name="dbname" placeholder="DB_Name"><br>
+      <input type="text" pattern="[a-zA-Z0-9/\-_(@ .:,)]+" id="dbname" name="dbname" placeholder="DB_Name"><br>
       <label for="dbuser">DBUser</label><br>
-      <input type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" id="dbuser" name="dbuser" placeholder ="DB_UserName"><br>
+      <input type="text" pattern="[a-zA-Z0-9/\-_(@ .:,)]+" id="dbuser" name="dbuser" placeholder ="DB_UserName"><br>
       <label for="dbpassword">DBPassword</label><br>
-      <input type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" id="dbpassword" name="dbpassword" placeholder="DBPassword"><br>
+      <input type="text"  id="dbpassword" name="dbpassword" placeholder="DBPassword"><br>
       <input type="submit" id="create" value="Iniciar Instalación" hidden="true"><br>
       <label hidden="true" id="wait">Espere, creando base de datos, puede tardar un poco.</label>
      </form>

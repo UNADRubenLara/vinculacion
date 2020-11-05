@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS `BINNACLE`
+(
+    `idbinnacle` INT(11)     NOT NULL AUTO_INCREMENT,
+    `username`   VARCHAR(20) NOT NULL,
+    `action`     VARCHAR(25) NOT NULL,
+    `actiondate` DATETIME    NOT NULL,
+    PRIMARY KEY (`idbinnacle`)
+) ENGINE = InnoDB
+  CHARSET = utf8
+  COLLATE utf8_spanish_ci;

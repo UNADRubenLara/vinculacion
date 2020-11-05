@@ -110,7 +110,8 @@
          'vincula_table_STATUS.sql',
          'vincula_table_USERS.sql',
          'vincula_table_ZP_ADDRESS.sql',
-         'vincula_extra.sql'
+         'vincula_extra.sql',
+         'vincula_table_BINACLE.slq'
       );
       
       $conn = new mysqli($host, $dbuser, $dbpassword, $dbname);
@@ -192,7 +193,6 @@
        header('Location: http:'.$host.'/vinculacion/');
       ";
       $indexFile = fopen("index.php", "w");
-      
       fwrite($indexFile, $template);
       fclose($indexFile);
    }
