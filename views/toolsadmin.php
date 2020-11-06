@@ -103,7 +103,7 @@
                TXTStatusUpdate);
          } elseif ($response[0] = 1062) {
             printf($templatezip,
-               TXTduplicated);
+               TXTOKUpdate);
          } else {
             $errortext = TXTError . $response[0];
             printf($templatezip,

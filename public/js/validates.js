@@ -102,7 +102,7 @@ if (productdetail) {
         } else {
             productdetail.setCustomValidity("");
         }
-        if(productdetail.value.includes('<s') || productdetail.value.includes('<S') ){
+        if(productdetail.value.includes('<s') || productdetail.value.includes('<S') || productdetail.value.includes('script') ){
             productdetail.value="";
             alert("No no no...");
 

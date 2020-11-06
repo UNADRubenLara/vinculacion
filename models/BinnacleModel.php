@@ -23,6 +23,21 @@
             }
             return $respose;
          }
+         public function binacle_list(){
+            try {
+               $stmt = $this->connection->prepare("SELECT * FROM `BINNACLE`");
+               $stmt->execute();
+               $respose = $stmt->errorCode();
+               $stmt->closeCursor();
+     
+            } catch (Exception $ex) {
+               return $ex[2];
+            }
+            return $respose;
+         }
+         
+         
+         
       
       
    }

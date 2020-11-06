@@ -139,6 +139,7 @@
       define('TXTDownloadfile', 'Descargar archivo');
       define('TXTBackupok', 'Respaldo hecho');
       define('TXTSelectfile', 'Seleccionar archivo');
+      define('TXTbinacle', 'Listar Bitacora');
       
    } else {
       //General
@@ -276,5 +277,6 @@
       define('TXTDownloadfile', 'Download file');
       define('TXTBackupok', 'Backup done');
       define('TXTSelectfile', 'Select file');
+      define('TXTbinacle', 'Binacle List');
    }
   
