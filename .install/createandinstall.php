@@ -12,7 +12,7 @@
    createadmin($host, $dbuser, $dbpassword, $dbname, $password);
    loadtestZip($host, $dbuser, $dbpassword, $dbname, $password);
    closeinstall($host);
-   header('Location: http://' . $host . '/vinculacion/');
+   header('Location: http://' . $host );
    
    function createconnectionmodel($host, $dbname, $dbuser, $dbpassword)
    {
@@ -190,7 +190,7 @@
    {
       $template = "
       <?php
-       header('Location: http:'.$host.'/vinculacion/');
+       header('Location: https:'.$_SERVER[SERVER_NAME]);
       ";
       $indexFile = fopen("index.php", "w");
       fwrite($indexFile, $template);
