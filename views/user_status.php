@@ -7,10 +7,10 @@
         <div class="user-edit central-fr-up" >
         <form method="POST" >
         <hr>
-        <label for="">Nombre de usuario:</label><input id="username" readonly type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="username"
+        <label for="username">Nombre de usuario:</label><input id="username" readonly type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ :,;$)]+" name="username"
         placeholder="Nombre de usuario" value="%s" minlength="5" maxlength="20" required> <h2 class="%s">%s</h2>
         <hr>
-        <label for="">Contraseña:</label> <input id="password" type="password" name="hidentext" placeholder="contraseña" value=""
+        <label for="password">Contraseña:</label> <input id="password" type="password" name="hidentext" placeholder="contraseña" value=""
                                             minlength="6" maxlength="40" required>
         <input type="submit" class="%s" name="change" value="%s">
         <hr>

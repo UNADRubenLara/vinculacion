@@ -5,24 +5,24 @@
 <div class="form-add central-fr-up" >
     <form method="POST" >
         <hr>
-        <label for="username">' . TXTusername . '</label><input id="username" type="text" pattern="[a-zA-Z0-9ñÑáéíóú-_]"   name="username" placeholder="' . TXTusername . '"
+        <label for="username">' . TXTusername . '</label><input id="username" type="text" pattern="[a-zA-Z0-9]{1,20}$"   name="username" placeholder="' . TXTusername . '"
                                                   minlength="5" maxlength="20" required>
         <label for="password">' . TXTplaceholderpass . '</label><input id="password" type="password" name="hidentext" placeholder="' . TXTplaceholderpass . '"
                                             minlength="6" maxlength="40" required>
         <hr>
-        <label for="fullname"> ' . TXTUserFullName . '</label> <input id="fullname" type="text" pattern="[a-zA-Z0-9ñÑáéíóú-_]" name="fullname"
+        <label for="fullname"> ' . TXTUserFullName . '</label> <input id="fullname" type="text" pattern="[a-zA-ZñÑáéíóú. ]+" name="fullname"
                                                  placeholder="' . TXTUserFullNameplacehoder . '" minlength="5" maxlength="80"
                                                  required>
-        <label for="rfc">' . TXTUserRFC . '</label> <input id="rfc" type="text" pattern="[a-zA-Z0-9]" name="rfc" placeholder="' . TXTUserRFC . '" minlength="10" maxlength="16"
+        <label for="rfc">' . TXTUserRFC . '</label> <input id="rfc" type="text" pattern="[A-Z0-9]+" name="rfc" placeholder="' . TXTUserRFC . '" minlength="10" maxlength="16"
                                       required> <br>
         <hr>
-        <label for="addresslocal">' . TXTUserAddress . '</label> <input id="addresslocal" type="text" pattern="[a-zA-Z0-9ñÑáéíóú\-_(#@ .:,;$)]+" name="address_street"
+        <label for="addresslocal">' . TXTUserAddress . '</label> <input id="addresslocal" type="text" pattern="[a-zA-Z0-9ñÑáéíóú. #]+" name="address_street"
                                                 placeholder="' . TXTUserAddress . '" minlength="5" maxlength="78"
                                                 required><br>
         <label for="zip">' . TXTUserZip . '</label><input id="zip" type="number" min="1000" max="99999" placeholder="' . TXTUserZip . '" oninput="LoadZip(this.value);" name="zipzone"/>
         <select id="ziplist" name="idaddress" size="1"></select><br>
         
-         <label for="branch"> ' . TXTUserBranch . '</label><input id="branch" type="text" pattern="[a-zA-Z0-9]" maxlength="20" minlength="4" placeholder="' . TXTmenufind . '..."
+         <label for="branch"> ' . TXTUserBranch . '</label><input id="branch" type="text" pattern="[a-zA-Z0-9]+" maxlength="20" minlength="4" placeholder="' . TXTmenufind . '..."
                oninput="LoadBranch(this.value);"/>
         <select id="branchlist" name="branch" size="1" required></select>
         <label for="companytypelist">' . TXTUserSize . '</label><br>
@@ -31,7 +31,7 @@
                 <option value="2">' . TXTUserMedium . '</option>
                 <option value="3">' . TXTUserBig . '</option>
             </select><br>
-          <label for="phone">' . TXTUserPhone . '</label><input id="phone" type="tel"  pattern="\d{3}[\-]\d{3}[\-]\d{4}" name="phone" placeholder="' . TXTUserPhone . '" minlength="10"
+          <label for="phone">' . TXTUserPhone . '</label><input id="phone" type="tel"  pattern="\d{3}[\-]\d{3}[\-]\d{4}" name="phone" placeholder="123-456-6789" minlength="10"
                                          maxlength="13" required> <br>
         <label for="mail">' . TXTUserMail . '</label><input id="mail" type="email" name="mail" placeholder="' . TXTUserMail . '" minlength="5"
                                        required><br>

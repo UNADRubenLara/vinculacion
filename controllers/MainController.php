@@ -16,7 +16,7 @@
          
          if ($_SESSION['VALID']) {
             $this->MainController = isset($_GET['LEVEL']) ? $_GET['LEVEL'] : 'home';
-           // new BinnacleModel($this->MainController);
+           new BinnacleModel($this->MainController);
             $controller = new ViewController();
             if ($this->MainController == 'out') {
                session_unset();

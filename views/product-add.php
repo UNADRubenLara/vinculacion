@@ -17,7 +17,7 @@
 		<label>%s: %s</label>
 		</section>
 		<section class="flex-item">
-		<textarea required id="productdetail" name="product_detail" class="textcapture" pattern="[a-zA-Z0-9ñÑáéíóú-_]+" placeholder="%s"></textarea>
+		<textarea required id="productdetail" name="product_detail" class="textcapture" pattern="[a-zA-Z0-9ñÑáéíóú.* #]+" placeholder="%s"></textarea>
 		<br>
 		<label for="loadimage" class="upload">%s</label><input hidden id="loadimage" type="file" name="image">
 		</section>

@@ -86,7 +86,7 @@
       define('TXTUserRFC', 'RFC');
       define('TXTUserAddress', 'Calle y número');
       define('TXTUserBranch', 'Rama');
-      define('TXTUserFindHelp', 'Busqueda...');
+      define('TXTUserFindHelp', 'Búsqueda...');
       define('TXTUserSize', 'Tamaño');
       define('TXTUserBig', 'GRANDE');
       define('TXTUserMedium', 'MEDIANA');
@@ -107,8 +107,8 @@
       define('TXTBtnLink', 'Vincular');
       define('TXTEvaluatePending', 'Pendiente de Evaluar');
       define('TXTUserData', 'Datos del Proveedor ');
-      define('TXTNotSuccessful', 'No se logro el trato');
-      define('TXTSuccessful', 'Se logro el trato una vez');
+      define('TXTNotSuccessful', 'No se lógro el trato');
+      define('TXTSuccessful', 'Se lógro el trato una vez');
       define('TXTSuccessfulandcontract', 'Se hizo contrato temporal');
       define('TXTSuccessfulandprovider', 'Se hizo contrato como cliente');
       define('TXTEvaluate', 'Evaluar');

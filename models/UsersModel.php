@@ -157,6 +157,7 @@
       {
          if ($_SESSION['role'] == 'Admin') {
             if ($this->Validate_Admin($changeUser['valid'])) {
+               echo $this->Validate_Admin($changeUser['valid']);
                if ($changeUser['username'] === 'admin') {
                   return 'No se puede suspender el Admin';
                }
@@ -180,9 +181,9 @@
       public function Validate_Admin($hiddenText)
       {
          if (password_verify($hiddenText, $this->users[0]['hidentext'])) {
-            return true;
+            return 1;
          } else {
-            return false;
+            return 0;
          }
          
       }

@@ -102,8 +102,15 @@ if (productdetail) {
         } else {
             productdetail.setCustomValidity("");
         }
+        if(productdetail.value.includes('<s') || productdetail.value.includes('<S') ){
+            productdetail.value="";
+            alert("No no no...");
+
+
+        }
     });
 }
+
 
 
 
